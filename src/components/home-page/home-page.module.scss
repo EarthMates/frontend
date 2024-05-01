@@ -1,0 +1,42 @@
+@import '@styles/theme.module.scss';
+
+.root {
+    font: $large-font;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    row-gap: 0.5em;
+    background-color: #f6f6f6;
+    height: 100vh;
+}
+.registration {
+    padding-top: 2em;
+    padding-left: 3em;
+    padding-right: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 5em;
+}
+.button {
+}
+
+.unset {
+}
+.form {
+    width: 100%;
+    border-radius: 10px;
+    height: 100vh;
+    background-color: $white;
+    min-width: 60%;
+}
+
+.placeholder {
+    height: 2.5em;
+    min-width: 4em;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}

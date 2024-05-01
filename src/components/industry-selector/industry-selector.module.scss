@@ -1,0 +1,30 @@
+@import '@styles/theme.module.scss';
+
+.root {
+    padding-top: 2.5em;
+    padding-right: 2em;
+    padding-left: 2em;
+}
+.p {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #4a555c;
+}
+.h1 {
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    font-family: $header-font;
+    font-size: 26px;
+    font-weight: 500;
+    color: black;
+}
+
+.h2 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-family: $header-font;
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+}
