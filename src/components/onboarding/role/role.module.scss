@@ -1,0 +1,55 @@
+@import "@styles/theme.module.scss";
+.root {
+  padding-top: 2.5em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+.p {
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #4a555c;
+}
+.h1 {
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+  font-family: $header-font;
+  font-size: 26px;
+  font-weight: 500;
+  color: black;
+}
+.role {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  margin-bottom: 0.75em;
+  cursor: pointer;
+}
+
+.role:hover {
+  background-color: #e2e2e2;
+  border: 1px solid #ff8516;
+}
+.description {
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
+.description .h1 {
+  font-family: $header-font;
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 0.25em;
+}
+
+.description .p {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #4a555c;
+}
