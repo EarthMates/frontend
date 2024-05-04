@@ -33,7 +33,7 @@ export const Role = ({ className }: RoleProps) => {
   };
 
   useEffect(() => {
-    setPosition(7.15);
+    setPosition(0);
   }, []);
 
   return (

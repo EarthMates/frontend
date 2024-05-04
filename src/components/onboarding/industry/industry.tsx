@@ -41,7 +41,7 @@ export const Industry = ({ className }: IndustryProps) => {
   };
 
   useEffect(() => {
-    setPosition(21.45);
+    setPosition(20);
   }, []);
 
   return (

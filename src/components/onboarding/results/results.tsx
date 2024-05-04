@@ -24,7 +24,7 @@ export const Results = ({ className }: ResultsProps) => {
   };
 
   useEffect(() => {
-    setPosition(21.45);
+    setPosition(100);
   }, []);
 
   return (

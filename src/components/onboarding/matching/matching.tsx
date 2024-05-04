@@ -41,7 +41,7 @@ export const Matching = ({ className }: MatchingProps) => {
   };
 
   useEffect(() => {
-    setPosition(14.3);
+    setPosition(80);
   }, []);
 
   const matchings = [

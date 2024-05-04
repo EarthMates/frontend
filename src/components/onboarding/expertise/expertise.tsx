@@ -43,7 +43,7 @@ export const Expertise = ({ className }: ExpertiseProps) => {
   };
 
   useEffect(() => {
-    setPosition(14.3);
+    setPosition(70);
   }, []);
 
   const expertises = [

@@ -41,7 +41,7 @@ export const Strategy = ({ className }: StrategyProps) => {
   };
 
   useEffect(() => {
-    setPosition(14.3);
+    setPosition(90);
   }, []);
 
   const strategys = ["Clear and quick exit", "A long term exit", "No exit"];

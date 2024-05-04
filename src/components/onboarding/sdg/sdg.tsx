@@ -33,7 +33,7 @@ export const Sdg = ({ className }: SdgProps) => {
   };
 
   useEffect(() => {
-    setPosition(28.6);
+    setPosition(50);
   }, []);
 
   const handleSdgChange = (event: React.ChangeEvent<HTMLInputElement>) => {

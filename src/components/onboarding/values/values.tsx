@@ -35,7 +35,7 @@ export const Values = ({ className }: ValuesProps) => {
   };
 
   useEffect(() => {
-    setPosition(28.6);
+    setPosition(60);
   }, []);
 
   const handleValuesChange = (event: React.ChangeEvent<HTMLInputElement>) => {

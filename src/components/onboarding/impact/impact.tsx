@@ -42,7 +42,7 @@ export const Impact = ({ className }: ImpactProps) => {
   };
 
   useEffect(() => {
-    setPosition(28.6);
+    setPosition(40);
   }, []);
 
   const handleImpactChange = (event: React.ChangeEvent<HTMLInputElement>) => {

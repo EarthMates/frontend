@@ -42,7 +42,7 @@ export const Capital = ({ className }: CapitalProps) => {
   };
 
   useEffect(() => {
-    setPosition(28.6);
+    setPosition(30);
   }, []);
 
   const handleCapitalChange = (event: React.ChangeEvent<HTMLInputElement>) => {

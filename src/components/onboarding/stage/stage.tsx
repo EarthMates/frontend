@@ -31,7 +31,7 @@ export const Stage = ({ className }: StageProps) => {
   };
 
   useEffect(() => {
-    setPosition(14.3);
+    setPosition(10);
   }, []);
 
   return (
