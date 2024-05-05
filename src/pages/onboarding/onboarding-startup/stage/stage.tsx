@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./stage.module.scss";
 import general_styles from "../../onboarding.module.scss";
-import Slider from "../../../../components/slider/slider";
+import Slider from "../../../../components/onboarding/slider/slider";
 
 import { useUserData } from "../../../../context/user-data-context";
 

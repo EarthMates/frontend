@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./sdg.module.scss";
 import general_styles from "../../onboarding.module.scss";
-import Slider from "../../../../components/slider/slider";
+import Slider from "../../../../components/onboarding/slider/slider";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { useUserData } from "../../../../context/user-data-context";
-import { Button } from "../../../../components/button/button";
+import { Button } from "../../../../components/onboarding/button/button";
 
 export interface SdgProps {
   className?: string;

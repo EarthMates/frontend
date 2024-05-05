@@ -1,9 +1,9 @@
 import classNames from "classnames";
-import styles from "./site-wrapper.module.scss";
-import { Header } from "../onboarding/header/header";
-import { Outlet } from "react-router-dom";
+import styles from "./header.module.scss";
+import { Link } from "react-router-dom";
+import Logo from "../../../assets/logo.svg";
 
-export interface SiteWrapperProps {
+export interface HeaderProps {
   className?: string;
 }
 
@@ -11,12 +11,13 @@ export interface SiteWrapperProps {
  * This component was created using Codux's Default new component template.
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
-export const SiteWrapper = ({ className }: SiteWrapperProps) => {
+export const Header = ({ className }: HeaderProps) => {
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <div className={styles.content}>
-        <Outlet />
+      <div className={styles.logo}>
+        <Link to="/">
+          <img src={Logo} alt="Logo" />
+        </Link>
       </div>
     </div>
   );

@@ -12,10 +12,10 @@ import { Expertise } from "./pages/onboarding/onboarding-startup/expertise/exper
 import { Matching } from "./pages/onboarding/onboarding-startup/matching/matching";
 import { Strategy } from "./pages/onboarding/onboarding-startup/strategy/strategy";
 import { Results } from "./pages/onboarding/onboarding-startup/results/results";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/login/login";
+import Register from "./pages/register/register";
 import { Onboarding } from "./pages/onboarding/onboarding";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/not-found/not-found";
 import { Navigate } from "react-router-dom";
 
 function Logout() {
