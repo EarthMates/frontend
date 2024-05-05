@@ -1,35 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import styles from "./role.module.scss";
-import general_styles from "../onboarding.module.scss";
-import Slider from "../../slider/slider";
+import styles from "./onboarding.module.scss";
+import Slider from "../../components/slider/slider";
 
-import ArrowRight from "../../../assets/arrow-right.svg";
-import BuildingIcon from "../../../assets/building.svg";
-import ManagerIcon from "../../../assets/manager.svg";
+import ArrowRight from "../../assets/arrow-right.svg";
+import BuildingIcon from "../../assets/building.svg";
+import ManagerIcon from "../../assets/manager.svg";
 
-import { useUserData } from "../../../context/user-data-context";
+import { useUserData } from "../../context/user-data-context";
 
-export interface RoleProps {
+export interface OnboardingProps {
   className?: string;
 }
 
-export const Role = ({ className }: RoleProps) => {
+export const Onboarding = ({ className }: OnboardingProps) => {
   const navigate = useNavigate();
 
   const { userData, setUserData } = useUserData();
 
   const [position, setPosition] = useState(0);
 
-  const handleBackward = () => {};
-
   const handleRoleSelected = (role: string) => {
     setUserData((prevUserData) => ({
       ...prevUserData,
       user_type: role,
     }));
-    navigate("/onboarding-startup/stage");
+    if (role === "startup") {
+      navigate("/onboarding-startup/stage");
+    } else if (role === "investor") {
+      navigate("/onboarding-investor/stage");
+    }
   };
 
   useEffect(() => {
@@ -37,12 +38,12 @@ export const Role = ({ className }: RoleProps) => {
   }, []);
 
   return (
-    <div className={classNames(general_styles.root)}>
+    <div className={classNames(styles.container)}>
       <Slider position={position} />
-      <div className={general_styles.registration}>
-        <div className={general_styles.placeholder} />
+      <div className={styles.registration}>
+        <div className={styles.placeholder} />
 
-        <div className={general_styles.form}>
+        <div className={styles.form}>
           <div className={classNames(styles.root, className)}>
             <p className={styles.p}>Welcome to Earthmates</p>
             <h1 className={styles.h1}>
@@ -83,7 +84,7 @@ export const Role = ({ className }: RoleProps) => {
           </div>
         </div>
 
-        <div className={general_styles.placeholder} />
+        <div className={styles.placeholder} />
       </div>
     </div>
   );

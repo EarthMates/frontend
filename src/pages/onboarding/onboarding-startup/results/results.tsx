@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, startTransition } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./results.module.scss";
-import general_styles from "../onboarding.module.scss";
-import Slider from "../../slider/slider";
+import general_styles from "../../onboarding.module.scss";
+import Slider from "../../../../components/slider/slider";
 
-import { useUserData } from "../../../context/user-data-context";
-import { Button } from "../../button/button";
+import api from "../../../../api";
+
+import { useUserData } from "../../../../context/user-data-context";
+import { Button } from "../../../../components/button/button";
 
 export interface ResultsProps {
   className?: string;
@@ -27,8 +29,35 @@ export const Results = ({ className }: ResultsProps) => {
     setPosition(100);
   }, []);
 
+  const [startup, setStartup] = useState([]);
+
+  const getStartup = () => {
+    api
+      .get("/api/startup/")
+      .then((res) => res.data)
+      .then((data) => {
+        setStartup(data);
+        console.log(data);
+      })
+      .catch((err) => alert(err));
+  };
+
+  const { user_type, ...startupData } = userData;
+  const createStartup = (e: React.ChangeEvent<any>) => {
+    e.preventDefault();
+    console.log(startupData);
+    api
+      .post("/api/startup/", startupData)
+      .then((res) => {
+        if (res.status === 201) alert("Startup created!");
+        else alert("Failed to make startup.");
+        getStartup();
+      })
+      .catch((err) => alert(err));
+  };
+
   return (
-    <div className={classNames(general_styles.root)}>
+    <div className={classNames(general_styles.container)}>
       <Slider position={position} />
 
       <div className={general_styles.registration}>
@@ -61,7 +90,9 @@ export const Results = ({ className }: ResultsProps) => {
             <p className={styles.p}>{userData.strategy}</p>
           </div>
         </div>
-        <div className={general_styles.placeholder} />
+        <button className={general_styles.button} onClick={createStartup}>
+          Next
+        </button>
       </div>
     </div>
   );

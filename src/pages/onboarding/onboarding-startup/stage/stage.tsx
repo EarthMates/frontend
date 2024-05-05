@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./stage.module.scss";
-import general_styles from "../onboarding.module.scss";
-import Slider from "../../slider/slider";
+import general_styles from "../../onboarding.module.scss";
+import Slider from "../../../../components/slider/slider";
 
-import { useUserData } from "../../../context/user-data-context";
+import { useUserData } from "../../../../context/user-data-context";
 
 export interface StageProps {
   className?: string;
@@ -35,7 +35,7 @@ export const Stage = ({ className }: StageProps) => {
   }, []);
 
   return (
-    <div className={classNames(general_styles.root)}>
+    <div className={classNames(general_styles.container)}>
       <Slider position={position} />
 
       <div className={general_styles.registration}>

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./impact.module.scss";
-import general_styles from "../onboarding.module.scss";
-import Slider from "../../slider/slider";
+import general_styles from "../../onboarding.module.scss";
+import Slider from "../../../../components/slider/slider";
 
-import { useUserData } from "../../../context/user-data-context";
-import { Button } from "../../button/button";
+import { useUserData } from "../../../../context/user-data-context";
+import { Button } from "../../../../components/button/button";
 
 export interface ImpactProps {
   className?: string;
@@ -56,7 +56,7 @@ export const Impact = ({ className }: ImpactProps) => {
   };
 
   return (
-    <div className={classNames(general_styles.root)}>
+    <div className={classNames(general_styles.container)}>
       <Slider position={position} />
 
       <div className={general_styles.registration}>
