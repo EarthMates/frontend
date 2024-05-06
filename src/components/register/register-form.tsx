@@ -2,7 +2,7 @@ import { useState } from "react";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
-import "./register-form.css";
+import "./register-form.modules.scss";
 
 interface RegisterFormProps {
   className?: string;
@@ -39,20 +39,12 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
   };
 
   //FRONTEND:
+
   /*
    i'm probably going to eventually move 
    all to file called frontend-something.tsx,
     but for now we laying the bricks
   */
-
-  //creates the login form title
-  const titleMaker = (name: string): string => {
-    if (name === "Login") {
-      return "Login to Earthmates";
-    } else {
-      return name;
-    }
-  };
 
   //component for sigup with google/linkedin
 
@@ -74,10 +66,10 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
   const ForgotPassword_CreateNew = () => {
     return (
       <div className="Forgot-create_Container">
-        <div className="Forgot-create-title">
-          <h2>Forgot your password?</h2>
+        <div className="forgot-pass">
+          <h2>Forgot password?</h2>
         </div>
-        <div className="Forgot-create-subtitle">
+        <div className="create-acc">
           <h2>Don't have an account?</h2>
           <h3>Create a new one</h3>
         </div>
@@ -91,8 +83,8 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
     return (
       <div className="or-line-container">
         <div className="br-line" />
-        <h3>or</h3>
-        <br className="br-line" />
+        <h3>Or</h3>
+        <div className="br-line" />
       </div>
     );
   };
@@ -102,17 +94,37 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
   //returns a <br>
   //returns the google/linkedin login button container
   //returns the forgot password/create new account section
+  interface LoginFormBottomProps {
+    hide: boolean;
+  }
+  var hidden = false;
+  var buttonwriting = "";
 
-  const LoginFormBottom = () => {
-    return (
-      <div className="bottom-container">
-        <OrLine />
+  const LoginFormBottom = ({ hide }: LoginFormBottomProps) => {
+    if (!hide) {
+      return (
+        <div className="bottom-container">
+          <OrLine />
+          <GoogleLinkedinLogin />
+          <ForgotPassword_CreateNew />
+        </div>
+      );
+    } else {
+      return <div hidden></div>;
+    }
+  };
 
-        <GoogleLinkedinLogin />
-
-        <ForgotPassword_CreateNew />
-      </div>
-    );
+  //creates the login form title
+  //and manages what happens according to the method of the form
+  const titleMaker = (name: string): string => {
+    if (name === "Login") {
+      buttonwriting = "Sign in";
+      return "Login to Earthmates";
+    } else {
+      //hides the bottom part for now
+      hidden = true;
+      return name;
+    }
   };
 
   /*//component for loading indicator
@@ -124,26 +136,33 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
     <form onSubmit={handleSubmit} className="form-container">
       <h1>{titleMaker(name)}</h1>
       <input
+        id="username"
         className="form-input"
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
+        placeholder=" "
       />
+      <label for="username" className="form-label">
+        Username
+      </label>
       <input
         className="form-input"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
+        placeholder=" "
       />
+      <label for="username" className="form-label">
+        Password
+      </label>
 
       {/* {loading && <LoadingIndicator />} */}
       <button className="form-button" type="submit">
-        {name}
+        {buttonwriting}
       </button>
 
-      <LoginFormBottom />
+      <LoginFormBottom hide={hidden} />
     </form>
   );
 }
