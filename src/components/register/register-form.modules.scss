@@ -119,7 +119,10 @@ input:not(:placeholder-shown) + label {
   justify-content: center;
   margin: 1em 0 0 0;
   width: 100%;
-  font-size: small;
+  font-size: x-small;
+  @media (min-width: $mobile-width) {
+    font-size: small;
+  }
 }
 
 .forgot-pass {
