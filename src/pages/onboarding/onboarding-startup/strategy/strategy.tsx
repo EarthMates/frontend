@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import styles from "./strategy.module.scss";
-import general_styles from "../../onboarding.module.scss";
+import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
 
 import { useUserData } from "../../../../context/user-data-context";
-import { Button } from "../../../../components/onboarding/button/button";
+
+import StrategyComponent from "../../../../components/onboarding/strategy/strategy";
 
 export interface StrategyProps {
   className?: string;
@@ -24,14 +24,6 @@ export const Strategy = ({ className }: StrategyProps) => {
     navigate("/onboarding-startup/matching");
   };
 
-  const handleStrategyToggle = (strategy: string) => {
-    if (selectedStrategy.includes(strategy)) {
-      setSelectedStrategy(selectedStrategy.filter((item) => item !== strategy));
-    } else {
-      setSelectedStrategy([...selectedStrategy, strategy]);
-    }
-  };
-
   const handleForward = () => {
     setUserData((prevUserData) => ({
       ...prevUserData,
@@ -47,39 +39,22 @@ export const Strategy = ({ className }: StrategyProps) => {
   const strategys = ["Clear and quick exit", "A long term exit", "No exit"];
 
   return (
-    <div className={classNames(general_styles.container)}>
+    <div className={classNames(styles.container)}>
       <Slider position={position} />
 
-      <div className={general_styles.registration}>
-        <button
-          className={general_styles.button}
-          onClick={() => handleBackward()}
-        >
+      <div className={styles.registration}>
+        <button className={styles.button} onClick={() => handleBackward()}>
           Back
         </button>
-        <div className={general_styles.form}>
+        <div className={styles.form}>
           {/* Start of page internal component */}
-          <div className={classNames(styles.root, className)}>
-            <h1 className={styles.h1}>I am looking for</h1>
-            <p className={styles.p}>Choose your long term business plan</p>
-
-            <div className={styles.strategy}>
-              {strategys.map((strategy) => (
-                <button
-                  key={strategy}
-                  className={classNames(styles.button, {
-                    [styles.selected]: selectedStrategy.includes(strategy),
-                  })}
-                  onClick={() => handleStrategyToggle(strategy)}
-                >
-                  {strategy}
-                </button>
-              ))}
-            </div>
-            {true && <Button buttonText="Next" onClick={handleForward} />}
-          </div>
+          <StrategyComponent
+            selectedStrategy={selectedStrategy}
+            setSelectedStrategy={setSelectedStrategy}
+            handleForward={handleForward}
+          />
         </div>
-        <div className={general_styles.placeholder} />
+        <div className={styles.placeholder} />
       </div>
     </div>
   );

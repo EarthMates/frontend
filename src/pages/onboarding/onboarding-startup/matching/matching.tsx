@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import styles from "./matching.module.scss";
-import general_styles from "../../onboarding.module.scss";
+
+import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
+import MatchingComponent from "../../../../components/onboarding/matching/matching";
 
 import { useUserData } from "../../../../context/user-data-context";
-import { Button } from "../../../../components/onboarding/button/button";
 
 export interface MatchingProps {
   className?: string;
@@ -22,14 +22,6 @@ export const Matching = ({ className }: MatchingProps) => {
 
   const handleBackward = () => {
     navigate("/onboarding-startup/expertise");
-  };
-
-  const handleMatchingToggle = (matching: string) => {
-    if (selectedMatching.includes(matching)) {
-      setSelectedMatching(selectedMatching.filter((item) => item !== matching));
-    } else {
-      setSelectedMatching([...selectedMatching, matching]);
-    }
   };
 
   const handleForward = () => {
@@ -53,41 +45,22 @@ export const Matching = ({ className }: MatchingProps) => {
   ];
 
   return (
-    <div className={classNames(general_styles.container)}>
+    <div className={classNames(styles.container)}>
       <Slider position={position} />
 
-      <div className={general_styles.registration}>
-        <button
-          className={general_styles.button}
-          onClick={() => handleBackward()}
-        >
+      <div className={styles.registration}>
+        <button className={styles.button} onClick={() => handleBackward()}>
           Back
         </button>
-        <div className={general_styles.form}>
+        <div className={styles.form}>
           {/* Start of page internal component */}
-          <div className={classNames(styles.root, className)}>
-            <h1 className={styles.h1}>I want to get matched with</h1>
-            <p className={styles.p}>
-              Select the type of investor you want to get matched with
-            </p>
-
-            <div className={styles.matching}>
-              {matchings.map((matching) => (
-                <button
-                  key={matching}
-                  className={classNames(styles.button, {
-                    [styles.selected]: selectedMatching.includes(matching),
-                  })}
-                  onClick={() => handleMatchingToggle(matching)}
-                >
-                  {matching}
-                </button>
-              ))}
-            </div>
-            {true && <Button buttonText="Next" onClick={handleForward} />}
-          </div>
+          <MatchingComponent
+            selectedMatching={selectedMatching}
+            setSelectedMatching={setSelectedMatching}
+            handleForward={handleForward}
+          />
         </div>
-        <div className={general_styles.placeholder} />
+        <div className={styles.placeholder} />
       </div>
     </div>
   );

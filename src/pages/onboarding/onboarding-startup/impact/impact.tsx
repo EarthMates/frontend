@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import styles from "./impact.module.scss";
-import general_styles from "../../onboarding.module.scss";
+import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
+import ImpactComponent from "../../../../components/onboarding/impact/impact";
 
 import { useUserData } from "../../../../context/user-data-context";
-import { Button } from "../../../../components/onboarding/button/button";
 
 export interface ImpactProps {
   className?: string;
@@ -56,41 +55,22 @@ export const Impact = ({ className }: ImpactProps) => {
   };
 
   return (
-    <div className={classNames(general_styles.container)}>
+    <div className={classNames(styles.container)}>
       <Slider position={position} />
 
-      <div className={general_styles.registration}>
-        <button className={general_styles.button} onClick={handleBackward}>
+      <div className={styles.registration}>
+        <button className={styles.button} onClick={handleBackward}>
           Back
         </button>
-        <div className={general_styles.form}>
+        <div className={styles.form}>
           {/* Start of page internal component */}
-          <div className={classNames(styles.root, className)}>
-            <h1 className={styles.h1}>
-              How important is it to have impact through your business?
-            </h1>
-            <p className={styles.p}>
-              Rate the importance of impact for your company on a scale of 1 -
-              10
-            </p>
-
-            <input
-              className={styles.input}
-              type="number"
-              min={0}
-              max={10}
-              step={1}
-              value={impactAmount}
-              onChange={handleImpactChange}
-            />
-
-            {impactSelected && (
-              <Button buttonText="Next" onClick={handleForward} />
-            )}
-            {/* Render button only if impact is selected */}
-          </div>
+          <ImpactComponent
+            handleImpactChange={handleImpactChange}
+            handleForward={handleForward}
+            impactAmount={impactAmount}
+          />
         </div>
-        <div className={general_styles.placeholder} />
+        <div className={styles.placeholder} />
       </div>
     </div>
   );

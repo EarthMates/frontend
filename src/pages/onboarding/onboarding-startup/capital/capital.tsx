@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import styles from "./capital.module.scss";
-import general_styles from "../../onboarding.module.scss";
+import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
+import CapitalComponent from "../../../../components/onboarding/capital/capital";
 
 import { useUserData } from "../../../../context/user-data-context";
-import { Button } from "../../../../components/onboarding/button/button";
 
 export interface CapitalProps {
   className?: string;
@@ -56,40 +55,22 @@ export const Capital = ({ className }: CapitalProps) => {
   };
 
   return (
-    <div className={classNames(general_styles.container)}>
+    <div className={classNames(styles.container)}>
       <Slider position={position} />
 
-      <div className={general_styles.registration}>
-        <button className={general_styles.button} onClick={handleBackward}>
+      <div className={styles.registration}>
+        <button className={styles.button} onClick={handleBackward}>
           Back
         </button>
-        <div className={general_styles.form}>
+        <div className={styles.form}>
           {/* Start of page internal component */}
-          <div className={classNames(styles.root, className)}>
-            <h1 className={styles.h1}>
-              How much capital does your company need?
-            </h1>
-            <p className={styles.p}>
-              Use the slider to select your company funding need
-            </p>
-
-            <input
-              className={styles.input}
-              type="number"
-              min={0}
-              max={1000000}
-              step={10000}
-              value={capitalAmount}
-              onChange={handleCapitalChange}
-            />
-
-            {capitalSelected && (
-              <Button buttonText="Next" onClick={handleForward} />
-            )}
-            {/* Render button only if capital is selected */}
-          </div>
+          <CapitalComponent
+            capitalAmount={capitalAmount}
+            handleCapitalChange={handleCapitalChange}
+            handleForward={handleForward}
+          />
         </div>
-        <div className={general_styles.placeholder} />
+        <div className={styles.placeholder} />
       </div>
     </div>
   );

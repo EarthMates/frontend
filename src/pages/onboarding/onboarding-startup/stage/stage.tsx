@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import styles from "./stage.module.scss";
-import general_styles from "../../onboarding.module.scss";
+import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
+import StageComponent from "../../../../components/onboarding/stage/stage";
 
 import { useUserData } from "../../../../context/user-data-context";
 
@@ -35,57 +35,17 @@ export const Stage = ({ className }: StageProps) => {
   }, []);
 
   return (
-    <div className={classNames(general_styles.container)}>
+    <div className={classNames(styles.container)}>
       <Slider position={position} />
 
-      <div className={general_styles.registration}>
-        <button
-          className={general_styles.button}
-          onClick={() => handleBackward()}
-        >
+      <div className={styles.registration}>
+        <button className={styles.button} onClick={() => handleBackward()}>
           Back
         </button>
-        <div className={general_styles.form}>
-          {/* Start of page internal component */}
-          <div className={classNames(styles.root, className)}>
-            <h1 className={styles.h1}>What's your company's current stage?</h1>
-            <p className={styles.p}>Choose one that applies to your company</p>
-
-            <div className={styles.stages}>
-              <button
-                className={styles.button}
-                onClick={() => handleStageSelected("Pre-Seed")}
-              >
-                Pre-Seed
-              </button>
-              <button
-                className={styles.button}
-                onClick={() => handleStageSelected("Series A")}
-              >
-                Series A
-              </button>
-              <button
-                className={styles.button}
-                onClick={() => handleStageSelected("Series B")}
-              >
-                Series B
-              </button>
-              <button
-                className={styles.button}
-                onClick={() => handleStageSelected("Series C")}
-              >
-                Series C
-              </button>
-              <button
-                className={styles.button}
-                onClick={() => handleStageSelected("Bridge")}
-              >
-                Bridge
-              </button>
-            </div>
-          </div>
+        <div className={styles.form}>
+          <StageComponent handleStageSelected={handleStageSelected} />
         </div>
-        <div className={general_styles.placeholder} />
+        <div className={styles.placeholder} />
       </div>
     </div>
   );
