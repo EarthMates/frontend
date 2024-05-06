@@ -122,6 +122,7 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
       return "Login to Earthmates";
     } else {
       //hides the bottom part for now
+      buttonwriting = name;
       hidden = true;
       return name;
     }
@@ -141,9 +142,9 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        placeholder=" "
+        placeholder="           "
       />
-      <label for="username" className="form-label">
+      <label htmlFor="username" className="form-label">
         Username
       </label>
       <input
@@ -151,9 +152,9 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder=" "
+        placeholder="           "
       />
-      <label for="username" className="form-label">
+      <label htmlFor="username" className="form-label">
         Password
       </label>
 
