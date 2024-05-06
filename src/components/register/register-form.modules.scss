@@ -30,6 +30,10 @@ h1 {
   box-sizing: border-box;
   height: 4em;
 }
+.form-input:hover {
+  border: 1px solid #ff8516;
+  transition: all 0.5s ease-in-out;
+}
 
 .form-button {
   display: flex;
@@ -42,11 +46,12 @@ h1 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .form-button:hover {
-  background-color: #ff8516;
+  filter: grayscale(100%);
+  transition: all 0.5s ease-in-out;
 }
 
 label {
