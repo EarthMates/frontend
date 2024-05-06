@@ -8,7 +8,14 @@ h1 {
   margin-bottom: 0.5em;
 }
 //we want to scale up the max-width whilst the screen is se to $mobile-width
-
+.full-container {
+  max-width: $mobile-width;
+  margin: 0 auto;
+  padding: 0 1em;
+  @media (min-width: $mobile-width) {
+    max-width: 100%;
+  }
+}
 .form-container {
   display: flex;
   flex-direction: column;
@@ -20,6 +27,7 @@ h1 {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 75%;
+
   //we want to program it to be mobile first
   //so when it is more than 600px width it's gonna scale
   @media (min-width: $mobile-width) {

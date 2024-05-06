@@ -134,37 +134,39 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
   };*/
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
-      <h1>{titleMaker(name)}</h1>
-      <input
-        id="username"
-        className="form-input"
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="           "
-      />
-      <label htmlFor="username" className="form-label">
-        Username
-      </label>
-      <input
-        className="form-input"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="           "
-      />
-      <label htmlFor="username" className="form-label">
-        Password
-      </label>
+    <div className="full-container">
+      <form onSubmit={handleSubmit} className="form-container">
+        <h1>{titleMaker(name)}</h1>
+        <input
+          id="username"
+          className="form-input"
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="           "
+        />
+        <label htmlFor="username" className="form-label">
+          Username
+        </label>
+        <input
+          className="form-input"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="           "
+        />
+        <label htmlFor="username" className="form-label">
+          Password
+        </label>
 
-      {/* {loading && <LoadingIndicator />} */}
-      <button className="form-button" type="submit">
-        {buttonwriting}
-      </button>
+        {/* {loading && <LoadingIndicator />} */}
+        <button className="form-button" type="submit">
+          {buttonwriting}
+        </button>
 
-      <LoginFormBottom hide={hidden} />
-    </form>
+        <LoginFormBottom hide={hidden} />
+      </form>
+    </div>
   );
 }
 
