@@ -89,7 +89,8 @@ input:focus {
   border-color: #ff8516;
   transition: border-color 0.2s ease-out;
 }
-input:focus + label {
+input:focus + label,
+input:not(:placeholder-shown) + label {
   color: #999;
   transform: translate(0.3rem, -4rem);
 }
