@@ -8,31 +8,35 @@ h1 {
   margin-bottom: 0.5em;
 }
 //we want to scale up the max-width whilst the screen is se to $mobile-width
+//this is going to be the standard from now on
 .full-container {
-  max-width: $mobile-width;
+  background-color: $header-color;
   margin: 0 auto;
+  max-width: $mobile-width;
   padding: 0 1em;
+  display: flex;
+  flex-direction: column;
   @media (min-width: $mobile-width) {
-    max-width: 100%;
+    max-width: 1400px;
   }
 }
 .form-container {
-  background-color: $header-color;
+  background-color: $white;
   display: flex;
   flex-direction: column;
 
   align-items: left;
-  justify-content: left;
+  justify-content: center;
   margin: 2em auto 5em auto;
   padding: 2em;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 75%;
+  width: 75%;
 
   //we want to program it to be mobile first
   //so when it is more than 600px width it's gonna scale
   @media (min-width: $mobile-width) {
-    max-width: 40%;
+    width: 40%;
   }
 }
 
@@ -83,10 +87,9 @@ label {
 }
 input:focus {
   border-color: #ff8516;
-  transition: all 0.2s ease-out;
+  transition: border-color 0.2s ease-out;
 }
-input:focus + label,
-input:not(:placeholder-shown) + label {
+input:focus + label {
   color: #999;
   transform: translate(0.3rem, -4rem);
 }
@@ -138,6 +141,12 @@ input:not(:placeholder-shown) + label {
   height: fit-content;
   width: fit-content;
   margin-top: 5%;
+}
+
+.forgot-pass:hover {
+  color: grey;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .create-acc {

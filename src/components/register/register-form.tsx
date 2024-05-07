@@ -71,7 +71,7 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
         </div>
         <div className="create-acc">
           <h2>Don't have an account?</h2>
-          <h3>Create a new one</h3>
+          <h3>Create one</h3>
         </div>
       </div>
     );
@@ -143,7 +143,7 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="           "
+          placeholder="                          "
         />
         <label htmlFor="username" className="form-label">
           Username
@@ -153,7 +153,7 @@ function RegisterForm({ className, route, method }: RegisterFormProps) {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="           "
+          placeholder="                          "
         />
         <label htmlFor="username" className="form-label">
           Password
