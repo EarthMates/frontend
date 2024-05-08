@@ -3,37 +3,41 @@ import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
-import StageComponent from "../../../../components/onboarding/stage/stage";
 
 import { useUserData } from "../../../../context/user-data-context";
 import { Header } from "../../../../components/header/header";
 
-export interface StageProps {
+import StrategyComponent from "../../../../components/onboarding/strategy/strategy";
+
+export interface StrategyProps {
   className?: string;
 }
 
-export const Stage = ({ className }: StageProps) => {
+export const Strategy = ({ className }: StrategyProps) => {
   const navigate = useNavigate();
   const { userData, setUserData } = useUserData();
   console.log(userData);
 
   const [position, setPosition] = useState(0);
+  const [selectedStrategy, setSelectedStrategy] = useState<string[]>([]);
 
   const handleBackward = () => {
-    navigate("/");
+    navigate("/onboarding-investor/matching");
   };
 
-  const handleStageSelected = (stage: string) => {
+  const handleForward = () => {
     setUserData((prevUserData) => ({
       ...prevUserData,
-      stage: stage,
+      strategy: selectedStrategy,
     }));
-    navigate("/onboarding-startup/industry");
+    navigate("/onboarding-investor/results");
   };
 
   useEffect(() => {
-    setPosition(10);
+    setPosition(90);
   }, []);
+
+  const strategys = ["Clear and quick exit", "A long term exit", "No exit"];
 
   return (
     <div className={classNames(styles.container)}>
@@ -44,7 +48,12 @@ export const Stage = ({ className }: StageProps) => {
           Back
         </button>
         <div className={styles.form}>
-          <StageComponent handleStageSelected={handleStageSelected} />
+          {/* Start of page internal component */}
+          <StrategyComponent
+            selectedStrategy={selectedStrategy}
+            setSelectedStrategy={setSelectedStrategy}
+            handleForward={handleForward}
+          />
         </div>
         <div className={styles.placeholder} />
       </div>

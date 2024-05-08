@@ -28,7 +28,7 @@ export const Stage = ({ className }: StageProps) => {
       ...prevUserData,
       stage: stage,
     }));
-    navigate("/onboarding-startup/industry");
+    navigate("/onboarding-investor/industry");
   };
 
   useEffect(() => {

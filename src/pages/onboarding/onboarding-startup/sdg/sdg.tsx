@@ -4,6 +4,7 @@ import classNames from "classnames";
 import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
 import { useUserData } from "../../../../context/user-data-context";
+import { Header } from "../../../../components/header/header";
 import { Button } from "../../../../components/onboarding/button/button";
 import SdgComponent from "../../../../components/onboarding/sdg/sdg";
 

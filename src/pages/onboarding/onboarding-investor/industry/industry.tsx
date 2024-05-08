@@ -20,12 +20,12 @@ export const Industry = ({ className }: IndustryProps) => {
   const [industrySelected, setIndustrySelected] = useState(false); // State to track industry selection
 
   const handleBackward = () => {
-    navigate("/onboarding-startup/stage");
+    navigate("/onboarding-investor/stage");
   };
 
   const handleForward = () => {
     console.log(userData);
-    navigate("/onboarding-startup/capital");
+    navigate("/onboarding-investor/capital");
   };
 
   const handleIndustrySelected = (industry: string) => {

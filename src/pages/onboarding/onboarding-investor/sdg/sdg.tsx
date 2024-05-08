@@ -3,67 +3,59 @@ import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
-import ExpertiseComponent from "../../../../components/onboarding/expertise/expertise";
-
 import { useUserData } from "../../../../context/user-data-context";
 import { Header } from "../../../../components/header/header";
+import { Button } from "../../../../components/onboarding/button/button";
+import SdgComponent from "../../../../components/onboarding/sdg/sdg";
 
-export interface ExpertiseProps {
+export interface SdgProps {
   className?: string;
 }
 
-export const Expertise = ({ className }: ExpertiseProps) => {
+export const Sdg = ({ className }: SdgProps) => {
   const navigate = useNavigate();
   const { userData, setUserData } = useUserData();
-  console.log(userData);
+  const [selectedSdgs, setSelectedSdgs] = useState<string[]>([]);
 
   const [position, setPosition] = useState(0);
-  const [selectedExpertise, setSelectedExpertise] = useState<string[]>([]);
+  // State to track selected SDGs
 
   const handleBackward = () => {
-    navigate("/onboarding-startup/values");
+    navigate("/onboarding-investor/impact");
   };
 
   const handleForward = () => {
     setUserData((prevUserData) => ({
       ...prevUserData,
-      expertise: selectedExpertise,
+      sdg: selectedSdgs,
     }));
-    navigate("/onboarding-startup/matching");
+    navigate("/onboarding-investor/values");
   };
 
   useEffect(() => {
-    setPosition(70);
+    setPosition(50);
   }, []);
-
-  const expertises = [
-    "Accounting",
-    "Controlling",
-    "Fundraising",
-    "HR",
-    "Logistics",
-    "Management",
-    "Marketing",
-  ];
 
   return (
     <div className={classNames(styles.container)}>
       <Slider position={position} />
 
       <div className={styles.registration}>
-        <button className={styles.button} onClick={() => handleBackward()}>
+        <button className={styles.button} onClick={handleBackward}>
           Back
         </button>
         <div className={styles.form}>
           {/* Start of page internal component */}
-          <ExpertiseComponent
-            selectedExpertise={selectedExpertise}
-            setSelectedExpertise={setSelectedExpertise}
+          <SdgComponent
+            selectedSdgs={selectedSdgs}
+            setSelectedSdgs={setSelectedSdgs}
             handleForward={handleForward}
           />
         </div>
-        <div className={styles.placeholder} />
+        <div className={styles.placeholder}></div>
       </div>
     </div>
   );
 };
+
+// Function to get the title of the SDG based on its index

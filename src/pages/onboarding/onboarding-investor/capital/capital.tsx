@@ -21,12 +21,12 @@ export const Capital = ({ className }: CapitalProps) => {
   const [capitalAmount, setCapitalAmount] = useState(0); // State to store capital amount
 
   const handleBackward = () => {
-    navigate("/onboarding-startup/industry");
+    navigate("/onboarding-investor/industry");
   };
 
   const handleForward = () => {
     console.log(userData);
-    navigate("/onboarding-startup/impact");
+    navigate("/onboarding-investor/impact");
   };
 
   const handleCapitalSelected = (capital: string) => {

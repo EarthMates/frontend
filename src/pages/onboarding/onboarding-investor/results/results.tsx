@@ -22,36 +22,36 @@ export const Results = ({ className }: ResultsProps) => {
   const [industrySelected, setIndustrySelected] = useState(false); // State to track industry selection
 
   const handleBackward = () => {
-    navigate("/onboarding-startup/strategy");
+    navigate("/onboarding-investor/strategy");
   };
 
   useEffect(() => {
     setPosition(100);
   }, []);
 
-  const [startup, setStartup] = useState([]);
+  const [investor, setInvestor] = useState([]);
 
-  const getStartup = () => {
+  const getInvestor = () => {
     api
-      .get("/api/startup/")
+      .get("/api/investor/")
       .then((res) => res.data)
       .then((data) => {
-        setStartup(data);
+        setInvestor(data);
         console.log(data);
       })
       .catch((err) => alert(err));
   };
 
-  const { user_type, ...startupData } = userData;
-  const createStartup = (e: React.ChangeEvent<any>) => {
+  const { user_type, ...investorData } = userData;
+  const createInvestor = (e: React.ChangeEvent<any>) => {
     e.preventDefault();
-    console.log(startupData);
+    console.log(investorData);
     api
-      .post("/api/startup/", startupData)
+      .post("/api/investor/", investorData)
       .then((res) => {
-        if (res.status === 201) alert("Startup created!");
-        else alert("Failed to make startup.");
-        getStartup();
+        if (res.status === 201) alert("Investor created!");
+        else alert("Failed to make investor.");
+        getInvestor();
       })
       .catch((err) => alert(err));
   };
@@ -68,7 +68,7 @@ export const Results = ({ className }: ResultsProps) => {
           {/* Start of page internal component */}
           <ResultsComponent userData={userData} />
         </div>
-        <button className={styles.button} onClick={createStartup}>
+        <button className={styles.button} onClick={createInvestor}>
           Next
         </button>
       </div>

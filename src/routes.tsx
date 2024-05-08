@@ -1,22 +1,39 @@
 import { RouteObject } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { SiteWrapper } from "./components/site-wrapper/site-wrapper";
 import { UserDataProvider } from "./context/user-data-context";
 import ProtectedRoute from "./components/ProtectedRoutes";
-import { Stage } from "./pages/onboarding/onboarding-startup/stage/stage";
-import { Industry } from "./pages/onboarding/onboarding-startup/industry/industry";
-import { Capital } from "./pages/onboarding/onboarding-startup/capital/capital";
-import { Impact } from "./pages/onboarding/onboarding-startup/impact/impact";
-import { Sdg } from "./pages/onboarding/onboarding-startup/sdg/sdg";
-import { Values } from "./pages/onboarding/onboarding-startup/values/values";
-import { Expertise } from "./pages/onboarding/onboarding-startup/expertise/expertise";
-import { Matching } from "./pages/onboarding/onboarding-startup/matching/matching";
-import { Strategy } from "./pages/onboarding/onboarding-startup/strategy/strategy";
-import { Results } from "./pages/onboarding/onboarding-startup/results/results";
+
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import { Onboarding } from "./pages/onboarding/onboarding";
 import NotFound from "./pages/not-found/not-found";
-import { Navigate } from "react-router-dom";
+
+import {
+  CapitalStartup,
+  ExpertiseStartup,
+  ImpactStartup,
+  IndustryStartup,
+  MatchingStartup,
+  ResultsStartup,
+  SdgStartup,
+  StageStartup,
+  StrategyStartup,
+  ValuesStartup,
+} from "./pages/onboarding/onboarding-startup/onboarding-startup";
+
+import {
+  CapitalInvestor,
+  ExpertiseInvestor,
+  ImpactInvestor,
+  IndustryInvestor,
+  MatchingInvestor,
+  ResultsInvestor,
+  SdgInvestor,
+  StageInvestor,
+  StrategyInvestor,
+  ValuesInvestor,
+} from "./pages/onboarding/onboarding-investor/onboarding-investor";
 
 function Logout() {
   localStorage.clear();
@@ -53,7 +70,7 @@ export const routes: RouteObject[] = [
         path: "onboarding-startup/stage",
         element: (
           <ProtectedRoute>
-            <Stage />
+            <StageStartup />
           </ProtectedRoute>
         ),
       },
@@ -61,7 +78,7 @@ export const routes: RouteObject[] = [
         path: "onboarding-startup/industry",
         element: (
           <ProtectedRoute>
-            <Industry />
+            <IndustryStartup />
           </ProtectedRoute>
         ),
       },
@@ -69,7 +86,7 @@ export const routes: RouteObject[] = [
         path: "onboarding-startup/capital",
         element: (
           <ProtectedRoute>
-            <Capital />
+            <CapitalStartup />
           </ProtectedRoute>
         ),
       },
@@ -77,7 +94,7 @@ export const routes: RouteObject[] = [
         path: "onboarding-startup/impact",
         element: (
           <ProtectedRoute>
-            <Impact />
+            <ImpactStartup />
           </ProtectedRoute>
         ),
       },
@@ -85,7 +102,7 @@ export const routes: RouteObject[] = [
         path: "onboarding-startup/sdg",
         element: (
           <ProtectedRoute>
-            <Sdg />
+            <SdgStartup />
           </ProtectedRoute>
         ),
       },
@@ -93,7 +110,7 @@ export const routes: RouteObject[] = [
         path: "onboarding-startup/values",
         element: (
           <ProtectedRoute>
-            <Values />
+            <ValuesStartup />
           </ProtectedRoute>
         ),
       },
@@ -101,7 +118,7 @@ export const routes: RouteObject[] = [
         path: "onboarding-startup/expertise",
         element: (
           <ProtectedRoute>
-            <Expertise />
+            <ExpertiseStartup />
           </ProtectedRoute>
         ),
       },
@@ -109,7 +126,7 @@ export const routes: RouteObject[] = [
         path: "onboarding-startup/matching",
         element: (
           <ProtectedRoute>
-            <Matching />
+            <MatchingStartup />
           </ProtectedRoute>
         ),
       },
@@ -117,7 +134,7 @@ export const routes: RouteObject[] = [
         path: "onboarding-startup/strategy",
         element: (
           <ProtectedRoute>
-            <Strategy />
+            <StrategyStartup />
           </ProtectedRoute>
         ),
       },
@@ -125,7 +142,7 @@ export const routes: RouteObject[] = [
         path: "onboarding-startup/results",
         element: (
           <ProtectedRoute>
-            <Results />
+            <ResultsStartup />
           </ProtectedRoute>
         ),
       },
@@ -136,79 +153,79 @@ export const routes: RouteObject[] = [
         path: "onboarding-investor/stage",
         element: (
           <ProtectedRoute>
-            <Stage />
+            <StageInvestor />
           </ProtectedRoute>
         ),
       },
       {
-        path: "onboarding-startup/industry",
+        path: "onboarding-investor/industry",
         element: (
           <ProtectedRoute>
-            <Industry />
+            <IndustryInvestor />
           </ProtectedRoute>
         ),
       },
       {
-        path: "onboarding-startup/capital",
+        path: "onboarding-investor/capital",
         element: (
           <ProtectedRoute>
-            <Capital />
+            <CapitalInvestor />
           </ProtectedRoute>
         ),
       },
       {
-        path: "onboarding-startup/impact",
+        path: "onboarding-investor/impact",
         element: (
           <ProtectedRoute>
-            <Impact />
+            <ImpactInvestor />
           </ProtectedRoute>
         ),
       },
       {
-        path: "onboarding-startup/sdg",
+        path: "onboarding-investor/sdg",
         element: (
           <ProtectedRoute>
-            <Sdg />
+            <SdgInvestor />
           </ProtectedRoute>
         ),
       },
       {
-        path: "onboarding-startup/values",
+        path: "onboarding-investor/values",
         element: (
           <ProtectedRoute>
-            <Values />
+            <ValuesInvestor />
           </ProtectedRoute>
         ),
       },
       {
-        path: "onboarding-startup/expertise",
+        path: "onboarding-investor/expertise",
         element: (
           <ProtectedRoute>
-            <Expertise />
+            <ExpertiseInvestor />
           </ProtectedRoute>
         ),
       },
       {
-        path: "onboarding-startup/matching",
+        path: "onboarding-investor/matching",
         element: (
           <ProtectedRoute>
-            <Matching />
+            <MatchingInvestor />
           </ProtectedRoute>
         ),
       },
       {
-        path: "onboarding-startup/strategy",
+        path: "onboarding-investor/strategy",
         element: (
           <ProtectedRoute>
-            <Strategy />
+            <StrategyInvestor />
           </ProtectedRoute>
         ),
       },
       {
-        path: "onboarding-startup/results",
+        path: "onboarding-investor/results",
         element: (
           <ProtectedRoute>
-            <Results />
+            <ResultsInvestor />
           </ProtectedRoute>
         ),
       },

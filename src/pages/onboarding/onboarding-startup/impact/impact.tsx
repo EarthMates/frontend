@@ -6,6 +6,7 @@ import Slider from "../../../../components/onboarding/slider/slider";
 import ImpactComponent from "../../../../components/onboarding/impact/impact";
 
 import { useUserData } from "../../../../context/user-data-context";
+import { Header } from "../../../../components/header/header";
 
 export interface ImpactProps {
   className?: string;

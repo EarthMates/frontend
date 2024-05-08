@@ -3,56 +3,56 @@ import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
-import CapitalComponent from "../../../../components/onboarding/capital/capital";
+import ImpactComponent from "../../../../components/onboarding/impact/impact";
 
 import { useUserData } from "../../../../context/user-data-context";
 import { Header } from "../../../../components/header/header";
 
-export interface CapitalProps {
+export interface ImpactProps {
   className?: string;
 }
 
-export const Capital = ({ className }: CapitalProps) => {
+export const Impact = ({ className }: ImpactProps) => {
   const navigate = useNavigate();
   const { userData, setUserData } = useUserData();
 
   const [position, setPosition] = useState(0);
-  const [capitalSelected, setCapitalSelected] = useState(false); // State to track capital selection
-  const [capitalAmount, setCapitalAmount] = useState(0); // State to store capital amount
+  const [impactSelected, setImpactSelected] = useState(false); // State to track impact selection
+  const [impactAmount, setImpactAmount] = useState(0); // State to store impact amount
 
   const handleBackward = () => {
-    navigate("/onboarding-startup/industry");
+    navigate("/onboarding-investor/capital");
   };
 
   const handleForward = () => {
     console.log(userData);
-    navigate("/onboarding-startup/impact");
+    navigate("/onboarding-investor/sdg");
   };
 
-  const handleCapitalSelected = (capital: string) => {
-    if (capital === "Select capital") {
-      setCapitalSelected(false); // Reset CapitalSelected if default option is selected
+  const handleImpactSelected = (impact: string) => {
+    if (impact === "Select impact") {
+      setImpactSelected(false); // Reset ImpactSelected if default option is selected
     } else {
       setUserData((prevUserData) => ({
         ...prevUserData,
-        capital: parseFloat(capital),
+        impact: parseFloat(impact),
       }));
-      setCapitalSelected(true); // Set capitalSelected to true when an capital is selected
+      setImpactSelected(true); // Set impactSelected to true when an impact is selected
     }
   };
 
   useEffect(() => {
-    setPosition(30);
+    setPosition(40);
   }, []);
 
-  const handleCapitalChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImpactChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(event.target.value);
-    setCapitalAmount(value);
+    setImpactAmount(value);
     setUserData((prevUserData) => ({
       ...prevUserData,
-      capital: value,
+      impact: value,
     }));
-    setCapitalSelected(true);
+    setImpactSelected(true);
   };
 
   return (
@@ -65,10 +65,10 @@ export const Capital = ({ className }: CapitalProps) => {
         </button>
         <div className={styles.form}>
           {/* Start of page internal component */}
-          <CapitalComponent
-            capitalAmount={capitalAmount}
-            handleCapitalChange={handleCapitalChange}
+          <ImpactComponent
+            handleImpactChange={handleImpactChange}
             handleForward={handleForward}
+            impactAmount={impactAmount}
           />
         </div>
         <div className={styles.placeholder} />

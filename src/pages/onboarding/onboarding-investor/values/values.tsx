@@ -23,7 +23,7 @@ export const Values = ({ className }: ValuesProps) => {
   console.log(userData);
 
   const handleBackward = () => {
-    navigate("/onboarding-startup/sdg");
+    navigate("/onboarding-investor/sdg");
   };
 
   const handleForward = () => {
@@ -31,7 +31,7 @@ export const Values = ({ className }: ValuesProps) => {
       ...prevUserData,
       values: selectedValues,
     }));
-    navigate("/onboarding-startup/expertise");
+    navigate("/onboarding-investor/expertise");
   };
 
   useEffect(() => {

@@ -5,6 +5,7 @@ import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
 
 import { useUserData } from "../../../../context/user-data-context";
+import { Header } from "../../../../components/header/header";
 
 import StrategyComponent from "../../../../components/onboarding/strategy/strategy";
 

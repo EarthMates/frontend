@@ -1,39 +1,49 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
+
 import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
-import StageComponent from "../../../../components/onboarding/stage/stage";
+import MatchingComponent from "../../../../components/onboarding/matching/matching";
 
 import { useUserData } from "../../../../context/user-data-context";
 import { Header } from "../../../../components/header/header";
 
-export interface StageProps {
+export interface MatchingProps {
   className?: string;
 }
 
-export const Stage = ({ className }: StageProps) => {
+export const Matching = ({ className }: MatchingProps) => {
   const navigate = useNavigate();
   const { userData, setUserData } = useUserData();
   console.log(userData);
 
   const [position, setPosition] = useState(0);
+  const [selectedMatching, setSelectedMatching] = useState<string[]>([]);
 
   const handleBackward = () => {
-    navigate("/");
+    navigate("/onboarding-investor/expertise");
   };
 
-  const handleStageSelected = (stage: string) => {
+  const handleForward = () => {
     setUserData((prevUserData) => ({
       ...prevUserData,
-      stage: stage,
+      matching: selectedMatching,
     }));
-    navigate("/onboarding-startup/industry");
+    navigate("/onboarding-investor/strategy");
   };
 
   useEffect(() => {
-    setPosition(10);
+    setPosition(80);
   }, []);
+
+  const matchings = [
+    "Family Office",
+    "VCs",
+    "Business Angels",
+    "Foundations",
+    "Everyone",
+  ];
 
   return (
     <div className={classNames(styles.container)}>
@@ -44,7 +54,12 @@ export const Stage = ({ className }: StageProps) => {
           Back
         </button>
         <div className={styles.form}>
-          <StageComponent handleStageSelected={handleStageSelected} />
+          {/* Start of page internal component */}
+          <MatchingComponent
+            selectedMatching={selectedMatching}
+            setSelectedMatching={setSelectedMatching}
+            handleForward={handleForward}
+          />
         </div>
         <div className={styles.placeholder} />
       </div>
