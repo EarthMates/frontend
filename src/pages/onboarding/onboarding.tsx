@@ -9,6 +9,7 @@ import BuildingIcon from "../../assets/building.svg";
 import ManagerIcon from "../../assets/manager.svg";
 
 import { useUserData } from "../../context/user-data-context";
+import { Header } from "../../components/header/header";
 
 export interface OnboardingProps {
   className?: string;
@@ -39,6 +40,7 @@ export const Onboarding = ({ className }: OnboardingProps) => {
 
   return (
     <div className={classNames(styles.container)}>
+      <Header />
       <Slider position={position} />
       <div className={styles.registration}>
         <div className={styles.placeholder} />

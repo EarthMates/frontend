@@ -20,7 +20,7 @@ export const Stage = ({ className }: StageProps) => {
   const [position, setPosition] = useState(0);
 
   const handleBackward = () => {
-    navigate("/");
+    navigate("/onboarding");
   };
 
   const handleStageSelected = (stage: string) => {
@@ -37,6 +37,7 @@ export const Stage = ({ className }: StageProps) => {
 
   return (
     <div className={classNames(styles.container)}>
+      <Header />
       <Slider position={position} />
 
       <div className={styles.registration}>

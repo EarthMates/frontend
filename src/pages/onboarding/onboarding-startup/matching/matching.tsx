@@ -47,6 +47,7 @@ export const Matching = ({ className }: MatchingProps) => {
 
   return (
     <div className={classNames(styles.container)}>
+      <Header />
       <Slider position={position} />
 
       <div className={styles.registration}>

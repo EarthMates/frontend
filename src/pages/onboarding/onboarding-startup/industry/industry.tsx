@@ -46,6 +46,7 @@ export const Industry = ({ className }: IndustryProps) => {
 
   return (
     <div className={classNames(styles.container)}>
+      <Header />
       <Slider position={position} />
 
       <div className={styles.registration}>

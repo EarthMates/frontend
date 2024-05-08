@@ -34,6 +34,7 @@ import {
   StrategyInvestor,
   ValuesInvestor,
 } from "./pages/onboarding/onboarding-investor/onboarding-investor";
+import HomePage from "./pages/dashboard/home-page/home-page";
 
 function Logout() {
   localStorage.clear();
@@ -58,14 +59,22 @@ export const routes: RouteObject[] = [
         path: "/",
         element: (
           <ProtectedRoute>
+            <HomePage />
+          </ProtectedRoute>
+        ),
+      },
+      { path: "login", element: <Login /> },
+      { path: "logout", element: Logout() },
+      { path: "register", element: RegisterAndLogout() },
+
+      {
+        path: "/onboarding",
+        element: (
+          <ProtectedRoute>
             <Onboarding />
           </ProtectedRoute>
         ),
       },
-
-      { path: "login", element: <Login /> },
-      { path: "logout", element: Logout() },
-      { path: "register", element: RegisterAndLogout() },
       {
         path: "onboarding-startup/stage",
         element: (
