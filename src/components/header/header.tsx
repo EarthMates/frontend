@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import styles from "./header.module.scss";
 import { Link } from "react-router-dom";
-import Logo from "../../../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 
 export interface HeaderProps {
   className?: string;
