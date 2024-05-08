@@ -75,9 +75,9 @@ function LoginForm({ className, route }: LoginFormProps) {
   const OrLine = () => {
     return (
       <div className="or-line-container">
-        <div className="br-line" />
+        <div className="br-line left-line" />
         <h3>Or</h3>
-        <div className="br-line" />
+        <div className="br-line right-line" />
       </div>
     );
   };
@@ -87,48 +87,16 @@ function LoginForm({ className, route }: LoginFormProps) {
   //returns a <br>
   //returns the google/linkedin login button container
   //returns the forgot password/create new account section
-  interface LoginFormBottomProps {
-    hide: boolean;
-  }
-  var hidden = false;
-  var buttonwriting = "";
 
-  const LoginFormBottom = ({ hide }: LoginFormBottomProps) => {
-    if (!hide) {
-      return (
-        <div className="bottom-container">
-          <OrLine />
-          <GoogleLinkedinLogin />
-          <ForgotPassword_CreateNew />
-        </div>
-      );
-    } else {
-      return <div hidden></div>;
-    }
+  const LoginFormBottom = () => {
+    return (
+      <div className="bottom-container">
+        <OrLine />
+        <GoogleLinkedinLogin />
+        <ForgotPassword_CreateNew />
+      </div>
+    );
   };
-
-  // Removed titleMaker after component separation in LoginForm.tsx and RegisterForm.tsx
-
-  buttonwriting = "Sign in";
-
-  //creates the login form title
-  //and manages what happens according to the method of the form
-  /*  const titleMaker = (name: string): string => {
-    if (name === "Login") {
-      buttonwriting = "Sign in";
-      return "Login to Earthmates";
-    } else {
-      //hides the bottom part for now
-      buttonwriting = name;
-      hidden = true;
-      return name;
-    }
-  }; */
-
-  /*//component for loading indicator
-  const LoadingIndicator = () => {
-
-  };*/
 
   return (
     <div className="full-container">
@@ -158,10 +126,10 @@ function LoginForm({ className, route }: LoginFormProps) {
 
         {/* {loading && <LoadingIndicator />} */}
         <button className="form-button" type="submit">
-          {buttonwriting}
+          {"Sign in"}
         </button>
 
-        <LoginFormBottom hide={hidden} />
+        <LoginFormBottom />
       </form>
     </div>
   );
