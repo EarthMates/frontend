@@ -2,14 +2,14 @@ import { useState } from "react";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
-import "./register-form.modules.scss";
+import "./login-form.modules.scss";
 
-interface RegisterFormProps {
+interface LoginFormProps {
   className?: string;
   route: string;
 }
 
-function RegisterForm({ className, route }: RegisterFormProps) {
+function LoginForm({ className, route }: LoginFormProps) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -21,7 +21,9 @@ function RegisterForm({ className, route }: RegisterFormProps) {
 
     try {
       const res = await api.post(route, { username, password });
-      navigate("/login");
+      localStorage.setItem(ACCESS_TOKEN, res.data.access);
+      localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+      navigate("/");
     } catch (error) {
       alert(error);
     } finally {
@@ -107,11 +109,11 @@ function RegisterForm({ className, route }: RegisterFormProps) {
 
   // Removed titleMaker after component separation in LoginForm.tsx and RegisterForm.tsx
 
-  buttonwriting = "Register";
-  hidden = true;
+  buttonwriting = "Sign in";
+
   //creates the login form title
   //and manages what happens according to the method of the form
-  /*   const titleMaker = (name: string): string => {
+  /*  const titleMaker = (name: string): string => {
     if (name === "Login") {
       buttonwriting = "Sign in";
       return "Login to Earthmates";
@@ -131,7 +133,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   return (
     <div className="full-container">
       <form onSubmit={handleSubmit} className="form-container">
-        <h1>Register</h1>
+        <h1>Login to EarthMates</h1>
         <input
           id="username"
           className="form-input"
@@ -165,4 +167,4 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   );
 }
 
-export default RegisterForm;
+export default LoginForm;

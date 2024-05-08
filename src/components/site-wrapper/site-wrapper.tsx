@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import styles from "./site-wrapper.module.scss";
-import { Header } from "../onboarding/header/header";
+import { Header } from "../header/header";
 import { Outlet } from "react-router-dom";
 
 export interface SiteWrapperProps {
