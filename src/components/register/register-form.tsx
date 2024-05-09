@@ -10,7 +10,8 @@ interface RegisterFormProps {
 }
 
 function RegisterForm({ className, route }: RegisterFormProps) {
-  const [username, setUsername] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
     e.preventDefault();
 
     try {
-      const res = await api.post(route, { username, password });
+      const res = await api.post(route, { email, fullname, password });
       navigate("/login");
     } catch (error) {
       alert(error);
@@ -58,11 +59,14 @@ function RegisterForm({ className, route }: RegisterFormProps) {
     return (
       <div className="Forgot-create_Container">
         <div className="forgot-pass">
-          <h2>Forgot password?</h2>
+          <h2>Already have an account?</h2>
+          <h3>Sign in</h3>
         </div>
         <div className="create-acc">
-          <h2>Don't have an account?</h2>
-          <h3>Create one</h3>
+          <h2>
+            By signing up "Continue", you are accepting our Terms of use and our
+            Privacy policy.
+          </h2>
         </div>
       </div>
     );
@@ -73,93 +77,67 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   const OrLine = () => {
     return (
       <div className="or-line-container">
-        <div className="br-line" />
+        <div className="br-line left-line" />
         <h3>Or</h3>
-        <div className="br-line" />
+        <div className="br-line right-line" />
       </div>
     );
   };
 
-  //Component for login form
-  //If in login page return in order:
-  //returns a <br>
-  //returns the google/linkedin login button container
-  //returns the forgot password/create new account section
-  interface LoginFormBottomProps {
-    hide: boolean;
-  }
-  var hidden = false;
-  var buttonwriting = "";
-
-  const LoginFormBottom = ({ hide }: LoginFormBottomProps) => {
-    if (!hide) {
-      return (
-        <div className="bottom-container">
-          <OrLine />
-          <GoogleLinkedinLogin />
-          <ForgotPassword_CreateNew />
-        </div>
-      );
-    } else {
-      return <div hidden></div>;
-    }
+  const LoginFormBottom = () => {
+    return (
+      <div className="bottom-container">
+        <OrLine />
+        <GoogleLinkedinLogin />
+        <ForgotPassword_CreateNew />
+      </div>
+    );
   };
-
-  // Removed titleMaker after component separation in LoginForm.tsx and RegisterForm.tsx
-
-  buttonwriting = "Register";
-  hidden = true;
-  //creates the login form title
-  //and manages what happens according to the method of the form
-  /*   const titleMaker = (name: string): string => {
-    if (name === "Login") {
-      buttonwriting = "Sign in";
-      return "Login to Earthmates";
-    } else {
-      //hides the bottom part for now
-      buttonwriting = name;
-      hidden = true;
-      return name;
-    }
-  }; */
-
-  /*//component for loading indicator
-  const LoadingIndicator = () => {
-
-  };*/
 
   return (
     <div className="full-container">
       <form onSubmit={handleSubmit} className="form-container">
-        <h1>Register</h1>
+        <h1>Welcome to Earthmates</h1>
         <input
-          id="username"
+          id="fullname"
           className="form-input"
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={fullname}
+          onChange={(e) => setFullname(e.target.value)}
           placeholder="                          "
         />
-        <label htmlFor="username" className="form-label">
-          Username
+        <label htmlFor="fullname" className="form-label">
+          Full name
         </label>
         <input
+          id="emailaddress"
+          className="form-input"
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="                          "
+        />
+        <label htmlFor="emailaddress" className="form-label">
+          Email address
+        </label>
+        <input
+          id="password"
           className="form-input"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="                          "
         />
-        <label htmlFor="username" className="form-label">
+        <label htmlFor="password" className="form-label">
           Password
         </label>
 
         {/* {loading && <LoadingIndicator />} */}
         <button className="form-button" type="submit">
-          {buttonwriting}
+          Next
         </button>
 
-        <LoginFormBottom hide={hidden} />
+        <LoginFormBottom />
       </form>
     </div>
   );
