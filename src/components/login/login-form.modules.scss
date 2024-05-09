@@ -17,7 +17,7 @@ h1 {
   display: flex;
   flex-direction: column;
   @media (min-width: $mobile-width) {
-    max-width: 1400px;
+    max-width: $desktop-width;
   }
 }
 .form-container {
@@ -29,7 +29,7 @@ h1 {
   justify-content: center;
   margin: 2em auto 5em auto;
   padding: 2em;
-  border-radius: 8px;
+  border-radius: $our-border-radius;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 75%;
 
@@ -45,12 +45,12 @@ h1 {
   padding: 1em 1em 0 1em;
   margin: 0;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: $our-border-radius;
   box-sizing: border-box;
   height: 4em;
 }
 .form-input:hover {
-  border: 1px solid #ff8516;
+  border: 1px solid $our-orange;
   transition: all 0.5s ease-in-out;
 }
 
@@ -60,10 +60,10 @@ h1 {
   width: 95%;
   padding: 0.5em;
   margin: 0.3em 0 1.5em 0;
-  background-color: #ff8516;
+  background-color: $our-orange;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: $our-border-radius;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
@@ -88,7 +88,7 @@ label {
   margin: 0.2em;
 }
 input:focus {
-  border-color: #ff8516;
+  border-color: $our-orange;
   transition: border-color 0.2s ease-out;
 }
 input:focus + label,
@@ -102,7 +102,7 @@ input {
   margin: 0.3em 0 1.5em 0;
   width: 80%;
   border: none;
-  border-radius: 4px;
+  border-radius: $our-border-radius;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
@@ -117,8 +117,8 @@ label {
   flex-direction: column;
   align-items: left;
   justify-content: left;
-  margin: 1em 0 0 0;
-  width: 100%;
+  margin: 2em;
+  width: 80%;
 }
 
 .or-line-container {
@@ -136,14 +136,14 @@ label {
 }
 .left-line {
   width: 40%;
-  @media (min-width: $mobile-width) {
+  @media (min-width: $phone-width) {
     width: 43%;
   }
 }
 
 .right-line {
   width: 40%;
-  @media (min-width: $mobile-width) {
+  @media (min-width: $phone-width) {
     width: 42%;
   }
 }
@@ -189,7 +189,7 @@ label {
 
   h2 {
     margin: 0;
-    color: gray;
+    color: $small-grey-writing;
   }
 
   h3 {

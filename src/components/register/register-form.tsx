@@ -55,19 +55,17 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   };
 
   //component for forgot password/create new account section
-  const ForgotPassword_CreateNew = () => {
+  const Sign_in_container = () => {
     return (
-      <div className="Forgot-create_Container">
-        <div className="forgot-pass">
+      <div className="signin-container">
+        <div className="signin-internal">
           <h2>Already have an account?</h2>
           <h3>Sign in</h3>
         </div>
-        <div className="create-acc">
-          <h2>
-            By signing up "Continue", you are accepting our Terms of use and our
-            Privacy policy.
-          </h2>
-        </div>
+        <h2 className="terms">
+          By signing up "Continue", you are accepting our <a>Terms of use</a>{" "}
+          and our <a>Privacy policy</a>.
+        </h2>
       </div>
     );
   };
@@ -89,7 +87,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
       <div className="bottom-container">
         <OrLine />
         <GoogleLinkedinLogin />
-        <ForgotPassword_CreateNew />
+        <Sign_in_container />
       </div>
     );
   };
