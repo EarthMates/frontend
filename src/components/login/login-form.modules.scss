@@ -34,7 +34,7 @@ h1 {
   width: 75%;
 
   //we want to program it to be mobile first
-  //so when it is more than 800px width it's gonna scale
+  //so when it is more than 600px width it's gonna scale
   @media (min-width: $mobile-width) {
     width: 35%;
   }
