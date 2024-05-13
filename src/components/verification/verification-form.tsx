@@ -14,7 +14,9 @@ interface RegisterFormProps {
 function RegisterForm({ className, route, email }: RegisterFormProps) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [verifyCode, setVerifyCode] = useState("abcdefg");
+  //the final string with the verification code
+  const [verifyCode, setVerifyCode] = useState([]);
+  //the email where the verification code has been sent
   const inserted_email = email;
 
   const handleSubmit = async (e: React.ChangeEvent<any>) => {
@@ -42,7 +44,7 @@ function RegisterForm({ className, route, email }: RegisterFormProps) {
   */
 
   //component for forgot password/create new account section
-  const Receive_resend_container = () => {
+  const Receive_resend = () => {
     return (
       <div className="receive-resend-container">
         <div className="receive-resend">
@@ -80,7 +82,7 @@ function RegisterForm({ className, route, email }: RegisterFormProps) {
         <input
           id="verify3"
           className="form-input"
-          type="password"
+          type="text"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder=" "
@@ -104,7 +106,7 @@ function RegisterForm({ className, route, email }: RegisterFormProps) {
         <input
           id="verify6"
           className="form-input"
-          type="password"
+          type="text"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder=" "
@@ -115,7 +117,7 @@ function RegisterForm({ className, route, email }: RegisterFormProps) {
           Next
         </button>
 
-        <LoginFormBottom />
+        <Receive_resend />
       </form>
     </div>
   );
