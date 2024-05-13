@@ -4,23 +4,32 @@ import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
 import "./verification-form.modules.scss";
 
-interface RegisterFormProps {
+interface VerificationFormProps {
   className?: string;
   route: string;
-  //receives an email{the inserted email in registration} as props
-  email: string;
 }
 
-function RegisterForm({ className, route, email }: RegisterFormProps) {
+function VerificationForm({ className, route }: VerificationFormProps) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   //the final string with the verification code
-  const [verifyCode, setVerifyCode] = useState([]);
-  //the email where the verification code has been sent
-  const inserted_email = email;
+  //ARRAY[6] OF STRINGS
+  //should contain 6 numbers that rappresent the verification code
+  const [verifyCode, setVerifyCode] = useState<string[]>([]);
 
   const handleSubmit = async (e: React.ChangeEvent<any>) => {
     setLoading(true);
+    //if verification is't an array of 6 strings then
+    //alert(`Verification code wrong type
+    if (
+      !Array.isArray(verifyCode) ||
+      verifyCode.length !== 6 ||
+      verifyCode.some((code) => typeof code !== "string")
+    ) {
+      e.preventDefault();
+      alert("Verification code must be an array of 6 strings.");
+      return;
+    }
     e.preventDefault();
 
     try {
@@ -48,8 +57,9 @@ function RegisterForm({ className, route, email }: RegisterFormProps) {
     return (
       <div className="receive-resend-container">
         <div className="receive-resend">
-          <h2>Didn't receive an email?</h2>
-          <h3>Resend</h3>
+          <h2>
+            Didn't receive an email? <div className="bold">Resend</div>
+          </h2>
         </div>
       </div>
     );
@@ -60,55 +70,56 @@ function RegisterForm({ className, route, email }: RegisterFormProps) {
       <form onSubmit={handleSubmit} className="form-container">
         <h1>Verify your email</h1>
         <h2>
-          We’ve sent you a verification code at {`${inserted_email}`} to verify
-          your account
+          We’ve sent you a verification code at{" "}
+          <div className="bold">{`\${sample_email}`}</div> to verify your
+          account
         </h2>
         <input
           id="verify1"
           className="form-input"
           type="text"
-          value={}
-          onChange={(e) => setVerifyCode(e.target.value)}
+          value={verifyCode[0]}
+          onChange={(e) => setVerifyCode([e.target.value])}
           placeholder=" "
         />
         <input
           id="verify2"
           className="form-input"
           type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={verifyCode[1]}
+          onChange={(e) => setVerifyCode([e.target.value])}
           placeholder=" "
         />
         <input
           id="verify3"
           className="form-input"
           type="text"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={verifyCode[2]}
+          onChange={(e) => setVerifyCode([e.target.value])}
           placeholder=" "
         />
         <input
           id="verify4"
           className="form-input"
           type="text"
-          value={fullname}
-          onChange={(e) => setFullname(e.target.value)}
+          value={verifyCode[3]}
+          onChange={(e) => setVerifyCode([e.target.value])}
           placeholder=" "
         />
         <input
           id="verify5"
           className="form-input"
           type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={verifyCode[4]}
+          onChange={(e) => setVerifyCode([e.target.value])}
           placeholder=" "
         />
         <input
           id="verify6"
           className="form-input"
           type="text"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={verifyCode[5]}
+          onChange={(e) => setVerifyCode([e.target.value])}
           placeholder=" "
         />
 
@@ -123,4 +134,4 @@ function RegisterForm({ className, route, email }: RegisterFormProps) {
   );
 }
 
-export default RegisterForm;
+export default VerificationForm;

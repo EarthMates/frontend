@@ -3,6 +3,8 @@ import classNames from "classnames";
 import styles from "./register-verification.module.scss";
 import { Header } from "../../components/header/header";
 
+//page registerVerification
+
 function RegisterVerification() {
   return (
     <div className={classNames(styles.root)}>
