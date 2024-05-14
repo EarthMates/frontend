@@ -1,7 +1,7 @@
 import RegisterForm from "../../components/register/register-form";
 import classNames from "classnames";
 import styles from "./register.module.scss";
-import { Header } from "../../components/header/header";
+import { Header } from "../../components/headers/registration/header-registration";
 
 function Register() {
   return (

@@ -8,7 +8,7 @@ import ResultsComponent from "../../../../components/onboarding/results/results"
 import api from "../../../../api";
 
 import { useUserData } from "../../../../context/user-data-context";
-import { Header } from "../../../../components/header/header";
+import { Header } from "../../../../components/headers/onboarding/header-onboarding";
 
 export interface ResultsProps {
   className?: string;

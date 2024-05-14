@@ -74,54 +74,56 @@ function VerificationForm({ className, route }: VerificationFormProps) {
           <div className="bold">{`\${sample_email}`}</div> to verify your
           account
         </h2>
-        <input
-          id="verify1"
-          className="form-input"
-          type="text"
-          value={verifyCode[0]}
-          onChange={(e) => setVerifyCode([e.target.value])}
-          placeholder=" "
-        />
-        <input
-          id="verify2"
-          className="form-input"
-          type="text"
-          value={verifyCode[1]}
-          onChange={(e) => setVerifyCode([e.target.value])}
-          placeholder=" "
-        />
-        <input
-          id="verify3"
-          className="form-input"
-          type="text"
-          value={verifyCode[2]}
-          onChange={(e) => setVerifyCode([e.target.value])}
-          placeholder=" "
-        />
-        <input
-          id="verify4"
-          className="form-input"
-          type="text"
-          value={verifyCode[3]}
-          onChange={(e) => setVerifyCode([e.target.value])}
-          placeholder=" "
-        />
-        <input
-          id="verify5"
-          className="form-input"
-          type="text"
-          value={verifyCode[4]}
-          onChange={(e) => setVerifyCode([e.target.value])}
-          placeholder=" "
-        />
-        <input
-          id="verify6"
-          className="form-input"
-          type="text"
-          value={verifyCode[5]}
-          onChange={(e) => setVerifyCode([e.target.value])}
-          placeholder=" "
-        />
+        <div className="verify-container">
+          <input
+            id="verify1"
+            className="form-input"
+            type="text"
+            value={verifyCode[0]}
+            onChange={(e) => setVerifyCode([e.target.value])}
+            placeholder=" "
+          />
+          <input
+            id="verify2"
+            className="form-input"
+            type="text"
+            value={verifyCode[1]}
+            onChange={(e) => setVerifyCode([e.target.value])}
+            placeholder=" "
+          />
+          <input
+            id="verify3"
+            className="form-input"
+            type="text"
+            value={verifyCode[2]}
+            onChange={(e) => setVerifyCode([e.target.value])}
+            placeholder=" "
+          />
+          <input
+            id="verify4"
+            className="form-input"
+            type="text"
+            value={verifyCode[3]}
+            onChange={(e) => setVerifyCode([e.target.value])}
+            placeholder=" "
+          />
+          <input
+            id="verify5"
+            className="form-input"
+            type="text"
+            value={verifyCode[4]}
+            onChange={(e) => setVerifyCode([e.target.value])}
+            placeholder=" "
+          />
+          <input
+            id="verify6"
+            className="form-input"
+            type="text"
+            value={verifyCode[5]}
+            onChange={(e) => setVerifyCode([e.target.value])}
+            placeholder=" "
+          />
+        </div>
 
         {/* {loading && <LoadingIndicator />} */}
         <button className="form-button" type="submit">

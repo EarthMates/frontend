@@ -6,7 +6,7 @@ import Slider from "../../../../components/onboarding/slider/slider";
 import StageComponent from "../../../../components/onboarding/stage/stage";
 
 import { useUserData } from "../../../../context/user-data-context";
-import { Header } from "../../../../components/header/header";
+import { Header } from "../../../../components/headers/onboarding/header-onboarding";
 
 export interface StageProps {
   className?: string;

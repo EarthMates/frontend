@@ -1,7 +1,7 @@
 import VerificationForm from "../../components/verification/verification-form";
 import classNames from "classnames";
-import styles from "./register-verification.module.scss";
-import { Header } from "../../components/header/header";
+import styles from "../register/register.module.scss";
+import { Header } from "../../components/headers/registration/header-registration";
 
 //page registerVerification
 

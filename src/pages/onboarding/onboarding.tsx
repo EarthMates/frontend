@@ -9,7 +9,7 @@ import BuildingIcon from "../../assets/building.svg";
 import ManagerIcon from "../../assets/manager.svg";
 
 import { useUserData } from "../../context/user-data-context";
-import { Header } from "../../components/header/header";
+import { Header } from "../../components/headers/onboarding/header-onboarding";
 
 export interface OnboardingProps {
   className?: string;

@@ -6,6 +6,7 @@ import ProtectedRoute from "./components/ProtectedRoutes";
 
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
+import RegisterVerification from "./pages/register-verification/register-verification";
 import { Onboarding } from "./pages/onboarding/onboarding";
 import NotFound from "./pages/not-found/not-found";
 
@@ -66,6 +67,7 @@ export const routes: RouteObject[] = [
       { path: "login", element: <Login /> },
       { path: "logout", element: Logout() },
       { path: "register", element: RegisterAndLogout() },
+      { path: "register/verification", element: <RegisterVerification /> },
 
       {
         path: "/onboarding",

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
@@ -60,7 +60,9 @@ function RegisterForm({ className, route }: RegisterFormProps) {
       <div className="signin-container">
         <div className="signin-internal">
           <h2>Already have an account?</h2>
-          <h3>Sign in</h3>
+          <a href="/login" style={{ cursor: "pointer" }}>
+            <h3>Sign in</h3>
+          </a>
         </div>
         <h2 className="terms">
           By signing up "Continue", you are accepting our <a>Terms of use</a>{" "}

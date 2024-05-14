@@ -7,7 +7,7 @@ import Slider from "../../../../components/onboarding/slider/slider";
 import ValuesComponent from "../../../../components/onboarding/values/values";
 
 import { useUserData } from "../../../../context/user-data-context";
-import { Header } from "../../../../components/header/header";
+import { Header } from "../../../../components/headers/onboarding/header-onboarding";
 
 export interface ValuesProps {
   className?: string;
