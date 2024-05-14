@@ -39,6 +39,11 @@ $mobile-width: 800px;
 $desktop-width: 1440px;
 
 /////////////////////////////////////////////////////// Classes //////////////////////////////////
+.root {
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f6;
+}
 
 .bold {
   font-weight: 800;

@@ -10,9 +10,11 @@ interface RegisterFormProps {
 }
 
 function RegisterForm({ className, route }: RegisterFormProps) {
-  const [fullname, setFullname] = useState("");
+  const [name, setName] = useState("");
+  const [L_name, setL_name] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -20,8 +22,14 @@ function RegisterForm({ className, route }: RegisterFormProps) {
     setLoading(true);
     e.preventDefault();
 
+    if (password !== confirmPassword) {
+      alert("Passwords don't match");
+      return;
+    }
+
     try {
-      const res = await api.post(route, { email, fullname, password });
+      const name_array = [name, L_name];
+      const res = await api.post(route, { email, name_array, password });
       navigate("/login");
     } catch (error) {
       alert(error);
@@ -31,12 +39,6 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   };
 
   //FRONTEND:
-
-  /*
-   i'm probably going to eventually move 
-   all to file called frontend-something.tsx,
-    but for now we laying the bricks
-  */
 
   //component for sigup with google/linkedin
 
@@ -99,23 +101,43 @@ function RegisterForm({ className, route }: RegisterFormProps) {
       <form onSubmit={handleSubmit} className="form-container">
         <h1>Welcome to Earthmates</h1>
         <input
-          id="fullname"
+          id="name"
           className="form-input"
           type="text"
-          value={fullname}
-          onChange={(e) => setFullname(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           placeholder="                          "
+          required
         />
-        <label htmlFor="fullname" className="form-label">
-          Full name
+        <label htmlFor="name" className="form-label">
+          Name
         </label>
+
+        <input
+          id="L_name"
+          className="form-input"
+          type="text"
+          value={L_name}
+          onChange={(e) => setL_name(e.target.value)}
+          placeholder="                          "
+          required
+        />
+        <label htmlFor="L_name" className="form-label">
+          Last name
+        </label>
+
         <input
           id="emailaddress"
           className="form-input"
-          type="text"
+          //it already should check for a valid email address
+          type="email"
+          //anyways we force it below
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="Please enter a valid email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="                          "
+          required
         />
         <label htmlFor="emailaddress" className="form-label">
           Email address
@@ -124,12 +146,29 @@ function RegisterForm({ className, route }: RegisterFormProps) {
           id="password"
           className="form-input"
           type="password"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$"
+          title="Password should be 8-16 characters long,
+           at least one lowercase/uppercase letter
+            and a number"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="                          "
+          required
         />
         <label htmlFor="password" className="form-label">
           Password
+        </label>
+        <input
+          id="confirmpassword"
+          className="form-input"
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          placeholder="                          "
+          required
+        />
+        <label htmlFor="repeatPassword" className="form-label">
+          Repeat password
         </label>
 
         {/* {loading && <LoadingIndicator />} */}
