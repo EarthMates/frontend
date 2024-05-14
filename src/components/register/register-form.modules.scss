@@ -5,7 +5,7 @@ h1 {
   font-weight: 600;
   font: $header-font;
   letter-spacing: 1%;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.6em;
 }
 //we want to scale up the max-width whilst the screen is se to $mobile-width
 //this is going to be the standard from now on
@@ -25,11 +25,10 @@ h1 {
   background-color: $white;
   display: flex;
   flex-direction: column;
-  row-gap: 0;
 
   align-items: left;
   justify-content: center;
-  margin: 2em auto 6em auto;
+  margin: 1em auto 6em auto;
   padding: 2em;
   border-radius: 0.5em;
   box-shadow: $box-shadow;
@@ -40,20 +39,6 @@ h1 {
   @media (min-width: $mobile-width) {
     width: 40%;
   }
-}
-
-.form-input {
-  width: 95%;
-  padding: 1em 1em 0 1em;
-  margin: 0;
-  border: 1px solid #ccc;
-  border-radius: $our-border-radius;
-  box-sizing: border-box;
-  height: 4em;
-}
-.form-input:hover {
-  border: 1px solid $our-orange;
-  transition: all 0.5s ease-in-out;
 }
 
 .form-button {
@@ -82,7 +67,12 @@ h1 {
   filter: brightness(100%);
 }
 */
-
+.form-input {
+}
+.form-input:hover {
+  border: 1px solid $our-orange;
+  transition: all 0.5s ease-in-out;
+}
 label {
   color: $small-grey-writing;
   transform: translate(0.3rem, -3rem);
