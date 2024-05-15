@@ -64,7 +64,9 @@ function LoginForm({ className, route }: LoginFormProps) {
         </div>
         <div className="create-acc">
           <h2>Don't have an account?</h2>
-          <h3>Create one</h3>
+          <a href="/register" style={{ cursor: "pointer" }}>
+            <h3>Create one</h3>
+          </a>
         </div>
       </div>
     );
@@ -109,6 +111,7 @@ function LoginForm({ className, route }: LoginFormProps) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="                          "
+          required
         />
         <label htmlFor="username" className="form-label">
           Username
@@ -119,6 +122,7 @@ function LoginForm({ className, route }: LoginFormProps) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="                          "
+          required
         />
         <label htmlFor="username" className="form-label">
           Password

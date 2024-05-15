@@ -5,7 +5,7 @@ h1 {
   font-weight: 600;
   font: $header-font;
   letter-spacing: 1%;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.6em;
 }
 //we want to scale up the max-width whilst the screen is se to $mobile-width
 //this is going to be the standard from now on
@@ -16,8 +16,9 @@ h1 {
   padding: 0 1em;
   display: flex;
   flex-direction: column;
+
   @media (min-width: $mobile-width) {
-    max-width: 1400px;
+    max-width: $desktop-width;
   }
 }
 .form-container {
@@ -27,10 +28,10 @@ h1 {
 
   align-items: left;
   justify-content: center;
-  margin: 2em auto 5em auto;
-  padding: 2em;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0.5em auto 6em auto;
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  box-shadow: $box-shadow;
   width: 75%;
 
   //we want to program it to be mobile first
@@ -40,30 +41,16 @@ h1 {
   }
 }
 
-.form-input {
-  width: 95%;
-  padding: 1em 1em 0 1em;
-  margin: 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  height: 4em;
-}
-.form-input:hover {
-  border: 1px solid #ff8516;
-  transition: all 0.5s ease-in-out;
-}
-
 .form-button {
   display: flex;
   justify-content: center;
   width: 95%;
   padding: 0.5em;
-  margin: 0.3em 0 1.5em 0;
-  background-color: #ff8516;
+  margin: 0.2em 0 1.5em 0;
+  background-color: $our-orange;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.5em;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
@@ -80,43 +67,43 @@ h1 {
   filter: brightness(100%);
 }
 */
+.form-input {
+  margin: 0;
+}
 
+.form-input:hover {
+  border: 1px solid $our-orange;
+  transition: all 0.5s ease-in-out;
+}
 label {
-  color: #999;
+  color: $small-grey-writing;
   transform: translate(0.3rem, -3rem);
   transition: all 0.2s ease-out;
   margin: 0.2em;
 }
 input:focus {
-  border-color: #ff8516;
+  border-color: $our-orange;
   transition: border-color 0.2s ease-out;
 }
 input:focus + label,
 input:not(:placeholder-shown) + label {
-  color: #999;
   transform: translate(0.3rem, -4rem);
 }
 input {
-  z-index: 2;
-  padding: 0.5em;
-  margin: 0.3em 0 1.5em 0;
+  z-index: $z-index-modal;
   width: 80%;
   border: none;
-  border-radius: 4px;
+  border-radius: $our-border-radius;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
 label {
-  z-index: 1;
+  z-index: $z-index-dropdown;
 }
-
+.sameLine-input
 //login bottom part
 
 .bottom-container {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: left;
   margin: 1em 0 0 0;
   width: 100%;
 }
@@ -134,57 +121,52 @@ label {
   background-color: #e1e1e1;
   margin: 0 0.5em;
 }
-
-.google-linkedin-container {
+.left-line {
+  width: 40%;
+  @media (min-width: $mobile-width) {
+    width: 43%;
+  }
 }
 
-.Forgot-create_Container {
+.right-line {
+  width: 40%;
+  @media (min-width: $mobile-width) {
+    width: 42%;
+  }
+}
+
+.google-linkedin-container .signin-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: bottom;
-  column-gap: 20%;
+  row-gap: 2em;
   justify-content: bottom;
   margin: 1em 0 0 0;
-  width: 100%;
+  flex-wrap: wrap;
+
   font-size: x-small;
-  @media (min-width: $mobile-width) {
-    font-size: small;
-    column-gap: 30%;
-  }
-}
-
-.forgot-pass {
-  height: fit-content;
-  width: fit-content;
-  margin-top: 5%;
-}
-
-.forgot-pass:hover {
-  color: $our-purple;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.create-acc {
-  height: min-content;
-  width: max-content;
-  margin-top: 5%;
-  column-gap: 0;
-  display: flex;
-  flex-direction: row;
-  column-gap: 0.2em;
 
   h2 {
-    margin: 0;
-    color: gray;
+    color: $small-grey-writing;
+    a {
+      color: $our-orange;
+      font-weight: 800;
+    }
+  }
+  h3 {
+    color: black;
+    font-weight: 600;
   }
 
-  h3 {
-    margin: 0;
+  @media (min-width: $mobile-width) {
+    font-size: small;
   }
-  h3:hover {
-    color: $our-purple;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-  }
+}
+
+.signin-internal {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-items: space-between;
+  column-gap: 0.3em;
 }
