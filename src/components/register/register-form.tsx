@@ -32,7 +32,13 @@ function RegisterForm({ className, route }: RegisterFormProps) {
     }
 
     try {
-      const res = await api.post(route, { name, lastName, email, password });
+      const res = await api.post(route, {
+        username: name, // Assuming 'name' corresponds to 'username' in your Django model
+        first_name: name, // Assuming 'name' corresponds to 'first_name' in your Django model
+        last_name: lastName, // Assuming 'lastName' corresponds to 'last_name' in your Django model
+        email: email,
+        password: password,
+      });
       navigate("/login");
     } catch (error) {
       alert(error);
