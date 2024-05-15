@@ -10,10 +10,14 @@ interface RegisterFormProps {
 }
 
 function RegisterForm({ className, route }: RegisterFormProps) {
+  //first name
   const [name, setName] = useState("");
+  //last name
   const [L_name, setL_name] = useState("");
   const [email, setEmail] = useState("");
+  //first password inserted
   const [password, setPassword] = useState("");
+  //secondo password inserted
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
