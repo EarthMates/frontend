@@ -13,7 +13,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   //first name
   const [name, setName] = useState("");
   //last name
-  const [L_name, setL_name] = useState("");
+  const [lastName, setlastName] = useState("");
   const [email, setEmail] = useState("");
   //first password inserted
   const [password, setPassword] = useState("");
@@ -32,8 +32,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
     }
 
     try {
-      const name_array = [name, L_name];
-      const res = await api.post(route, { email, name_array, password });
+      const res = await api.post(route, { name, lastName, email, password });
       navigate("/login");
     } catch (error) {
       alert(error);
@@ -118,15 +117,15 @@ function RegisterForm({ className, route }: RegisterFormProps) {
         </label>
 
         <input
-          id="L_name"
+          id="lastName"
           className="sameLine-input"
           type="text"
-          value={L_name}
-          onChange={(e) => setL_name(e.target.value)}
+          value={lastName}
+          onChange={(e) => setlastName(e.target.value)}
           placeholder="                          "
           required
         />
-        <label htmlFor="L_name" className="form-label">
+        <label htmlFor="lastName" className="form-label">
           Last name
         </label>
 
