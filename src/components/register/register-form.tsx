@@ -105,7 +105,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
         <h1>Welcome to Earthmates</h1>
         <input
           id="name"
-          className="sameLine-input"
+          className="form-input"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -118,7 +118,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
 
         <input
           id="lastName"
-          className="sameLine-input"
+          className="form-input"
           type="text"
           value={lastName}
           onChange={(e) => setlastName(e.target.value)}
