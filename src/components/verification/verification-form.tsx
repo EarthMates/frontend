@@ -82,6 +82,7 @@ function VerificationForm({ className, route }: VerificationFormProps) {
             value={verifyCode[0]}
             onChange={(e) => setVerifyCode([e.target.value])}
             placeholder=" "
+            required
           />
           <input
             id="verify2"
@@ -90,6 +91,7 @@ function VerificationForm({ className, route }: VerificationFormProps) {
             value={verifyCode[1]}
             onChange={(e) => setVerifyCode([e.target.value])}
             placeholder=" "
+            required
           />
           <input
             id="verify3"
@@ -98,6 +100,7 @@ function VerificationForm({ className, route }: VerificationFormProps) {
             value={verifyCode[2]}
             onChange={(e) => setVerifyCode([e.target.value])}
             placeholder=" "
+            required
           />
           <input
             id="verify4"
@@ -106,6 +109,7 @@ function VerificationForm({ className, route }: VerificationFormProps) {
             value={verifyCode[3]}
             onChange={(e) => setVerifyCode([e.target.value])}
             placeholder=" "
+            required
           />
           <input
             id="verify5"
@@ -114,6 +118,7 @@ function VerificationForm({ className, route }: VerificationFormProps) {
             value={verifyCode[4]}
             onChange={(e) => setVerifyCode([e.target.value])}
             placeholder=" "
+            required
           />
           <input
             id="verify6"
@@ -122,6 +127,7 @@ function VerificationForm({ className, route }: VerificationFormProps) {
             value={verifyCode[5]}
             onChange={(e) => setVerifyCode([e.target.value])}
             placeholder=" "
+            required
           />
         </div>
 

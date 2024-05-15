@@ -15,9 +15,9 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   //last name
   const [lastName, setlastName] = useState("");
   const [email, setEmail] = useState("");
-  //first password inserted
+  //first password
   const [password, setPassword] = useState("");
-  //secondo password inserted
+  //second password
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
