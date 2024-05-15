@@ -102,7 +102,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
         <h1>Welcome to Earthmates</h1>
         <input
           id="name"
-          className="form-input"
+          className="sameLine-input"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -115,7 +115,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
 
         <input
           id="L_name"
-          className="form-input"
+          className="sameLine-input"
           type="text"
           value={L_name}
           onChange={(e) => setL_name(e.target.value)}
@@ -168,7 +168,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
           required
         />
         <label htmlFor="repeatPassword" className="form-label">
-          Repeat password
+          Confirm password
         </label>
 
         {/* {loading && <LoadingIndicator />} */}

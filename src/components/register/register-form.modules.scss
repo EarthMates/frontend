@@ -28,8 +28,8 @@ h1 {
 
   align-items: left;
   justify-content: center;
-  margin: 1em auto 6em auto;
-  padding: 2em;
+  margin: 0.5em auto 6em auto;
+  padding: 1em 2em;
   border-radius: 0.5em;
   box-shadow: $box-shadow;
   width: 75%;
@@ -46,7 +46,7 @@ h1 {
   justify-content: center;
   width: 95%;
   padding: 0.5em;
-  margin: 0.3em 0 1.5em 0;
+  margin: 0.2em 0 1.5em 0;
   background-color: $our-orange;
   color: white;
   border: none;
@@ -68,7 +68,9 @@ h1 {
 }
 */
 .form-input {
+  margin: 0;
 }
+
 .form-input:hover {
   border: 1px solid $our-orange;
   transition: all 0.5s ease-in-out;
@@ -89,8 +91,6 @@ input:not(:placeholder-shown) + label {
 }
 input {
   z-index: $z-index-modal;
-  padding: 0.5em;
-  margin: 0.3em 0 0.5em 0;
   width: 80%;
   border: none;
   border-radius: $our-border-radius;
@@ -100,7 +100,7 @@ input {
 label {
   z-index: $z-index-dropdown;
 }
-
+.sameLine-input
 //login bottom part
 
 .bottom-container {
