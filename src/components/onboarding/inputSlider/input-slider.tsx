@@ -1,24 +1,34 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Slider from "@mui/material/Slider";
 import styles from "./input-slider.module.scss";
 
 interface InputSliderProps {
-  position: number;
+  value: number;
+  onChange: (event: Event, value: number | number[]) => void;
 }
 
-const InputSlider: React.FC<InputSliderProps> = ({ position }) => {
+const InputSlider: React.FC<InputSliderProps> = ({ value, onChange }) => {
+  const [displayValue, setDisplayValue] = useState<number>(value);
+
+  const handleSliderChange = (event: Event, newValue: number | number[]) => {
+    setDisplayValue(typeof newValue === "number" ? newValue : newValue[0]);
+    onChange(event, newValue);
+  };
+
   return (
-    <div className="input-slider-container">
+    <div>
+      <div>{displayValue}</div>
       <Slider
-        aria-label="Temperature"
-        defaultValue={30}
-        getAriaValueText={valuetext}
-        valueLabelDisplay="auto"
-        shiftStep={30}
-        step={10}
-        marks
-        min={10}
-        max={110}
+        aria-label="Value"
+        value={value}
+        onChange={handleSliderChange}
+        step={10000} // Steps of 10,000
+        min={0} // Minimum value set to 0
+        max={1500000} // Maximum value set to 1,500,000
+        marks={[
+          { value: 0, label: "€0" },
+          { value: 1500000, label: "€1.5M" },
+        ]}
       />
     </div>
   );
