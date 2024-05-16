@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Slider from "@mui/material/Slider";
-import styles from "./input-slider.module.scss";
+import "./input-slider.module.scss";
 
 interface InputSliderProps {
   value: number;
@@ -15,9 +15,16 @@ const InputSlider: React.FC<InputSliderProps> = ({ value, onChange }) => {
     onChange(event, newValue);
   };
 
+  function formatNumber(number: number): string {
+    return number.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  }
+
   return (
     <div>
-      <div>{displayValue}</div>
+      <div>{"$" + formatNumber(displayValue)}</div>
       <Slider
         aria-label="Value"
         value={value}
