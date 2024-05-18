@@ -33,8 +33,8 @@ const InputSlider: React.FC<InputSliderProps> = ({ value, onChange }) => {
         min={0} // Minimum value set to 0
         max={1500000} // Maximum value set to 1,500,000
         marks={[
-          { value: 0, label: "€0" },
-          { value: 1500000, label: "€1.5M" },
+          { value: 0, label: "$0" },
+          { value: 1500000, label: "$1.5M" },
         ]}
       />
     </div>

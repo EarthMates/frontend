@@ -30,16 +30,7 @@ export const Capital = ({
       <p className={styles.p}>
         Use the slider to select your company funding need
       </p>
-      {/* <input
-        className={styles.input}
-        type="number"
-        min={0}
-        max={1000000}
-        step={10000}
-        value={capitalAmount}
-        onChange={handleCapitalChange}
-      /> */}
-      <div>
+      <div className={styles.slider}>
         <InputSlider value={sliderValue} onChange={handleSliderChange} />
       </div>
       {true && <Button buttonText="Next" onClick={handleForward} />}{" "}
