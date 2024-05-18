@@ -23,7 +23,7 @@ const InputSlider: React.FC<InputSliderProps> = ({ value, onChange }) => {
   }
 
   return (
-    <div>
+    <div className="InputSlider-container">
       <div>{"$" + formatNumber(displayValue)}</div>
       <Slider
         aria-label="Value"
