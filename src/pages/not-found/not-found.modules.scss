@@ -8,12 +8,16 @@
   height: 100vh;
   width: 100vw;
 
-  background-image: url(./provisional-wallpaper.jpg);
+  background-image: url(./provisional-wallpaper-mobile.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 
   font-family: $header-font;
+
+  @media (min-width: $mobile-width) {
+    background-image: url(./provisional-wallpaper.jpg);
+  }
 }
 
 p {
