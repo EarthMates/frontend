@@ -31,12 +31,12 @@ h1 {
   padding: 2em;
   border-radius: $our-border-radius;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 75%;
+  width: 80%;
 
   //we want to program it to be mobile first
   //so when it is more than 600px width it's gonna scale
   @media (min-width: $mobile-width) {
-    width: 35%;
+    width: 40%;
   }
 }
 
@@ -116,36 +116,29 @@ label {
   display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content: left;
-  margin: 2em;
-  width: 80%;
+
+  width: 100%;
 }
 
 .or-line-container {
+  justify-self: left;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: left;
+
   margin: 1em 0;
   width: 100%;
 }
 .br-line {
   height: 1px;
   background-color: #e1e1e1;
-  margin: 0 0.5em;
 }
 .left-line {
-  width: 40%;
-  @media (min-width: $phone-width) {
-    width: 43%;
-  }
+  justify-self: left;
 }
 
 .right-line {
-  width: 40%;
-  @media (min-width: $phone-width) {
-    width: 42%;
-  }
+  justify-self: right;
 }
 
 .google-linkedin-container {
@@ -153,16 +146,23 @@ label {
 
 .Forgot-create_Container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: bottom;
-  column-gap: 20%;
-  justify-content: bottom;
+
+  justify-content: space-between;
+  column-gap: 0.5em;
   margin: 1em 0 0 0;
   width: 100%;
-  font-size: x-small;
+  font-size: 0.7em;
+
+  text-align: left;
+
+  @media (min-width: $phone-width) {
+    font-size: 0.9em;
+  }
+
   @media (min-width: $mobile-width) {
-    font-size: small;
-    column-gap: 30%;
+    flex-direction: row;
   }
 }
 
@@ -170,6 +170,7 @@ label {
   height: fit-content;
   width: fit-content;
   margin-top: 5%;
+  white-space: nowrap;
 }
 
 .forgot-pass:hover {
@@ -179,13 +180,15 @@ label {
 }
 
 .create-acc {
-  height: min-content;
-  width: max-content;
   margin-top: 5%;
-  column-gap: 0;
+  height: min-content;
+  width: min-content;
+  text-align: left;
+  white-space: nowrap;
+
   display: flex;
   flex-direction: row;
-  column-gap: 0.2em;
+  justify-content: center;
 
   h2 {
     margin: 0;

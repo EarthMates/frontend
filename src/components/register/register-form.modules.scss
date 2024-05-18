@@ -34,9 +34,18 @@ h1 {
   box-shadow: $box-shadow;
   width: 75%;
 
+  @media (max-width: $phone-width) {
+    h1 {
+      text-align: center;
+    }
+  }
+
   //we want to program it to be mobile first
   //so when it is more than 600px width it's gonna scale
   @media (min-width: $mobile-width) {
+    width: 55%;
+  }
+  @media (min-width: 1080px) {
     width: 40%;
   }
 }
