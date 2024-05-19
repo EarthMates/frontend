@@ -31,7 +31,14 @@ export const Capital = ({
         Use the slider to select your company funding need
       </p>
       <div className={styles.slider}>
-        <InputSlider value={sliderValue} onChange={handleSliderChange} />
+        <InputSlider
+          value={sliderValue}
+          onChange={handleSliderChange}
+          min={0}
+          max={1500000}
+          step={10000}
+          labels={["$0", "$1.5M"]}
+        />
       </div>
       {true && <Button buttonText="Next" onClick={handleForward} />}{" "}
       {/* Should be only if capital > 0 */}

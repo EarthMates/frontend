@@ -5,11 +5,12 @@ import styles from "./impact.module.scss";
 
 import { Button } from "../button/button";
 import exp from "constants";
+import InputSlider from "../inputSlider/input-slider";
 
 export interface ImpactProps {
   className?: string;
   impactAmount: number;
-  handleImpactChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleImpactChange: (value: number) => void;
   handleForward: () => void;
 }
 
@@ -19,6 +20,11 @@ export const Impact = ({
   handleImpactChange,
   handleForward,
 }: ImpactProps) => {
+  const [sliderValue, setSliderValue] = useState<number>(500000); // Set initial value
+  const handleSliderChange = (event: Event, newValue: number | number[]) => {
+    setSliderValue(typeof newValue === "number" ? newValue : newValue[0]);
+    handleImpactChange(typeof newValue === "number" ? newValue : 0);
+  };
   return (
     <div className={classNames(styles.root, className)}>
       <h1 className={styles.h1}>
@@ -27,15 +33,17 @@ export const Impact = ({
       <p className={styles.p}>
         Rate the importance of impact for your company on a scale of 1 - 10
       </p>
-      <input
-        className={styles.input}
-        type="number"
-        min={0}
-        max={10}
-        step={1}
-        value={impactAmount}
-        onChange={handleImpactChange}
-      />
+      <div className={styles.slider}>
+        <InputSlider
+          value={sliderValue}
+          onChange={handleSliderChange}
+          min={1}
+          max={10}
+          step={1}
+          labels={["1", "10"]}
+          displayStandard={true}
+        />
+      </div>
       {true && <Button buttonText="Next" onClick={handleForward} />}{" "}
       {/* Should display only if impact > 0 */}
       {/* Render button only if impact is selected */}

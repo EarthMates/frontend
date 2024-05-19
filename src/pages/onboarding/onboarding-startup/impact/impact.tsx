@@ -45,8 +45,7 @@ export const Impact = ({ className }: ImpactProps) => {
     setPosition(40);
   }, []);
 
-  const handleImpactChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(event.target.value);
+  const handleImpactChange = (value: number) => {
     setImpactAmount(value);
     setUserData((prevUserData) => ({
       ...prevUserData,
