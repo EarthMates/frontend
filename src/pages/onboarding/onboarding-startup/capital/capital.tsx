@@ -45,8 +45,7 @@ export const Capital = ({ className }: CapitalProps) => {
     setPosition(30);
   }, []);
 
-  const handleCapitalChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(event.target.value);
+  const handleCapitalChange = (value: number) => {
     setCapitalAmount(value);
     setUserData((prevUserData) => ({
       ...prevUserData,
