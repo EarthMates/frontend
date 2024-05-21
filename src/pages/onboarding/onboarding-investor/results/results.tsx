@@ -22,7 +22,7 @@ export const Results = ({ className }: ResultsProps) => {
   const [industrySelected, setIndustrySelected] = useState(false); // State to track industry selection
 
   const handleBackward = () => {
-    navigate("/onboarding-investor/strategy");
+    navigate("/onboarding/investor/strategy");
   };
 
   useEffect(() => {
@@ -58,8 +58,7 @@ export const Results = ({ className }: ResultsProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <Slider position={position} />
+      <Slider position={10} />
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={handleBackward}>

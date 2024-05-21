@@ -23,7 +23,7 @@ export const Values = ({ className }: ValuesProps) => {
   console.log(userData);
 
   const handleBackward = () => {
-    navigate("/onboarding-startup/sdg");
+    navigate("/onboarding/startup/sdg");
   };
 
   const handleForward = () => {
@@ -31,7 +31,7 @@ export const Values = ({ className }: ValuesProps) => {
       ...prevUserData,
       values: selectedValues,
     }));
-    navigate("/onboarding-startup/expertise");
+    navigate("/onboarding/startup/expertise");
   };
 
   useEffect(() => {
@@ -55,8 +55,7 @@ export const Values = ({ className }: ValuesProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <Slider position={position} />
+      <Slider position={6} />
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={handleBackward}>

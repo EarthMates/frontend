@@ -22,7 +22,7 @@ export const Strategy = ({ className }: StrategyProps) => {
   const [selectedStrategy, setSelectedStrategy] = useState<string[]>([]);
 
   const handleBackward = () => {
-    navigate("/onboarding-investor/matching");
+    navigate("/onboarding/investor/matching");
   };
 
   const handleForward = () => {
@@ -30,7 +30,7 @@ export const Strategy = ({ className }: StrategyProps) => {
       ...prevUserData,
       strategy: selectedStrategy,
     }));
-    navigate("/onboarding-investor/results");
+    navigate("/onboarding/investor/results");
   };
 
   useEffect(() => {
@@ -41,8 +41,7 @@ export const Strategy = ({ className }: StrategyProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <Slider position={position} />
+      <Slider position={9} />
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={() => handleBackward()}>

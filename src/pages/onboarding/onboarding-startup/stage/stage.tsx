@@ -20,7 +20,7 @@ export const Stage = ({ className }: StageProps) => {
   const [position, setPosition] = useState(0);
 
   const handleBackward = () => {
-    navigate("/onboarding");
+    navigate("/onboarding/role");
   };
 
   const handleStageSelected = (stage: string) => {
@@ -28,7 +28,7 @@ export const Stage = ({ className }: StageProps) => {
       ...prevUserData,
       stage: stage,
     }));
-    navigate("/onboarding-startup/industry");
+    navigate("/onboarding/startup/industry");
   };
 
   useEffect(() => {
@@ -37,8 +37,7 @@ export const Stage = ({ className }: StageProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <Slider position={position} />
+      <Slider position={1} />
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={() => handleBackward()}>

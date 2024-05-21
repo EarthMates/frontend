@@ -21,12 +21,12 @@ export const Impact = ({ className }: ImpactProps) => {
   const [impactAmount, setImpactAmount] = useState(0); // State to store impact amount
 
   const handleBackward = () => {
-    navigate("/onboarding-startup/capital");
+    navigate("/onboarding/startup/capital");
   };
 
   const handleForward = () => {
     console.log(userData);
-    navigate("/onboarding-startup/sdg");
+    navigate("/onboarding/startup/sdg");
   };
 
   const handleImpactSelected = (impact: string) => {
@@ -56,8 +56,7 @@ export const Impact = ({ className }: ImpactProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <Slider position={position} />
+      <Slider position={4} />
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={handleBackward}>

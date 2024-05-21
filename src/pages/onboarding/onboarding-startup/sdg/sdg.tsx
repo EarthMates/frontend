@@ -21,7 +21,7 @@ export const Sdg = ({ className }: SdgProps) => {
   // State to track selected SDGs
 
   const handleBackward = () => {
-    navigate("/onboarding-startup/impact");
+    navigate("/onboarding/startup/impact");
   };
 
   const handleForward = () => {
@@ -29,7 +29,7 @@ export const Sdg = ({ className }: SdgProps) => {
       ...prevUserData,
       sdg: selectedSdgs,
     }));
-    navigate("/onboarding-startup/values");
+    navigate("/onboarding/startup/values");
   };
 
   useEffect(() => {
@@ -38,8 +38,7 @@ export const Sdg = ({ className }: SdgProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <Slider position={position} />
+      <Slider position={5} />
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={handleBackward}>

@@ -1,15 +1,20 @@
 import { RouteObject } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import { SiteWrapper } from "./components/site-wrapper/site-wrapper";
+
 import { UserDataProvider } from "./context/user-data-context";
+
+import {
+  LoginWrapper,
+  OnboardingWrapper,
+} from "./components/wrappers/wrappers";
+
 import ProtectedRoute from "./components/ProtectedRoutes";
 
+import HomePage from "./pages/dashboard/home-page/home-page";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import RegisterVerification from "./pages/register-verification/register-verification";
 import { Onboarding } from "./pages/onboarding/onboarding";
-import NotFound from "./pages/not-found/not-found";
-
 import {
   CapitalStartup,
   ExpertiseStartup,
@@ -35,7 +40,8 @@ import {
   StrategyInvestor,
   ValuesInvestor,
 } from "./pages/onboarding/onboarding-investor/onboarding-investor";
-import HomePage from "./pages/dashboard/home-page/home-page";
+
+import NotFound from "./pages/not-found/not-found";
 
 function Logout() {
   localStorage.clear();
@@ -50,108 +56,124 @@ function RegisterAndLogout() {
 export const routes_unprotected: RouteObject[] = [
   {
     path: "/",
-    element: (
-      <UserDataProvider>
-        <SiteWrapper />
-      </UserDataProvider>
-    ),
     children: [
       {
-        path: "/",
-        element: <HomePage />,
+        path: "",
+        element: <OnboardingWrapper />,
+        children: [{ path: "", element: <HomePage /> }],
       },
-      { path: "login", element: <Login /> },
-      { path: "logout", element: Logout() },
-      { path: "register", element: RegisterAndLogout() },
-      { path: "register/verification", element: <RegisterVerification /> },
+      {
+        path: "login",
+        element: <LoginWrapper />,
+        children: [{ path: "", element: <Login /> }],
+      },
+      {
+        path: "logout",
+        element: <LoginWrapper />,
+        children: [{ path: "", element: Logout() }],
+      },
+      {
+        path: "register",
+        element: <LoginWrapper />,
+        children: [{ path: "", element: RegisterAndLogout() }],
+      },
+      {
+        path: "register/verification",
+        element: <LoginWrapper />,
+        children: [{ path: "", element: <RegisterVerification /> }],
+      },
 
       {
         path: "/onboarding",
-        element: <Onboarding />,
+        element: (
+          <ProtectedRoute>
+            <UserDataProvider>
+              <OnboardingWrapper />
+            </UserDataProvider>
+          </ProtectedRoute>
+        ),
+        children: [
+          { path: "role", element: <Onboarding /> },
+          { path: "startup/stage", element: <StageStartup /> },
+          {
+            path: "startup/industry",
+            element: <IndustryStartup />,
+          },
+          {
+            path: "startup/capital",
+            element: <CapitalStartup />,
+          },
+          {
+            path: "startup/impact",
+            element: <ImpactStartup />,
+          },
+          {
+            path: "startup/sdg",
+            element: <SdgStartup />,
+          },
+          {
+            path: "startup/values",
+            element: <ValuesStartup />,
+          },
+          {
+            path: "startup/expertise",
+            element: <ExpertiseStartup />,
+          },
+          {
+            path: "startup/matching",
+            element: <MatchingStartup />,
+          },
+          {
+            path: "startup/strategy",
+            element: <StrategyStartup />,
+          },
+          {
+            path: "startup/results",
+            element: <ResultsStartup />,
+          },
+          {
+            path: "investor/stage",
+            element: <StageInvestor />,
+          },
+          {
+            path: "investor/industry",
+            element: <IndustryInvestor />,
+          },
+          {
+            path: "investor/capital",
+            element: <CapitalInvestor />,
+          },
+          {
+            path: "investor/impact",
+            element: <ImpactInvestor />,
+          },
+          {
+            path: "investor/sdg",
+            element: <SdgInvestor />,
+          },
+          {
+            path: "investor/values",
+            element: <ValuesInvestor />,
+          },
+          {
+            path: "investor/expertise",
+            element: <ExpertiseInvestor />,
+          },
+          {
+            path: "investor/matching",
+            element: <MatchingInvestor />,
+          },
+          {
+            path: "investor/strategy",
+            element: <StrategyInvestor />,
+          },
+          {
+            path: "investor/results",
+            element: <ResultsInvestor />,
+          },
+        ],
       },
-      {
-        path: "onboarding-startup/stage",
-        element: <StageStartup />,
-      },
-      {
-        path: "onboarding-startup/industry",
-        element: <IndustryStartup />,
-      },
-      {
-        path: "onboarding-startup/capital",
-        element: <CapitalStartup />,
-      },
-      {
-        path: "onboarding-startup/impact",
-        element: <ImpactStartup />,
-      },
-      {
-        path: "onboarding-startup/sdg",
-        element: <SdgStartup />,
-      },
-      {
-        path: "onboarding-startup/values",
-        element: <ValuesStartup />,
-      },
-      {
-        path: "onboarding-startup/expertise",
-        element: <ExpertiseStartup />,
-      },
-      {
-        path: "onboarding-startup/matching",
-        element: <MatchingStartup />,
-      },
-      {
-        path: "onboarding-startup/strategy",
-        element: <StrategyStartup />,
-      },
-      {
-        path: "onboarding-startup/results",
-        element: <ResultsStartup />,
-      },
-
       // Investor
-
-      {
-        path: "onboarding-investor/stage",
-        element: <StageInvestor />,
-      },
-      {
-        path: "onboarding-investor/industry",
-        element: <IndustryInvestor />,
-      },
-      {
-        path: "onboarding-investor/capital",
-        element: <CapitalInvestor />,
-      },
-      {
-        path: "onboarding-investor/impact",
-        element: <ImpactInvestor />,
-      },
-      {
-        path: "onboarding-investor/sdg",
-        element: <SdgInvestor />,
-      },
-      {
-        path: "onboarding-investor/values",
-        element: <ValuesInvestor />,
-      },
-      {
-        path: "onboarding-investor/expertise",
-        element: <ExpertiseInvestor />,
-      },
-      {
-        path: "onboarding-investor/matching",
-        element: <MatchingInvestor />,
-      },
-      {
-        path: "onboarding-investor/strategy",
-        element: <StrategyInvestor />,
-      },
-      {
-        path: "onboarding-investor/results",
-        element: <ResultsInvestor />,
-      },
 
       { path: "*", element: <NotFound /> },
     ],

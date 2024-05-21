@@ -28,9 +28,9 @@ export const Onboarding = ({ className }: OnboardingProps) => {
       user_type: role,
     }));
     if (role === "startup") {
-      navigate("/onboarding-startup/stage");
+      navigate("/onboarding/startup/stage");
     } else if (role === "investor") {
-      navigate("/onboarding-investor/stage");
+      navigate("/onboarding/investor/stage");
     }
   };
 
@@ -40,8 +40,7 @@ export const Onboarding = ({ className }: OnboardingProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <Slider position={position} />
+      <Slider position={0} />
       <div className={styles.registration}>
         <div className={styles.placeholder} />
 

@@ -7,16 +7,19 @@ interface SliderProps {
 }
 
 const Slider: React.FC<SliderProps> = ({ position }) => {
-  return (
-    <div className={classNames(styles.root)}>
-      <div className={styles.sliderTrack}>
-        <div
-          className={styles.sliderThumb}
-          style={{ width: `${position}%` }}
-        ></div>
-      </div>
-    </div>
-  );
+  const subSliders = Array.from({ length: 10 }, (_, index) => {
+    const isFilled = index < position;
+    return (
+      <div
+        key={index}
+        className={classNames(styles.sliderSubTrack, {
+          [styles.filled]: isFilled,
+        })}
+      ></div>
+    );
+  });
+
+  return <div className={classNames(styles.root)}>{subSliders}</div>;
 };
 
 export default Slider;

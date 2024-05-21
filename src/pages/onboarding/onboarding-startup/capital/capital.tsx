@@ -21,12 +21,12 @@ export const Capital = ({ className }: CapitalProps) => {
   const [capitalAmount, setCapitalAmount] = useState(0); // State to store capital amount
 
   const handleBackward = () => {
-    navigate("/onboarding-startup/industry");
+    navigate("/onboarding/startup/industry");
   };
 
   const handleForward = () => {
     console.log(userData);
-    navigate("/onboarding-startup/impact");
+    navigate("/onboarding/startup/impact");
   };
 
   const handleCapitalSelected = (capital: string) => {
@@ -56,8 +56,7 @@ export const Capital = ({ className }: CapitalProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <Slider position={position} />
+      <Slider position={3} />
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={handleBackward}>

@@ -22,7 +22,7 @@ export const Matching = ({ className }: MatchingProps) => {
   const [selectedMatching, setSelectedMatching] = useState<string[]>([]);
 
   const handleBackward = () => {
-    navigate("/onboarding-startup/expertise");
+    navigate("/onboarding/startup/expertise");
   };
 
   const handleForward = () => {
@@ -30,7 +30,7 @@ export const Matching = ({ className }: MatchingProps) => {
       ...prevUserData,
       matching: selectedMatching,
     }));
-    navigate("/onboarding-startup/strategy");
+    navigate("/onboarding/startup/strategy");
   };
 
   useEffect(() => {
@@ -47,8 +47,7 @@ export const Matching = ({ className }: MatchingProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <Slider position={position} />
+      <Slider position={8} />
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={() => handleBackward()}>

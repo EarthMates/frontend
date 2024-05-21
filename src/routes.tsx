@@ -1,6 +1,6 @@
 import { RouteObject } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import { SiteWrapper } from "./components/site-wrapper/site-wrapper";
+import { SiteWrapper } from "./components/wrappers/onboarding/site-wrapper";
 import { UserDataProvider } from "./context/user-data-context";
 import ProtectedRoute from "./components/ProtectedRoutes";
 

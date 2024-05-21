@@ -21,7 +21,7 @@ export const Expertise = ({ className }: ExpertiseProps) => {
   const [selectedExpertise, setSelectedExpertise] = useState<string[]>([]);
 
   const handleBackward = () => {
-    navigate("/onboarding-investor/values");
+    navigate("/onboarding/investor/values");
   };
 
   const handleForward = () => {
@@ -29,7 +29,7 @@ export const Expertise = ({ className }: ExpertiseProps) => {
       ...prevUserData,
       expertise: selectedExpertise,
     }));
-    navigate("/onboarding-investor/matching");
+    navigate("/onboarding/investor/matching");
   };
 
   useEffect(() => {
@@ -48,8 +48,7 @@ export const Expertise = ({ className }: ExpertiseProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <Slider position={position} />
+      <Slider position={7} />
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={() => handleBackward()}>

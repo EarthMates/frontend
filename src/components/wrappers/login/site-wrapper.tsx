@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import styles from "./site-wrapper.module.scss";
 import { Outlet } from "react-router-dom";
+import { Header } from "../../headers/registration/header-registration";
 
 export interface SiteWrapperProps {
   className?: string;
@@ -14,6 +15,7 @@ export const SiteWrapper = ({ className }: SiteWrapperProps) => {
   return (
     <div className={classNames(styles.root, className)}>
       <div className={styles.content}>
+        <Header />
         <Outlet />
       </div>
     </div>

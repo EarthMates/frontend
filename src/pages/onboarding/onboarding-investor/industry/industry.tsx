@@ -20,12 +20,12 @@ export const Industry = ({ className }: IndustryProps) => {
   const [industrySelected, setIndustrySelected] = useState(false); // State to track industry selection
 
   const handleBackward = () => {
-    navigate("/onboarding-investor/stage");
+    navigate("/onboarding/investor/stage");
   };
 
   const handleForward = () => {
     console.log(userData);
-    navigate("/onboarding-investor/capital");
+    navigate("/onboarding/investor/capital");
   };
 
   const handleIndustrySelected = (industry: string) => {
@@ -46,8 +46,7 @@ export const Industry = ({ className }: IndustryProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Header />
-      <Slider position={position} />
+      <Slider position={2} />
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={handleBackward}>

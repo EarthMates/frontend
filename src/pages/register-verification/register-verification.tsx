@@ -8,7 +8,6 @@ import { Header } from "../../components/headers/registration/header-registratio
 function RegisterVerification() {
   return (
     <div className={classNames(styles.root)}>
-      <Header />
       {/*made this but don't understand what should be the route*/}
       <VerificationForm route="/api/user/register/" />
     </div>
