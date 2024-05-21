@@ -40,7 +40,7 @@ export const Strategy = ({ className }: StrategyProps) => {
   const strategys = ["Clear and quick exit", "A long term exit", "No exit"];
 
   return (
-    <div className={classNames(styles.container)}>
+    <div className={classNames(styles.root, className)}>
       <Header />
       <Slider position={position} />
 
@@ -49,12 +49,14 @@ export const Strategy = ({ className }: StrategyProps) => {
           Back
         </button>
         <div className={styles.form}>
-          {/* Start of page internal component */}
-          <StrategyComponent
-            selectedStrategy={selectedStrategy}
-            setSelectedStrategy={setSelectedStrategy}
-            handleForward={handleForward}
-          />
+          <div className={styles.container}>
+            {/* Start of page internal component */}
+            <StrategyComponent
+              selectedStrategy={selectedStrategy}
+              setSelectedStrategy={setSelectedStrategy}
+              handleForward={handleForward}
+            />
+          </div>
         </div>
         <div className={styles.placeholder} />
       </div>

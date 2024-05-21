@@ -3,7 +3,7 @@ import styles from "./capital.module.scss";
 
 import { Button } from "../button/button";
 import { useState } from "react";
-import InputSlider from "../inputSlider/input-slider";
+import InputSlider from "../input-slider/input-slider";
 
 export interface CapitalProps {
   className?: string;

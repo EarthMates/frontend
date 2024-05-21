@@ -55,7 +55,7 @@ export const Capital = ({ className }: CapitalProps) => {
   };
 
   return (
-    <div className={classNames(styles.container)}>
+    <div className={classNames(styles.root, className)}>
       <Header />
       <Slider position={position} />
 
@@ -64,12 +64,14 @@ export const Capital = ({ className }: CapitalProps) => {
           Back
         </button>
         <div className={styles.form}>
-          {/* Start of page internal component */}
-          <CapitalComponent
-            capitalAmount={capitalAmount}
-            handleCapitalChange={handleCapitalChange}
-            handleForward={handleForward}
-          />
+          <div className={styles.container}>
+            {/* Start of page internal component */}
+            <CapitalComponent
+              capitalAmount={capitalAmount}
+              handleCapitalChange={handleCapitalChange}
+              handleForward={handleForward}
+            />
+          </div>
         </div>
         <div className={styles.placeholder} />
       </div>

@@ -47,7 +47,7 @@ export const Expertise = ({ className }: ExpertiseProps) => {
   ];
 
   return (
-    <div className={classNames(styles.container)}>
+    <div className={classNames(styles.root, className)}>
       <Header />
       <Slider position={position} />
 
@@ -56,12 +56,14 @@ export const Expertise = ({ className }: ExpertiseProps) => {
           Back
         </button>
         <div className={styles.form}>
-          {/* Start of page internal component */}
-          <ExpertiseComponent
-            selectedExpertise={selectedExpertise}
-            setSelectedExpertise={setSelectedExpertise}
-            handleForward={handleForward}
-          />
+          <div className={styles.container}>
+            {/* Start of page internal component */}
+            <ExpertiseComponent
+              selectedExpertise={selectedExpertise}
+              setSelectedExpertise={setSelectedExpertise}
+              handleForward={handleForward}
+            />
+          </div>
         </div>
         <div className={styles.placeholder} />
       </div>

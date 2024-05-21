@@ -45,7 +45,7 @@ export const Industry = ({ className }: IndustryProps) => {
   }, []);
 
   return (
-    <div className={classNames(styles.container)}>
+    <div className={classNames(styles.root, className)}>
       <Header />
       <Slider position={position} />
 
@@ -54,11 +54,13 @@ export const Industry = ({ className }: IndustryProps) => {
           Back
         </button>
         <div className={styles.form}>
-          {/* Start of page internal component */}
-          <IndustryComponent
-            handleIndustrySelected={handleIndustrySelected}
-            handleForward={handleForward}
-          />
+          <div className={styles.container}>
+            {/* Start of page internal component */}
+            <IndustryComponent
+              handleIndustrySelected={handleIndustrySelected}
+              handleForward={handleForward}
+            />
+          </div>
         </div>
         <div className={styles.placeholder} />
       </div>

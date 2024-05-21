@@ -5,7 +5,7 @@ import styles from "./impact.module.scss";
 
 import { Button } from "../button/button";
 import exp from "constants";
-import InputSlider from "../inputSlider/input-slider";
+import InputSlider from "../input-slider/input-slider";
 
 export interface ImpactProps {
   className?: string;

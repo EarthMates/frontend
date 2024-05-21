@@ -37,7 +37,7 @@ export const Sdg = ({ className }: SdgProps) => {
   }, []);
 
   return (
-    <div className={classNames(styles.container)}>
+    <div className={classNames(styles.root, className)}>
       <Header />
       <Slider position={position} />
 
@@ -46,12 +46,14 @@ export const Sdg = ({ className }: SdgProps) => {
           Back
         </button>
         <div className={styles.form}>
-          {/* Start of page internal component */}
-          <SdgComponent
-            selectedSdgs={selectedSdgs}
-            setSelectedSdgs={setSelectedSdgs}
-            handleForward={handleForward}
-          />
+          <div className={styles.container}>
+            {/* Start of page internal component */}
+            <SdgComponent
+              selectedSdgs={selectedSdgs}
+              setSelectedSdgs={setSelectedSdgs}
+              handleForward={handleForward}
+            />
+          </div>
         </div>
         <div className={styles.placeholder}></div>
       </div>

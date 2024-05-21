@@ -36,7 +36,7 @@ export const Stage = ({ className }: StageProps) => {
   }, []);
 
   return (
-    <div className={classNames(styles.container)}>
+    <div className={classNames(styles.root, className)}>
       <Header />
       <Slider position={position} />
 
@@ -45,7 +45,9 @@ export const Stage = ({ className }: StageProps) => {
           Back
         </button>
         <div className={styles.form}>
-          <StageComponent handleStageSelected={handleStageSelected} />
+          <div className={styles.container}>
+            <StageComponent handleStageSelected={handleStageSelected} />
+          </div>
         </div>
         <div className={styles.placeholder} />
       </div>

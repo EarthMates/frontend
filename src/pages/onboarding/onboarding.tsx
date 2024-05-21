@@ -39,14 +39,14 @@ export const Onboarding = ({ className }: OnboardingProps) => {
   }, []);
 
   return (
-    <div className={classNames(styles.container)}>
+    <div className={classNames(styles.root, className)}>
       <Header />
       <Slider position={position} />
       <div className={styles.registration}>
         <div className={styles.placeholder} />
 
         <div className={styles.form}>
-          <div className={classNames(styles.root, className)}>
+          <div className={styles.container}>
             <p className={styles.p}>Welcome to Earthmates</p>
             <h1 className={styles.h1}>
               Please select your role or interest on Earthmates

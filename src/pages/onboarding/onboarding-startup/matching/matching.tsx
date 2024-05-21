@@ -46,7 +46,7 @@ export const Matching = ({ className }: MatchingProps) => {
   ];
 
   return (
-    <div className={classNames(styles.container)}>
+    <div className={classNames(styles.root, className)}>
       <Header />
       <Slider position={position} />
 
@@ -55,12 +55,14 @@ export const Matching = ({ className }: MatchingProps) => {
           Back
         </button>
         <div className={styles.form}>
-          {/* Start of page internal component */}
-          <MatchingComponent
-            selectedMatching={selectedMatching}
-            setSelectedMatching={setSelectedMatching}
-            handleForward={handleForward}
-          />
+          <div className={styles.container}>
+            {/* Start of page internal component */}
+            <MatchingComponent
+              selectedMatching={selectedMatching}
+              setSelectedMatching={setSelectedMatching}
+              handleForward={handleForward}
+            />
+          </div>
         </div>
         <div className={styles.placeholder} />
       </div>

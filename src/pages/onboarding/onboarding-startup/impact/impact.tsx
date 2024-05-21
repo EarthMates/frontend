@@ -55,7 +55,7 @@ export const Impact = ({ className }: ImpactProps) => {
   };
 
   return (
-    <div className={classNames(styles.container)}>
+    <div className={classNames(styles.root, className)}>
       <Header />
       <Slider position={position} />
 
@@ -64,12 +64,14 @@ export const Impact = ({ className }: ImpactProps) => {
           Back
         </button>
         <div className={styles.form}>
-          {/* Start of page internal component */}
-          <ImpactComponent
-            handleImpactChange={handleImpactChange}
-            handleForward={handleForward}
-            impactAmount={impactAmount}
-          />
+          <div className={styles.container}>
+            {/* Start of page internal component */}
+            <ImpactComponent
+              handleImpactChange={handleImpactChange}
+              handleForward={handleForward}
+              impactAmount={impactAmount}
+            />
+          </div>
         </div>
         <div className={styles.placeholder} />
       </div>

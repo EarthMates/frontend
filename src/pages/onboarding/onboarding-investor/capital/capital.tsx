@@ -45,8 +45,7 @@ export const Capital = ({ className }: CapitalProps) => {
     setPosition(30);
   }, []);
 
-  const handleCapitalChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(event.target.value);
+  const handleCapitalChange = (value: number) => {
     setCapitalAmount(value);
     setUserData((prevUserData) => ({
       ...prevUserData,
@@ -56,7 +55,7 @@ export const Capital = ({ className }: CapitalProps) => {
   };
 
   return (
-    <div className={classNames(styles.container)}>
+    <div className={classNames(styles.root, className)}>
       <Header />
       <Slider position={position} />
 
@@ -65,12 +64,14 @@ export const Capital = ({ className }: CapitalProps) => {
           Back
         </button>
         <div className={styles.form}>
-          {/* Start of page internal component */}
-          <CapitalComponent
-            capitalAmount={capitalAmount}
-            handleCapitalChange={handleCapitalChange}
-            handleForward={handleForward}
-          />
+          <div className={styles.container}>
+            {/* Start of page internal component */}
+            <CapitalComponent
+              capitalAmount={capitalAmount}
+              handleCapitalChange={handleCapitalChange}
+              handleForward={handleForward}
+            />
+          </div>
         </div>
         <div className={styles.placeholder} />
       </div>

@@ -4,6 +4,7 @@
   padding-top: 2.5em;
   padding-right: 2em;
   padding-left: 2em;
+  background-color: transparent;
 }
 .p {
   font-family: Helvetica, sans-serif;
@@ -27,6 +28,7 @@
   justify-content: start;
   column-gap: 0.5em;
   margin-bottom: 2em;
+  width: fit-content;
 }
 
 .button {
@@ -38,8 +40,10 @@
   font-family: Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 300;
-  width: 7.5em;
+  min-width: 7.5em;
+  max-width: fit-content;
   height: 2em;
+  padding: 0 0.5em;
   cursor: pointer;
 }
 

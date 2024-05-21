@@ -57,7 +57,7 @@ export const Results = ({ className }: ResultsProps) => {
   };
 
   return (
-    <div className={classNames(styles.container)}>
+    <div className={classNames(styles.root, className)}>
       <Header />
       <Slider position={position} />
 
@@ -66,8 +66,10 @@ export const Results = ({ className }: ResultsProps) => {
           Back
         </button>
         <div className={styles.form}>
-          {/* Start of page internal component */}
-          <ResultsComponent userData={userData} />
+          <div className={styles.container}>
+            {/* Start of page internal component */}
+            <ResultsComponent userData={userData} />
+          </div>
         </div>
         <button className={styles.button} onClick={createStartup}>
           Next
