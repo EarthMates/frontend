@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import styles from "./sdg.module.scss";
+import "./sdg-mui.css";
 
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -49,6 +50,7 @@ function Sdg({
             <FormControlLabel
               control={
                 <Checkbox
+                  className="checkbox"
                   checked={selectedSdgs.includes(
                     `SDG ${index + 1}: ${getSdgTitle(index + 1)}`
                   )}

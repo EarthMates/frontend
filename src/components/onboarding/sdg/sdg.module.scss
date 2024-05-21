@@ -1,7 +1,6 @@
 @import "@styles/theme.module.scss";
 
 .root {
-  padding-top: 2.5em;
   padding-right: 2em;
   padding-left: 2em;
   background-color: transparent;
@@ -13,12 +12,11 @@
   font-size: 1em;
   font-weight: 300;
   color: #4a555c;
-  margin-bottom: 3em;
+  margin-bottom: 4em;
 }
 .h1 {
-  margin-bottom: 1em;
   font-family: $header-font;
-  font-size: 26px;
+  font-size: 2em;
   font-weight: 500;
   color: black;
 }
