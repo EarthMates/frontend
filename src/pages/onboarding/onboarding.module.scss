@@ -86,3 +86,29 @@
   color: #4a555c;
   margin: 0;
 }
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 8px 16px;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  text-transform: none;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  outline: none;
+  &:hover {
+    background-color: #f5f5f5;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.icon {
+  margin-right: 8px;
+}
