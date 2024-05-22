@@ -28,6 +28,7 @@ export const Stage = ({ className }: StageProps) => {
       ...prevUserData,
       stage: stage,
     }));
+    console.log(userData);
     navigate("/onboarding/startup/industry");
   };
 

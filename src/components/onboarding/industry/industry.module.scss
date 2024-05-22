@@ -6,6 +6,7 @@
   padding-left: 2em;
   background-color: transparent;
 }
+
 .p {
   font-family: Helvetica, sans-serif;
   font-size: 16px;
@@ -13,6 +14,7 @@
   color: #4a555c;
   margin-bottom: 2em;
 }
+
 .h1 {
   margin-bottom: 1em;
   font-family: $header-font;
@@ -32,5 +34,9 @@
   border-radius: 10px;
   border: 1px solid #4a555c;
   width: 100%;
-  margin-bottom: 6em;
+  margin-bottom: 6em; /* Adjusted margin */
+}
+
+.buttonContainer {
+  margin-top: 4em; /* Add more space above the button */
 }

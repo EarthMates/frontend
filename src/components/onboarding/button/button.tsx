@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import styles from "./button.module.scss";
 import React from "react";
-import { text } from "stream/consumers";
 
 export interface ButtonProps {
   className?: string;

@@ -4,7 +4,6 @@ import classNames from "classnames";
 import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
 import ExpertiseComponent from "../../../../components/onboarding/expertise/expertise";
-
 import { useUserData } from "../../../../context/user-data-context";
 import { Header } from "../../../../components/headers/onboarding/header-onboarding";
 
@@ -15,7 +14,6 @@ export interface ExpertiseProps {
 export const Expertise = ({ className }: ExpertiseProps) => {
   const navigate = useNavigate();
   const { userData, setUserData } = useUserData();
-  console.log(userData);
 
   const [position, setPosition] = useState(0);
   const [selectedExpertise, setSelectedExpertise] = useState<string[]>([]);
@@ -36,16 +34,6 @@ export const Expertise = ({ className }: ExpertiseProps) => {
     setPosition(70);
   }, []);
 
-  const expertises = [
-    "Accounting",
-    "Controlling",
-    "Fundraising",
-    "HR",
-    "Logistics",
-    "Management",
-    "Marketing",
-  ];
-
   return (
     <div className={classNames(styles.root, className)}>
       <Slider position={7} />
@@ -56,7 +44,6 @@ export const Expertise = ({ className }: ExpertiseProps) => {
         </button>
         <div className={styles.form}>
           <div className={styles.container}>
-            {/* Start of page internal component */}
             <ExpertiseComponent
               selectedExpertise={selectedExpertise}
               setSelectedExpertise={setSelectedExpertise}

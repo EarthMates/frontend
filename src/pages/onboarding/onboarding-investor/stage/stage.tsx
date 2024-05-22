@@ -28,6 +28,7 @@ export const Stage = ({ className }: StageProps) => {
       ...prevUserData,
       stage: stage,
     }));
+    console.log(userData);
     navigate("/onboarding/investor/industry");
   };
 
@@ -48,6 +49,7 @@ export const Stage = ({ className }: StageProps) => {
             <StageComponent handleStageSelected={handleStageSelected} />
           </div>
         </div>
+
         <div className={styles.placeholder} />
       </div>
     </div>
