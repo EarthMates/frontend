@@ -1,0 +1,16 @@
+@import "@styles/theme.module.scss";
+
+.root {
+  display: flex;
+}
+
+.mainContent {
+  flex-grow: 1;
+}
+
+.dashboardContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

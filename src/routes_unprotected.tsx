@@ -44,6 +44,7 @@ import {
 } from "./pages/onboarding/onboarding-investor/onboarding-investor";
 
 import NotFound from "./pages/not-found/not-found";
+import Dashboard from "./pages/dashboard/dashboard";
 
 function Logout() {
   localStorage.clear();
@@ -88,9 +89,11 @@ export const routes_unprotected: RouteObject[] = [
       {
         path: "/onboarding",
         element: (
-          <UserDataProvider>
-            <OnboardingWrapper />
-          </UserDataProvider>
+          <ProtectedRoute>
+            <UserDataProvider>
+              <OnboardingWrapper />
+            </UserDataProvider>
+          </ProtectedRoute>
         ),
         children: [
           { path: "role", element: <Onboarding /> },
@@ -175,7 +178,11 @@ export const routes_unprotected: RouteObject[] = [
           },
         ],
       },
-      // Investor
+
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+      },
 
       { path: "*", element: <NotFound /> },
     ],
