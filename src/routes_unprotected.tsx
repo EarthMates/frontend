@@ -21,6 +21,7 @@ import {
   ImpactStartup,
   IndustryStartup,
   MatchingStartup,
+  NameStartup,
   ResultsStartup,
   SdgStartup,
   StageStartup,
@@ -34,6 +35,7 @@ import {
   ImpactInvestor,
   IndustryInvestor,
   MatchingInvestor,
+  NameInvestor,
   ResultsInvestor,
   SdgInvestor,
   StageInvestor,
@@ -92,6 +94,7 @@ export const routes_unprotected: RouteObject[] = [
         ),
         children: [
           { path: "role", element: <Onboarding /> },
+          { path: "startup/name", element: <NameStartup /> },
           { path: "startup/stage", element: <StageStartup /> },
           {
             path: "startup/industry",
@@ -129,6 +132,7 @@ export const routes_unprotected: RouteObject[] = [
             path: "startup/results",
             element: <ResultsStartup />,
           },
+          { path: "investor/name", element: <NameInvestor /> },
           {
             path: "investor/stage",
             element: <StageInvestor />,

@@ -20,7 +20,7 @@ export const Stage = ({ className }: StageProps) => {
   const [position, setPosition] = useState(0);
 
   const handleBackward = () => {
-    navigate("/onboarding/role");
+    navigate("/onboarding/investor/name");
   };
 
   const handleStageSelected = (stage: string) => {

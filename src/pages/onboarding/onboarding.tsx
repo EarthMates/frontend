@@ -28,9 +28,9 @@ export const Onboarding = ({ className }: OnboardingProps) => {
       user_type: role,
     }));
     if (role === "startup") {
-      navigate("/onboarding/startup/stage");
+      navigate("/onboarding/startup/name");
     } else if (role === "investor") {
-      navigate("/onboarding/investor/stage");
+      navigate("/onboarding/investor/name");
     }
   };
 

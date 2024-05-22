@@ -8,3 +8,4 @@ export { Sdg as SdgInvestor } from "./sdg/sdg";
 export { Stage as StageInvestor } from "./stage/stage";
 export { Strategy as StrategyInvestor } from "./strategy/strategy";
 export { Values as ValuesInvestor } from "./values/values";
+export { Name as NameInvestor } from "./name/name";
