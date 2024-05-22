@@ -65,8 +65,7 @@ export const Values = ({ className }: ValuesProps) => {
           <div className={styles.container}>
             {/* Start of page internal component */}
             <ValuesComponent
-              selectedValues={selectedValues}
-              setSelectedValues={setSelectedValues}
+              handleValuesSelected={setSelectedValues}
               handleForward={handleForward}
             />
           </div>

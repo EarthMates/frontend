@@ -49,8 +49,7 @@ export const Stage = ({ className }: StageProps) => {
             <StageComponent handleStageSelected={handleStageSelected} />
           </div>
         </div>
-
-        <div className={styles.placeholder} />
+        <div className={styles.placeholder}></div>
       </div>
     </div>
   );
