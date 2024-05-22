@@ -2,7 +2,7 @@ import classNames from "classnames";
 import styles from "./sdg.module.scss";
 
 import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
+
 import { useState } from "react";
 import { Button } from "../button/button";
 
