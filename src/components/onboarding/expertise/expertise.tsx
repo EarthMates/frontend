@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import classNames from "classnames";
 import styles from "./expertise.module.scss";
 import { Button } from "../button/button";
@@ -26,39 +25,56 @@ export const Expertise = ({
       setSelectedExpertise([...selectedExpertise, expertise]);
     }
   };
+
   const expertises = [
     "Accounting",
     "Controlling",
     "Fundraising",
-    "HR",
+    "Personnel",
     "Logistics",
     "Management",
     "Marketing",
+    "PR",
+    "Procurement",
+    "Development",
+    "Production",
+    "Sales",
+    "Strategy",
+    "Technology",
   ];
 
   return (
     <div className={classNames(styles.root, className)}>
-      <h1 className={styles.h1}>Investors expert knowledge</h1>
-      <p className={styles.p}>
-        Choose the necessary expert knowledge you need from investors to enable
-        us match you with investors who can provide valuable insights and
-        support tailored to your specific industry and growth stage.
-      </p>
+      <div className={styles.container}>
+        <h1 className={styles.h1}>Investors expert knowledge</h1>
+        <p className={styles.p}>
+          Choose the necessary expert knowledge you need from investors to
+          enable us to match you with investors who can provide valuable
+          insights and support tailored to your specific industry and growth
+          stage.
+        </p>
 
-      <div className={styles.expertise}>
-        {expertises.map((expertise) => (
-          <button
-            key={expertise}
-            className={classNames(styles.button, {
-              [styles.selected]: selectedExpertise.includes(expertise),
-            })}
-            onClick={() => handleExpertiseToggle(expertise)}
-          >
-            {expertise}
-          </button>
-        ))}
+        <div className={styles.expertise}>
+          {expertises.map((expertise) => (
+            <button
+              key={expertise}
+              className={classNames(styles.button, {
+                [styles.selected]: selectedExpertise.includes(expertise),
+              })}
+              onClick={() => handleExpertiseToggle(expertise)}
+            >
+              {expertise}
+            </button>
+          ))}
+        </div>
+        {selectedExpertise.length > 0 && (
+          <Button
+            buttonText="Next"
+            onClick={handleForward}
+            className={styles.next_button}
+          />
+        )}
       </div>
-      {true && <Button buttonText="Next" onClick={handleForward} />}
     </div>
   );
 };

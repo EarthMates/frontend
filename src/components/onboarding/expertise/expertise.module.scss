@@ -6,6 +6,7 @@
   padding-left: 2em;
   background-color: transparent;
 }
+
 .p {
   font-family: Helvetica, sans-serif;
   font-size: 16px;
@@ -13,6 +14,7 @@
   color: #4a555c;
   margin-bottom: 2em;
 }
+
 .h1 {
   margin-bottom: 1em;
   font-family: $header-font;
@@ -23,46 +25,33 @@
 
 .expertise {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: start;
-  column-gap: 0.5em;
+  flex-wrap: wrap;
+  gap: 0.5em; /* Use gap for consistent spacing */
   margin-bottom: 2em;
-  width: fit-content;
 }
 
 .button {
   border-radius: 20px;
   border: 1px solid #e1e1e1;
   text-align: center;
-  justify-content: center;
   line-height: 2em;
   font-family: Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 300;
-  min-width: 7.5em;
-  max-width: fit-content;
-  height: 2em;
-  padding: 0 0.5em;
+  width: 9em; /* Adjusted width to match the image */
+  height: 2.5em; /* Adjusted height to match the image */
   cursor: pointer;
+  background-color: white; /* Ensures button has white background */
+  transition: background-color 0.3s, border 0.3s;
 }
 
-.button:hover {
+.button:hover,
+.button.selected {
   border: 1px solid #ff8516;
-}
-
-.selected {
-  border-radius: 20px;
-  text-align: center;
-  justify-content: center;
-  line-height: 2em;
-  font-family: Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  width: 7.5em;
-  height: 2em;
-  border: 0px;
   color: white;
   background-color: #ff8516;
-  cursor: pointer;
+}
+
+.next_button {
+  margin-top: 4em; /* Add more space above the button */
 }

@@ -16,7 +16,6 @@ export interface MatchingProps {
 export const Matching = ({ className }: MatchingProps) => {
   const navigate = useNavigate();
   const { userData, setUserData } = useUserData();
-  console.log(userData);
 
   const [position, setPosition] = useState(0);
   const [selectedMatching, setSelectedMatching] = useState<string[]>([]);
@@ -37,14 +36,6 @@ export const Matching = ({ className }: MatchingProps) => {
     setPosition(80);
   }, []);
 
-  const matchings = [
-    "Family Office",
-    "VCs",
-    "Business Angels",
-    "Foundations",
-    "Everyone",
-  ];
-
   return (
     <div className={classNames(styles.root, className)}>
       <Slider position={8} />
@@ -55,7 +46,6 @@ export const Matching = ({ className }: MatchingProps) => {
         </button>
         <div className={styles.form}>
           <div className={styles.container}>
-            {/* Start of page internal component */}
             <MatchingComponent
               selectedMatching={selectedMatching}
               setSelectedMatching={setSelectedMatching}
