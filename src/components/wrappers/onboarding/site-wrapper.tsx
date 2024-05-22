@@ -2,6 +2,8 @@ import classNames from "classnames";
 import styles from "./site-wrapper.module.scss";
 import { Outlet } from "react-router-dom";
 import { Header } from "../../headers/onboarding/header-onboarding";
+import theme from "../../../styles/theme";
+import { ThemeProvider } from "@emotion/react";
 
 export interface SiteWrapperProps {
   className?: string;
@@ -15,8 +17,10 @@ export const SiteWrapper = ({ className }: SiteWrapperProps) => {
   return (
     <div className={classNames(styles.root, className)}>
       <div className={styles.content}>
-        <Header />
-        <Outlet />
+        <ThemeProvider theme={theme}>
+          <Header />
+          <Outlet />
+        </ThemeProvider>
       </div>
     </div>
   );

@@ -12,4 +12,15 @@
   height: 2em;
   line-height: 2em;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: darken(#ff8516, 10%);
+    color: lighten(#ffffff, 10%);
+  }
+}
+
+.selected {
+  background-color: darken(#ff8516, 10%);
+  color: lighten(#ffffff, 10%);
 }
