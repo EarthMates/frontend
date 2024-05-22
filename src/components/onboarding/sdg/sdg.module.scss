@@ -25,13 +25,14 @@
 .checkboxContainer {
   display: flex;
   flex-wrap: wrap;
+  column-gap: 0.8em;
   margin-bottom: 2em;
 }
 
 .checkboxItem {
   width: 100%;
   @media (min-width: 1100px) {
-    max-width: 50%;
+    max-width: 45%;
   }
 
   display: flex;
@@ -39,8 +40,9 @@
   align-items: center;
   margin-bottom: 0.5em;
 
-  border-color: #4a555c;
-  padding: 0.5em;
+  border: 1px solid #b3b3b3;
+  border-radius: 12px;
+  padding: 0.4em;
 }
 
 .checkbox {
@@ -55,7 +57,7 @@
   color: black;
 }
 .checkboxText {
-  max-width: 12em; /* Set a fixed width */
+  max-width: 150px; /* Set a fixed width */
   white-space: nowrap; /* Prevent text from wrapping */
   overflow: hidden; /* Hide overflowing text */
   text-overflow: ellipsis; /* Display ellipsis (...) when text overflows */

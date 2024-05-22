@@ -48,6 +48,7 @@ function Sdg({
           <div key={index} className={styles.checkboxItem}>
             <Checkbox
               sx={{
+                color: "#b3b3b3",
                 "&.Mui-checked": {
                   color: "#ff8516", // Purple color for checked state
                 },
