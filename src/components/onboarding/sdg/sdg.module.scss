@@ -6,22 +6,20 @@
   background-color: transparent;
   display: flex;
   flex-direction: column;
+  margin-bottom: 5em;
 }
 .p {
   font-family: Helvetica, sans-serif;
   font-size: 1em;
   font-weight: 300;
   color: #4a555c;
-  margin-bottom: 4em;
+  margin-bottom: 2em;
 }
 .h1 {
   font-family: $header-font;
   font-size: 2em;
   font-weight: 500;
   color: black;
-}
-
-.input {
 }
 
 .checkboxContainer {
@@ -32,21 +30,33 @@
 
 .checkboxItem {
   width: 100%;
-  @media (min-width: 1000px) {
-    width: 50%;
+  @media (min-width: 1100px) {
+    max-width: 50%;
   }
 
-  /* Adjust as needed */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0.5em;
+
+  border-color: #4a555c;
+  padding: 0.5em;
 }
 
 .checkbox {
   margin-right: 0.5em; /* Adjust as needed */
 }
-
-/* Styling for checkbox label */
-.checkboxItem label {
-  font-family: Helvetica, sans-serif;
+.checkboxText-container {
+  flex-direction: column;
+}
+.checkboxTitle {
   font-size: 1em;
-  font-weight: 900;
-  color: #000;
+  font-weight: 600;
+  color: black;
+}
+.checkboxText {
+  max-width: 12em; /* Set a fixed width */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Display ellipsis (...) when text overflows */
 }

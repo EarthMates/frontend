@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import styles from "./sdg.module.scss";
-import "./sdg-mui.css";
 
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -47,19 +46,32 @@ function Sdg({
         {/* Render checkboxes for each SDG */}
         {Array.from({ length: 17 }).map((_, index) => (
           <div key={index} className={styles.checkboxItem}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  className="checkbox"
-                  checked={selectedSdgs.includes(
-                    `SDG ${index + 1}: ${getSdgTitle(index + 1)}`
-                  )}
-                  onChange={handleSdgChange}
-                  value={`SDG ${index + 1}: ${getSdgTitle(index + 1)}`}
-                />
-              }
-              label={`${getSdgTitle(index + 1)}`}
+            <Checkbox
+              sx={{
+                "&.Mui-checked": {
+                  color: "#ff8516", // Purple color for checked state
+                },
+              }}
+              checked={selectedSdgs.includes(
+                `SDG ${index + 1}: ${getSdgTitle(index + 1)}`
+              )}
+              onChange={handleSdgChange}
+              value={`SDG ${index + 1}: ${getSdgTitle(index + 1)}`}
             />
+            <div className="checkboxText-container">
+              <p className={styles.checkboxTitle}>{`${getSdgTitle(
+                index + 1
+              )}`}</p>
+              <p className={styles.checkboxText}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
           </div>
         ))}
       </div>
