@@ -39,7 +39,7 @@ export const Impact = ({
         border={1}
         borderColor="#e0e0e0"
         borderRadius="20px"
-        p={2}
+        p={4}
       >
         <Box
           className={styles.valueBox}

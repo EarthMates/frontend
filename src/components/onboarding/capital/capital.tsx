@@ -3,7 +3,7 @@ import styles from "./capital.module.scss";
 
 import { Button } from "../button/button";
 import { useState } from "react";
-import InputSlider from "../input-slider/input-slider";
+import { Slider, Typography, Box } from "@mui/material";
 
 export interface CapitalProps {
   className?: string;
@@ -12,16 +12,38 @@ export interface CapitalProps {
   handleForward: () => void;
 }
 
+// Function to map slider value to custom scale
+const mapValueToCustomScale = (value: number) => {
+  if (value <= 100) {
+    return value * 10000; // Steps of 10k
+  } else {
+    return 1000000 + (value - 100) * 100000; // Steps of 100k
+  }
+};
+
+// Function to map custom scale value to slider value
+const mapCustomScaleToValue = (value: number) => {
+  if (value <= 1000000) {
+    return value / 10000;
+  } else {
+    return 100 + (value - 1000000) / 100000;
+  }
+};
+
 export const Capital = ({
   className,
   capitalAmount,
   handleCapitalChange,
   handleForward,
 }: CapitalProps) => {
-  const [sliderValue, setSliderValue] = useState<number>(500000); // Set initial value
+  const [sliderValue, setSliderValue] = useState<number>(0); // Set initial value
+
   const handleSliderChange = (event: Event, newValue: number | number[]) => {
-    setSliderValue(typeof newValue === "number" ? newValue : newValue[0]);
-    handleCapitalChange(typeof newValue === "number" ? newValue : 0);
+    const actualValue = mapValueToCustomScale(
+      typeof newValue === "number" ? newValue : newValue[0]
+    );
+    setSliderValue(actualValue);
+    handleCapitalChange(actualValue);
   };
 
   return (
@@ -30,19 +52,66 @@ export const Capital = ({
       <p className={styles.p}>
         Use the slider to select your company funding need
       </p>
-      <div className={styles.slider}>
-        <InputSlider
-          value={sliderValue}
+      <Box
+        className={styles.sliderContainer}
+        border={1}
+        borderColor="#e0e0e0"
+        borderRadius="20px"
+        p={4} // Increase the padding here
+      >
+        <Box
+          className={styles.valueBox}
+          border={1}
+          borderColor="#e0e0e0"
+          borderRadius="20px"
+          px={8}
+          mb={2}
+        >
+          <Typography
+            id="impact-slider"
+            className={styles.valueText}
+            sx={{
+              fontSize: "24px",
+              fontWeight: "bold",
+              fontFamily: "Oswald",
+              color: "#000000",
+            }}
+          >
+            {`$${sliderValue.toLocaleString()}`}
+          </Typography>
+        </Box>
+        <Slider
+          value={mapCustomScaleToValue(sliderValue)}
           onChange={handleSliderChange}
           min={0}
-          max={1500000}
-          step={10000}
-          labels={["$0", "$1.5M"]}
+          max={140} // Adjusted maximum value
+          step={1}
+          marks={[
+            { value: 0, label: "$0" },
+            { value: 100, label: "$1M" },
+            { value: 140, label: "$5M" },
+          ]}
+          valueLabelDisplay="off"
+          sx={{
+            color: "#ff8516",
+            "& .MuiSlider-thumb": {
+              width: 24,
+              height: 24,
+              backgroundColor: "#ff8516",
+            },
+            "& .MuiSlider-rail, & .MuiSlider-track": {
+              height: 4,
+            },
+          }}
         />
-      </div>
-      {true && <Button buttonText="Next" onClick={handleForward} />}{" "}
-      {/* Should be only if capital > 0 */}
-      {/* Render button only if capital is selected */}
+      </Box>
+      {sliderValue > 0 && (
+        <Button
+          buttonText="Next"
+          onClick={handleForward}
+          className={styles.button}
+        />
+      )}
     </div>
   );
 };
