@@ -1,58 +1,64 @@
 @import "@styles/theme.module.scss";
 
 .root {
-  padding-top: 2.5em;
   padding-right: 2em;
   padding-left: 2em;
   background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5em;
 }
 .p {
   font-family: Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 300;
   color: #4a555c;
   margin-bottom: 2em;
 }
 .h1 {
-  margin-bottom: 1em;
   font-family: $header-font;
-  font-size: 26px;
+  font-size: 2em;
   font-weight: 500;
   color: black;
-}
-
-.input {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  padding-left: 0.5em;
-  font-family: Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: #4a555c;
-  border-radius: 10px;
-  border: 1px solid #4a555c;
-  width: 100%;
-  margin-bottom: 6em;
 }
 
 .checkboxContainer {
   display: flex;
   flex-wrap: wrap;
+  column-gap: 0.8em;
   margin-bottom: 2em;
 }
 
 .checkboxItem {
-  margin-right: 20px; /* Adjust as needed */
+  width: 100%;
+  @media (min-width: 1100px) {
+    max-width: 45%;
+  }
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0.5em;
+
+  border: 1px solid #b3b3b3;
+  border-radius: 12px;
+  padding: 0.4em;
 }
 
 .checkbox {
-  margin-right: 5px; /* Adjust as needed */
+  margin-right: 0.5em; /* Adjust as needed */
 }
-
-/* Styling for checkbox label */
-.checkboxItem label {
-  font-family: Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: #4a555c;
+.checkboxText-container {
+  flex-direction: column;
+}
+.checkboxTitle {
+  font-size: 1em;
+  font-weight: 600;
+  color: black;
+}
+.checkboxText {
+  max-width: 150px; /* Set a fixed width */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Display ellipsis (...) when text overflows */
 }
