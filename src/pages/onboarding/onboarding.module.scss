@@ -57,12 +57,22 @@
   padding: 1em;
   margin-bottom: 1em;
   cursor: pointer;
-  transition: background-color 0.3s, border 0.3s;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
 }
 
 .role:hover {
-  background-color: #e2e2e2;
+  background-color: #ff8516;
   border: 1px solid #ff8516;
+  color: white;
+
+  img {
+    filter: brightness(0) invert(1); // Make icons white
+  }
+
+  .description .h1,
+  .description p {
+    color: white; // Change text color to white
+  }
 }
 
 .description {
