@@ -1,44 +1,60 @@
-@import "@styles/theme.module.scss";
-
 .root {
-  padding-top: 2.5em;
-  padding-right: 2em;
-  padding-left: 2em;
-  background-color: transparent;
-}
-.p {
-  font-family: Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: #4a555c;
-  margin-bottom: 2em;
-}
-.h1 {
-  margin-bottom: 2em;
-  font-family: $header-font;
-  font-size: 26px;
-  font-weight: 500;
-  color: black;
-}
-
-.h2 {
-  margin-bottom: 1em;
-  font-family: $header-font;
-  font-size: 18px;
-  font-weight: 400;
-  color: black;
-}
-
-.select {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  padding-left: 0.5em;
-  font-family: Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: #4a555c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff3e0;
+  padding: 2em;
   border-radius: 10px;
-  border: 1px solid #4a555c;
-  width: 100%;
-  margin-bottom: 6em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.checkmark {
+  font-size: 50px;
+  color: #ff8c00;
+  margin-bottom: 0.5em;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5em;
+}
+
+.message {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 2em;
+}
+
+.userData {
+  text-align: left;
+  margin-bottom: 2em;
+}
+
+.userData h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.userData p {
+  font-size: 16px;
+  color: #666;
+  margin: 0.25em 0;
+}
+
+.button {
+  background-color: #ff8c00;
+  color: white;
+  font-size: 16px;
+  padding: 0.75em 2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #e67e00;
 }

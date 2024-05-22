@@ -1,4 +1,4 @@
-import React, { useState, useEffect, startTransition } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./results.module.scss";
@@ -6,32 +6,42 @@ import styles from "./results.module.scss";
 export interface ResultsProps {
   className?: string;
   userData?: any;
+  handleForward?: (e: React.ChangeEvent<any>) => void;
 }
 
-export const Results = ({ className, userData }: ResultsProps) => {
+export const Results = ({
+  className,
+  userData,
+  handleForward,
+}: ResultsProps) => {
+  const navigate = useNavigate();
+
   return (
     <div className={classNames(styles.root, className)}>
-      <h1 className={styles.h1}>Results</h1>
-      <h2 className={styles.h2}>User Type</h2>
-      <p className={styles.p}>{userData.user_type}</p>
-      <h2 className={styles.h2}>Stage</h2>
-      <p className={styles.p}>{userData.stage}</p>
-      <h2 className={styles.h2}>Industry</h2>
-      <p className={styles.p}>{userData.industry}</p>
-      <h2 className={styles.h2}>Capital</h2>
-      <p className={styles.p}>{userData.capital}</p>
-      <h2 className={styles.h2}>Impact</h2>
-      <p className={styles.p}>{userData.impact}</p>
-      <h2 className={styles.h2}>SDG</h2>
-      <p className={styles.p}>{userData.sdg}</p>
-      <h2 className={styles.h2}>Values</h2>
-      <p className={styles.p}>{userData.values}</p>
-      <h2 className={styles.h2}>Expertise</h2>
-      <p className={styles.p}>{userData.expertise}</p>
-      <h2 className={styles.h2}>Matching</h2>
-      <p className={styles.p}>{userData.matching}</p>
-      <h2 className={styles.h2}>Strategy</h2>
-      <p className={styles.p}>{userData.strategy}</p>
+      <div className={styles.checkmark}>
+        <span>&#10004;</span>
+      </div>
+      <h1 className={styles.title}>Welcome to Earthmates!</h1>
+      <p className={styles.message}>
+        Thank you for choosing Earthmates as your platform for connecting with
+        investors, accessing funding, and accelerating your startup's growth.
+      </p>
+      <div className={styles.userData}>
+        <h2>User Data:</h2>
+        <p>Name: {userData.name}</p>
+        <p>Stage: {userData.stage}</p>
+        <p>Industry: {userData.industry}</p>
+        <p>Capital: {userData.capital}</p>
+        <p>Impact: {userData.impact}</p>
+        <p>SDG: {userData.sdg.join(", ")}</p>
+        <p>Values: {userData.values.join(", ")}</p>
+        <p>Expertise: {userData.expertise.join(", ")}</p>
+        <p>Matching: {userData.matching.join(", ")}</p>
+        <p>Strategy: {userData.strategy.join(", ")}</p>
+      </div>
+      <button className={styles.button} onClick={handleForward}>
+        Complete Registration
+      </button>
     </div>
   );
 };

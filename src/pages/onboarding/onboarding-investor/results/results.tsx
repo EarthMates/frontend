@@ -1,14 +1,13 @@
-import React, { useState, useEffect, startTransition } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
 import ResultsComponent from "../../../../components/onboarding/results/results";
 
-import api from "../../../../api";
-
 import { useUserData } from "../../../../context/user-data-context";
-import { Header } from "../../../../components/headers/onboarding/header-onboarding";
+
+import api from "../../../../api";
 
 export interface ResultsProps {
   className?: string;
@@ -16,10 +15,7 @@ export interface ResultsProps {
 
 export const Results = ({ className }: ResultsProps) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useUserData();
-
-  const [position, setPosition] = useState(0);
-  const [industrySelected, setIndustrySelected] = useState(false); // State to track industry selection
+  const { userData } = useUserData();
 
   const handleBackward = () => {
     navigate("/onboarding/investor/strategy");
@@ -28,6 +24,8 @@ export const Results = ({ className }: ResultsProps) => {
   useEffect(() => {
     setPosition(100);
   }, []);
+
+  const [position, setPosition] = useState(0);
 
   const [investor, setInvestor] = useState([]);
 
@@ -50,7 +48,7 @@ export const Results = ({ className }: ResultsProps) => {
       .post("/api/investor/", investorData)
       .then((res) => {
         if (res.status === 201) alert("Investor created!");
-        else alert("Failed to make investor.");
+        else alert("Failed to make Investor.");
         getInvestor();
       })
       .catch((err) => alert(err));
@@ -61,18 +59,15 @@ export const Results = ({ className }: ResultsProps) => {
       <Slider position={10} />
 
       <div className={styles.registration}>
-        <button className={styles.button} onClick={handleBackward}>
-          Back
-        </button>
         <div className={styles.form}>
           <div className={styles.container}>
             {/* Start of page internal component */}
-            <ResultsComponent userData={userData} />
+            <ResultsComponent
+              userData={userData}
+              handleForward={createInvestor}
+            />
           </div>
         </div>
-        <button className={styles.button} onClick={createInvestor}>
-          Next
-        </button>
       </div>
     </div>
   );
