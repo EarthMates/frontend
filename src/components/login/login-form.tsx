@@ -3,6 +3,7 @@ import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
 import "./login-form.modules.scss";
+import { Grid, TextField } from "@mui/material";
 
 interface LoginFormProps {
   className?: string;
@@ -10,7 +11,7 @@ interface LoginFormProps {
 }
 
 function LoginForm({ className, route }: LoginFormProps) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -20,7 +21,8 @@ function LoginForm({ className, route }: LoginFormProps) {
     e.preventDefault();
 
     try {
-      const res = await api.post(route, { username, password });
+      console.log({ email, password });
+      const res = await api.post(route, { email, password });
       localStorage.setItem(ACCESS_TOKEN, res.data.access);
       localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
       navigate(-1);
@@ -60,12 +62,12 @@ function LoginForm({ className, route }: LoginFormProps) {
     return (
       <div className="Forgot-create_Container">
         <div className="forgot-pass">
-          <h2>Forgot password?</h2>
+          <h3>Forgot password?</h3>
         </div>
         <div className="create-acc">
           <h2>Don't have an account?</h2>
           <a href="/register" style={{ cursor: "pointer" }}>
-            <h3>Create one</h3>
+            <h3>&nbsp;Create one</h3>
           </a>
         </div>
       </div>
@@ -104,34 +106,43 @@ function LoginForm({ className, route }: LoginFormProps) {
     <div className="full-container">
       <form onSubmit={handleSubmit} className="form-container">
         <h1>Login to EarthMates</h1>
-        <input
-          id="username"
-          className="form-input"
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="                          "
-          required
-        />
-        <label htmlFor="username" className="form-label">
-          Username
-        </label>
-        <input
-          className="form-input"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="                          "
-          required
-        />
-        <label htmlFor="username" className="form-label">
-          Password
-        </label>
-
+        <Grid container spacing={2} direction="column">
+          <Grid item>
+            <TextField
+              id="emailaddress"
+              label="Email Address"
+              variant="outlined"
+              fullWidth
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              id="password"
+              label="Password"
+              variant="outlined"
+              fullWidth
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              inputProps={{
+                pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,16}$",
+                title:
+                  "Password should be 8-16 characters long, at least one lowercase/uppercase letter and a number",
+              }}
+            />
+          </Grid>
+          <Grid item>
+            <button className="form-button" type="submit">
+              Next
+            </button>
+          </Grid>
+        </Grid>
         {/* {loading && <LoadingIndicator />} */}
-        <button className="form-button" type="submit">
-          {"Sign in"}
-        </button>
 
         <LoginFormBottom />
       </form>

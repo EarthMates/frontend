@@ -1,4 +1,3 @@
-// theme.ts
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -7,16 +6,23 @@ const theme = createTheme({
       main: "#ff8516", // Your orange color
     },
   },
+  typography: {},
   components: {
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#e1e1e1", // Default border color
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#e1e1e1", // Border color on hover
+          },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             borderColor: "#ff8516", // Border color when focused
           },
-        },
-        notchedOutline: {
-          borderColor: "#4a555c", // Default border color
+          "& .MuiInputBase-input": {
+            fontFamily: "'Helvetica', sans-serif", // Apply custom font to input text
+          },
         },
       },
     },
@@ -26,6 +32,7 @@ const theme = createTheme({
           "&.Mui-focused": {
             color: "#ff8516", // Label color when focused
           },
+          fontFamily: "'Helvatica', sans-serif", // Apply custom font to labels
         },
       },
     },

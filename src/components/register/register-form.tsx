@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
+import { TextField, Button, Box, Typography, Grid } from "@mui/material";
 import "./register-form.modules.scss";
 
 interface RegisterFormProps {
@@ -109,81 +110,82 @@ function RegisterForm({ className, route }: RegisterFormProps) {
     <div className="full-container">
       <form onSubmit={handleSubmit} className="form-container">
         <h1>Welcome to Earthmates</h1>
-        <input
-          id="name"
-          className="form-input"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="                          "
-          required
-        />
-        <label htmlFor="name" className="form-label">
-          Name
-        </label>
-
-        <input
-          id="lastName"
-          className="form-input"
-          type="text"
-          value={lastName}
-          onChange={(e) => setlastName(e.target.value)}
-          placeholder="                          "
-          required
-        />
-        <label htmlFor="lastName" className="form-label">
-          Last name
-        </label>
-
-        <input
-          id="emailaddress"
-          className="form-input"
-          //it already should check for a valid email address
-          type="email"
-          //anyways we force it below
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          title="Please enter a valid email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="                          "
-          required
-        />
-        <label htmlFor="emailaddress" className="form-label">
-          Email address
-        </label>
-        <input
-          id="password"
-          className="form-input"
-          type="password"
-          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$"
-          title="Password should be 8-16 characters long,
-           at least one lowercase/uppercase letter
-            and a number"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="                          "
-          required
-        />
-        <label htmlFor="password" className="form-label">
-          Password
-        </label>
-        <input
-          id="confirmpassword"
-          className="form-input"
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          placeholder="                          "
-          required
-        />
-        <label htmlFor="repeatPassword" className="form-label">
-          Confirm password
-        </label>
+        <Grid container spacing={2} direction="column">
+          <Grid item>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  id="name"
+                  label="First Name"
+                  variant="outlined"
+                  fullWidth
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  id="lastName"
+                  label="Last Name"
+                  variant="outlined"
+                  fullWidth
+                  value={lastName}
+                  onChange={(e) => setlastName(e.target.value)}
+                  required
+                />
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <TextField
+              id="emailaddress"
+              label="Email Address"
+              variant="outlined"
+              fullWidth
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              id="password"
+              label="Password"
+              variant="outlined"
+              fullWidth
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              inputProps={{
+                pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,16}$",
+                title:
+                  "Password should be 8-16 characters long, at least one lowercase/uppercase letter and a number",
+              }}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              id="confirmpassword"
+              label="Confirm Password"
+              variant="outlined"
+              fullWidth
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </Grid>
+          <Grid item>
+            <button className="form-button" type="submit">
+              Next
+            </button>
+          </Grid>
+        </Grid>
 
         {/* {loading && <LoadingIndicator />} */}
-        <button className="form-button" type="submit">
-          Next
-        </button>
 
         <LoginFormBottom />
       </form>

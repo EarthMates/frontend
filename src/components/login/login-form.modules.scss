@@ -57,7 +57,7 @@ h1 {
 .form-button {
   display: flex;
   justify-content: center;
-  width: 95%;
+  width: 100%;
   padding: 0.5em;
   margin: 0.3em 0 1.5em 0;
   background-color: $our-orange;
@@ -171,6 +171,10 @@ label {
   width: fit-content;
   margin-top: 5%;
   white-space: nowrap;
+  h3 {
+    color: black;
+    font-weight: 600;
+  }
 }
 
 .forgot-pass:hover {
@@ -196,8 +200,10 @@ label {
   }
 
   h3 {
-    margin: 0;
+    color: black;
+    font-weight: 600;
   }
+
   h3:hover {
     color: $our-purple;
     transition: all 0.3s ease-in-out;
