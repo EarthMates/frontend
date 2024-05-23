@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
 import styles from "../../onboarding.module.scss";
+import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import MatchingComponent from "../../../../components/onboarding/matching/matching";
 
@@ -42,6 +43,7 @@ export const Matching = ({ className }: MatchingProps) => {
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={() => handleBackward()}>
+          <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
           Back
         </button>
         <div className={styles.form}>

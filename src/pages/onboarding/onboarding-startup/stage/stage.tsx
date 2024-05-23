@@ -8,6 +8,8 @@ import StageComponent from "../../../../components/onboarding/stage/stage";
 import { useUserData } from "../../../../context/user-data-context";
 import { Header } from "../../../../components/headers/onboarding/header-onboarding";
 
+import arrowLeft from "../../../../assets/arrow-left.svg";
+
 export interface StageProps {
   className?: string;
 }
@@ -42,6 +44,7 @@ export const Stage = ({ className }: StageProps) => {
 
       <div className={styles.registration}>
         <button className={styles.button} onClick={() => handleBackward()}>
+          <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
           Back
         </button>
         <div className={styles.form}>

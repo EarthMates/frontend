@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "../../onboarding.module.scss";
+import arrowLeft from "../../../../assets/arrow-left.svg";
 
 import Slider from "../../../../components/onboarding/slider/slider";
 import IndustryComponent from "../../../../components/onboarding/industry/industry";
@@ -49,7 +50,8 @@ export const Industry = ({ className }: IndustryProps) => {
       <Slider position={2} />
 
       <div className={styles.registration}>
-        <button className={styles.button} onClick={handleBackward}>
+        <button className={styles.button} onClick={() => handleBackward()}>
+          <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
           Back
         </button>
         <div className={styles.form}>

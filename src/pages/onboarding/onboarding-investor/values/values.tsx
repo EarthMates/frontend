@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
 import styles from "../../onboarding.module.scss";
+import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import ValuesComponent from "../../../../components/onboarding/values/values";
 
@@ -58,15 +59,15 @@ export const Values = ({ className }: ValuesProps) => {
       <Slider position={6} />
 
       <div className={styles.registration}>
-        <button className={styles.button} onClick={handleBackward}>
+        <button className={styles.button} onClick={() => handleBackward()}>
+          <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
           Back
         </button>
         <div className={styles.form}>
           <div className={styles.container}>
             {/* Start of page internal component */}
             <ValuesComponent
-              selectedValues={selectedValues}
-              setSelectedValues={setSelectedValues}
+              handleValuesSelected={setSelectedValues}
               handleForward={handleForward}
             />
           </div>

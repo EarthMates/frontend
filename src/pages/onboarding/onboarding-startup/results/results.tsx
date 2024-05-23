@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "../../onboarding.module.scss";
+import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import ResultsComponent from "../../../../components/onboarding/results/results";
 
