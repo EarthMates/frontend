@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
 import {
   TextField,
   Button,
-  Box,
-  Typography,
   Grid,
   InputAdornment,
   IconButton,
+  Checkbox,
+  FormControlLabel,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import "./register-form.modules.scss";
+
+import GoogleIcon from "../../assets/google-color.svg";
+import LinkedInIcon from "../../assets/linkedin-color.svg";
 
 interface RegisterFormProps {
   className?: string;
@@ -20,18 +22,15 @@ interface RegisterFormProps {
 }
 
 function RegisterForm({ className, route }: RegisterFormProps) {
-  // first name
   const [name, setName] = useState("");
-  // last name
-  const [lastName, setlastName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  // first password
   const [password, setPassword] = useState("");
-  // second password
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [acceptTerms, setAcceptTerms] = useState(true);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.ChangeEvent<any>) => {
@@ -45,9 +44,9 @@ function RegisterForm({ className, route }: RegisterFormProps) {
 
     try {
       const res = await api.post(route, {
-        username: name, // Assuming 'name' corresponds to 'username' in your Django model
-        first_name: name, // Assuming 'name' corresponds to 'first_name' in your Django model
-        last_name: lastName, // Assuming 'lastName' corresponds to 'last_name' in your Django model
+        username: name,
+        first_name: name,
+        last_name: lastName,
         email: email,
         password: password,
       });
@@ -75,19 +74,34 @@ function RegisterForm({ className, route }: RegisterFormProps) {
 
   const GoogleLinkedinLogin = () => {
     return (
-      <div className="google-linkedin-container">
-        {/*<div className="google-button">
-          <button className="google-button-text">Login with Google</button>
-        </div>
-
-        <div className="linkedin-button">
-          <button className="linkedin-button-text">Login with Linkedin</button>
-        </div>*/}
-      </div>
+      <Grid container spacing={2} className="google-linkedin-container">
+        <Grid item xs={12} sm={6}>
+          <Button
+            variant="outlined"
+            color="inherit"
+            className="google-button"
+            fullWidth
+          >
+            <img src={GoogleIcon} alt="Google" className="icon" />
+            Login with Google
+          </Button>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Button
+            variant="outlined"
+            color="inherit"
+            className="linkedin-button"
+            fullWidth
+          >
+            <img src={LinkedInIcon} alt="LinkedIn" className="icon" />
+            Login with LinkedIn
+          </Button>
+        </Grid>
+      </Grid>
     );
   };
 
-  const Sign_in_container = () => {
+  const SignInContainer = () => {
     return (
       <div className="signin-container">
         <div className="signin-internal">
@@ -96,10 +110,6 @@ function RegisterForm({ className, route }: RegisterFormProps) {
             <h3>Sign in</h3>
           </a>
         </div>
-        <h2 className="terms">
-          By signing up "Continue", you are accepting our <a>Terms of use</a>{" "}
-          and our <a>Privacy policy</a>.
-        </h2>
       </div>
     );
   };
@@ -119,7 +129,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
       <div className="bottom-container">
         <OrLine />
         <GoogleLinkedinLogin />
-        <Sign_in_container />
+        <SignInContainer />
       </div>
     );
   };
@@ -127,7 +137,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   return (
     <div className="full-container">
       <form onSubmit={handleSubmit} className="form-container">
-        <h1>Welcome to Earthmates</h1>
+        <h1>Welcome to EarthMates</h1>
         <Grid container spacing={2} direction="column">
           <Grid item>
             <Grid container spacing={2}>
@@ -149,7 +159,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
                   variant="outlined"
                   fullWidth
                   value={lastName}
-                  onChange={(e) => setlastName(e.target.value)}
+                  onChange={(e) => setLastName(e.target.value)}
                   required
                 />
               </Grid>
@@ -225,13 +235,30 @@ function RegisterForm({ className, route }: RegisterFormProps) {
             />
           </Grid>
           <Grid item>
-            <button className="form-button" type="submit">
+            <Checkbox
+              checked={acceptTerms}
+              onChange={(e) => setAcceptTerms(e.target.checked)}
+              name="acceptTerms"
+              color="primary"
+              sx={{ transform: "scale(0.8)" }}
+            />
+            <span className="terms">
+              By signing up you are accepting our <a>Terms of use</a> and our{" "}
+              <a>Privacy policy</a>.
+            </span>
+          </Grid>
+          <Grid item>
+            <button
+              className="form-button"
+              type="submit"
+              disabled={!acceptTerms}
+            >
               Next
             </button>
           </Grid>
         </Grid>
 
-        {/* {loading && <LoadingIndicator />} */}
+        {loading && <p>Loading...</p>}
 
         <LoginFormBottom />
       </form>

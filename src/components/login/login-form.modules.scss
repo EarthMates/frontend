@@ -7,7 +7,8 @@ h1 {
   letter-spacing: 1%;
   margin-bottom: 0.5em;
 }
-//we want to scale up the max-width whilst the screen is se to $mobile-width
+
+//we want to scale up the max-width whilst the screen is set to $mobile-width
 //this is going to be the standard from now on
 .full-container {
   background-color: $header-color;
@@ -20,11 +21,11 @@ h1 {
     max-width: $desktop-width;
   }
 }
+
 .form-container {
   background-color: $white;
   display: flex;
   flex-direction: column;
-
   align-items: left;
   justify-content: center;
   margin: 2em auto 5em auto;
@@ -49,6 +50,7 @@ h1 {
   box-sizing: border-box;
   height: 4em;
 }
+
 .form-input:hover {
   border: 1px solid $our-orange;
   transition: all 0.5s ease-in-out;
@@ -87,15 +89,18 @@ label {
   transition: all 0.2s ease-out;
   margin: 0.2em;
 }
+
 input:focus {
   border-color: $our-orange;
   transition: border-color 0.2s ease-out;
 }
+
 input:focus + label,
 input:not(:placeholder-shown) + label {
   color: #999;
   transform: translate(0.3rem, -4rem);
 }
+
 input {
   z-index: 2;
   padding: 0.5em;
@@ -106,6 +111,7 @@ input {
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
+
 label {
   z-index: 1;
 }
@@ -116,7 +122,6 @@ label {
   display: flex;
   flex-direction: column;
   align-items: left;
-
   width: 100%;
 }
 
@@ -125,36 +130,53 @@ label {
   display: flex;
   flex-direction: row;
   align-items: center;
-
   margin: 1em 0;
   width: 100%;
 }
+
 .br-line {
   height: 1px;
   background-color: #e1e1e1;
 }
+
 .left-line {
-  justify-self: left;
+  flex-grow: 1;
 }
 
 .right-line {
-  justify-self: right;
+  flex-grow: 1;
 }
 
 .google-linkedin-container {
+  width: 100%;
+}
+
+.google-button,
+.linkedin-button {
+  background-color: white !important;
+  border: 1px solid #e1e1e1 !important;
+  color: #666 !important;
+  width: 100%;
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align text to the left */
+}
+
+.icon {
+  width: 1.5em; /* Adjust size as needed */
+  height: 1.5em; /* Adjust size as needed */
+  margin-right: 0.5em; /* Space between icon and text */
 }
 
 .Forgot-create_Container {
   display: flex;
   flex-direction: column;
   align-items: bottom;
-
   justify-content: space-between;
   column-gap: 0.5em;
   margin: 1em 0 0 0;
   width: 100%;
-  font-size: 0.7em;
-
   text-align: left;
 
   @media (min-width: $phone-width) {
@@ -171,16 +193,17 @@ label {
   width: fit-content;
   margin-top: 5%;
   white-space: nowrap;
+
   h3 {
     color: black;
     font-weight: 600;
+    font-size: small;
   }
-}
-
-.forgot-pass:hover {
-  color: $our-purple;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
+  h3:hover {
+    color: $our-orange;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
 }
 
 .create-acc {
@@ -189,7 +212,6 @@ label {
   width: min-content;
   text-align: left;
   white-space: nowrap;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -197,15 +219,17 @@ label {
   h2 {
     margin: 0;
     color: $small-grey-writing;
+    font-size: small;
   }
 
   h3 {
     color: black;
     font-weight: 600;
+    font-size: small;
   }
 
   h3:hover {
-    color: $our-purple;
+    color: $our-orange;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
   }

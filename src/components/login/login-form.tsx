@@ -3,8 +3,16 @@ import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
 import "./login-form.modules.scss";
-import { Grid, TextField, InputAdornment, IconButton } from "@mui/material";
+import {
+  Grid,
+  TextField,
+  InputAdornment,
+  IconButton,
+  Button,
+} from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import GoogleIcon from "../../assets/google-color.svg";
+import LinkedInIcon from "../../assets/linkedin-color.svg";
 
 interface LoginFormProps {
   className?: string;
@@ -47,15 +55,30 @@ function LoginForm({ className, route }: LoginFormProps) {
 
   const GoogleLinkedinLogin = () => {
     return (
-      <div className="google-linkedin-container">
-        {/*<div className="google-button">
-          <button className="google-button-text">Login with Google</button>
-        </div>
-
-        <div className="linkedin-button">
-          <button className="linkedin-button-text">Login with Linkedin</button>
-        </div>*/}
-      </div>
+      <Grid container spacing={2} className="google-linkedin-container">
+        <Grid item xs={12} sm={6}>
+          <Button
+            variant="outlined"
+            color="inherit"
+            className="google-button"
+            fullWidth
+          >
+            <img src={GoogleIcon} alt="Google" className="icon" />
+            Login with Google
+          </Button>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Button
+            variant="outlined"
+            color="inherit"
+            className="linkedin-button"
+            fullWidth
+          >
+            <img src={LinkedInIcon} alt="LinkedIn" className="icon" />
+            Login with LinkedIn
+          </Button>
+        </Grid>
+      </Grid>
     );
   };
 
