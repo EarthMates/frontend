@@ -3,7 +3,8 @@ import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
 import "./login-form.modules.scss";
-import { Grid, TextField } from "@mui/material";
+import { Grid, TextField, InputAdornment, IconButton } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 interface LoginFormProps {
   className?: string;
@@ -14,6 +15,7 @@ function LoginForm({ className, route }: LoginFormProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.ChangeEvent<any>) => {
@@ -33,15 +35,15 @@ function LoginForm({ className, route }: LoginFormProps) {
     }
   };
 
-  //FRONTEND:
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
-  /*
-   i'm probably going to eventually move 
-   all to file called frontend-something.tsx,
-    but for now we laying the bricks
-  */
-
-  //component for sigup with google/linkedin
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
 
   const GoogleLinkedinLogin = () => {
     return (
@@ -52,12 +54,11 @@ function LoginForm({ className, route }: LoginFormProps) {
 
         <div className="linkedin-button">
           <button className="linkedin-button-text">Login with Linkedin</button>
-    </div>*/}
+        </div>*/}
       </div>
     );
   };
 
-  //component for forgot password/create new account section
   const ForgotPassword_CreateNew = () => {
     return (
       <div className="Forgot-create_Container">
@@ -74,8 +75,6 @@ function LoginForm({ className, route }: LoginFormProps) {
     );
   };
 
-  //component for "or line"
-
   const OrLine = () => {
     return (
       <div className="or-line-container">
@@ -85,12 +84,6 @@ function LoginForm({ className, route }: LoginFormProps) {
       </div>
     );
   };
-
-  //Component for login form
-  //If in login page return in order:
-  //returns a <br>
-  //returns the google/linkedin login button container
-  //returns the forgot password/create new account section
 
   const LoginFormBottom = () => {
     return (
@@ -125,7 +118,7 @@ function LoginForm({ className, route }: LoginFormProps) {
               label="Password"
               variant="outlined"
               fullWidth
-              type="password"
+              type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -133,6 +126,20 @@ function LoginForm({ className, route }: LoginFormProps) {
                 pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,16}$",
                 title:
                   "Password should be 8-16 characters long, at least one lowercase/uppercase letter and a number",
+              }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
               }}
             />
           </Grid>

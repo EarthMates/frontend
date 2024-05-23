@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
-import { TextField, Button, Box, Typography, Grid } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Box,
+  Typography,
+  Grid,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import "./register-form.modules.scss";
 
 interface RegisterFormProps {
@@ -11,16 +20,18 @@ interface RegisterFormProps {
 }
 
 function RegisterForm({ className, route }: RegisterFormProps) {
-  //first name
+  // first name
   const [name, setName] = useState("");
-  //last name
+  // last name
   const [lastName, setlastName] = useState("");
   const [email, setEmail] = useState("");
-  //first password
+  // first password
   const [password, setPassword] = useState("");
-  //second password
+  // second password
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.ChangeEvent<any>) => {
@@ -48,9 +59,19 @@ function RegisterForm({ className, route }: RegisterFormProps) {
     }
   };
 
-  //FRONTEND:
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
-  //component for sigup with google/linkedin
+  const handleClickShowConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
 
   const GoogleLinkedinLogin = () => {
     return (
@@ -61,12 +82,11 @@ function RegisterForm({ className, route }: RegisterFormProps) {
 
         <div className="linkedin-button">
           <button className="linkedin-button-text">Login with Linkedin</button>
-    </div>*/}
+        </div>*/}
       </div>
     );
   };
 
-  //component for forgot password/create new account section
   const Sign_in_container = () => {
     return (
       <div className="signin-container">
@@ -83,8 +103,6 @@ function RegisterForm({ className, route }: RegisterFormProps) {
       </div>
     );
   };
-
-  //component for "or line"
 
   const OrLine = () => {
     return (
@@ -155,7 +173,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
               label="Password"
               variant="outlined"
               fullWidth
-              type="password"
+              type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -163,6 +181,20 @@ function RegisterForm({ className, route }: RegisterFormProps) {
                 pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,16}$",
                 title:
                   "Password should be 8-16 characters long, at least one lowercase/uppercase letter and a number",
+              }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
               }}
             />
           </Grid>
@@ -172,10 +204,24 @@ function RegisterForm({ className, route }: RegisterFormProps) {
               label="Confirm Password"
               variant="outlined"
               fullWidth
-              type="password"
+              type={showConfirmPassword ? "text" : "password"}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle confirm password visibility"
+                      onClick={handleClickShowConfirmPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
           </Grid>
           <Grid item>
