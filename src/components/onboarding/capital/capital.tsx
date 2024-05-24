@@ -10,6 +10,7 @@ export interface CapitalProps {
   capitalAmount: number;
   handleCapitalChange: (value: number) => void;
   handleForward: () => void;
+  role: string;
 }
 
 export const Capital = ({
@@ -17,6 +18,7 @@ export const Capital = ({
   capitalAmount,
   handleCapitalChange,
   handleForward,
+  role,
 }: CapitalProps) => {
   const [sliderValue, setSliderValue] = useState<number>(500000); // Set initial value
   const handleSliderChange = (event: Event, newValue: number | number[]) => {

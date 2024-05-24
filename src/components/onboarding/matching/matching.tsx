@@ -9,6 +9,7 @@ export interface MatchingProps {
   selectedMatching: string[];
   setSelectedMatching: React.Dispatch<React.SetStateAction<string[]>>;
   handleForward: () => void;
+  role: string;
 }
 
 export const Matching = ({
@@ -16,6 +17,7 @@ export const Matching = ({
   selectedMatching,
   setSelectedMatching,
   handleForward,
+  role,
 }: MatchingProps) => {
   const handleMatchingToggle = (matching: string) => {
     if (selectedMatching.includes(matching)) {

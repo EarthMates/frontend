@@ -61,6 +61,7 @@ export const Expertise = ({ className }: ExpertiseProps) => {
               selectedExpertise={selectedExpertise}
               setSelectedExpertise={setSelectedExpertise}
               handleForward={handleForward}
+              role="startup"
             />
           </div>
         </div>

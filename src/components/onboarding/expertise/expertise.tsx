@@ -9,6 +9,7 @@ export interface ExpertiseProps {
   selectedExpertise: string[];
   setSelectedExpertise: React.Dispatch<React.SetStateAction<string[]>>;
   handleForward: () => void;
+  role: string;
 }
 
 export const Expertise = ({
@@ -16,6 +17,7 @@ export const Expertise = ({
   selectedExpertise,
   setSelectedExpertise,
   handleForward,
+  role,
 }: ExpertiseProps) => {
   const handleExpertiseToggle = (expertise: string) => {
     if (selectedExpertise.includes(expertise)) {

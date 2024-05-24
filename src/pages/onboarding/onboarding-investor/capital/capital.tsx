@@ -69,6 +69,7 @@ export const Capital = ({ className }: CapitalProps) => {
               capitalAmount={capitalAmount}
               handleCapitalChange={handleCapitalChange}
               handleForward={handleForward}
+              role="investor"
             />
           </div>
         </div>

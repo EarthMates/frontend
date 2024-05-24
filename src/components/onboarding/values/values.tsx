@@ -12,6 +12,7 @@ export interface ValuesProps {
   selectedValues: string[];
   setSelectedValues: React.Dispatch<React.SetStateAction<string[]>>;
   handleForward: () => void;
+  role: string;
 }
 
 export const Values = ({
@@ -19,6 +20,7 @@ export const Values = ({
   selectedValues,
   setSelectedValues,
   handleForward,
+  role,
 }: ValuesProps) => {
   const handleValuesChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;

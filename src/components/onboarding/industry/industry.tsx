@@ -9,12 +9,14 @@ export interface IndustryProps {
   className?: string;
   handleIndustrySelected: (industry: string) => void;
   handleForward: () => void;
+  role: string;
 }
 
 export const Industry = ({
   className,
   handleIndustrySelected,
   handleForward,
+  role,
 }: IndustryProps) => {
   return (
     <div className={classNames(styles.root, className)}>

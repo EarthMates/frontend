@@ -51,6 +51,7 @@ export const Sdg = ({ className }: SdgProps) => {
               selectedSdgs={selectedSdgs}
               setSelectedSdgs={setSelectedSdgs}
               handleForward={handleForward}
+              role="investor"
             />
           </div>
         </div>

@@ -10,6 +10,7 @@ export interface StrategyProps {
   selectedStrategy: string[];
   setSelectedStrategy: React.Dispatch<React.SetStateAction<string[]>>;
   handleForward: () => void;
+  role: string;
 }
 
 export const Strategy = ({
@@ -17,6 +18,7 @@ export const Strategy = ({
   selectedStrategy,
   setSelectedStrategy,
   handleForward,
+  role,
 }: StrategyProps) => {
   const handleStrategyToggle = (strategy: string) => {
     if (selectedStrategy.includes(strategy)) {

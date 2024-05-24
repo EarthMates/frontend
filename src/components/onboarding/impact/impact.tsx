@@ -12,6 +12,7 @@ export interface ImpactProps {
   impactAmount: number;
   handleImpactChange: (value: number) => void;
   handleForward: () => void;
+  role: string;
 }
 
 export const Impact = ({
@@ -19,6 +20,7 @@ export const Impact = ({
   impactAmount,
   handleImpactChange,
   handleForward,
+  role,
 }: ImpactProps) => {
   const [sliderValue, setSliderValue] = useState<number>(500000); // Set initial value
   const handleSliderChange = (event: Event, newValue: number | number[]) => {

@@ -11,6 +11,7 @@ interface SdgProps {
   selectedSdgs: string[];
   setSelectedSdgs: React.Dispatch<React.SetStateAction<string[]>>;
   handleForward: () => void;
+  role: string;
 }
 
 function Sdg({
@@ -18,6 +19,7 @@ function Sdg({
   selectedSdgs,
   setSelectedSdgs,
   handleForward,
+  role,
 }: SdgProps) {
   const handleSdgChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const sdg = event.target.value;

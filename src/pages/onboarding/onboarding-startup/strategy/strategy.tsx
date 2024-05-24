@@ -54,6 +54,7 @@ export const Strategy = ({ className }: StrategyProps) => {
               selectedStrategy={selectedStrategy}
               setSelectedStrategy={setSelectedStrategy}
               handleForward={handleForward}
+              role="startup"
             />
           </div>
         </div>

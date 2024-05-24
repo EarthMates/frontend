@@ -60,6 +60,7 @@ export const Matching = ({ className }: MatchingProps) => {
               selectedMatching={selectedMatching}
               setSelectedMatching={setSelectedMatching}
               handleForward={handleForward}
+              role="investor"
             />
           </div>
         </div>
