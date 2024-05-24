@@ -69,6 +69,7 @@ export const Values = ({ className }: ValuesProps) => {
             <ValuesComponent
               handleValuesSelected={setSelectedValues}
               handleForward={handleForward}
+              role="investor"
             />
           </div>
         </div>

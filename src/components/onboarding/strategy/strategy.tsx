@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./strategy.module.scss";
+
 import { Button } from "../button/button";
 
 export interface StrategyProps {
@@ -8,6 +10,7 @@ export interface StrategyProps {
   selectedStrategy: string[];
   setSelectedStrategy: React.Dispatch<React.SetStateAction<string[]>>;
   handleForward: () => void;
+  role: string;
 }
 
 export const Strategy = ({
@@ -15,6 +18,7 @@ export const Strategy = ({
   selectedStrategy,
   setSelectedStrategy,
   handleForward,
+  role,
 }: StrategyProps) => {
   const handleStrategyToggle = (strategy: string) => {
     if (selectedStrategy.includes(strategy)) {
@@ -24,35 +28,27 @@ export const Strategy = ({
     }
   };
 
-  const strategies = ["Quick Exit", "Long Term Exit", "No Exit"];
+  const strategys = ["Clear and quick exit", "A long term exit", "No exit"];
 
   return (
     <div className={classNames(styles.root, className)}>
-      <div className={styles.container}>
-        <h1 className={styles.h1}>I am looking for</h1>
-        <p className={styles.p}>Choose your long term business plan</p>
+      <h1 className={styles.h1}>I am looking for</h1>
+      <p className={styles.p}>Choose your long term business plan</p>
 
-        <div className={styles.strategy}>
-          {strategies.map((strategy) => (
-            <button
-              key={strategy}
-              className={classNames(styles.button, {
-                [styles.selected]: selectedStrategy.includes(strategy),
-              })}
-              onClick={() => handleStrategyToggle(strategy)}
-            >
-              {strategy}
-            </button>
-          ))}
-        </div>
-        {selectedStrategy.length > 0 && (
-          <Button
-            buttonText="Next"
-            onClick={handleForward}
-            className={styles.next_button}
-          />
-        )}
+      <div className={styles.strategy}>
+        {strategys.map((strategy) => (
+          <button
+            key={strategy}
+            className={classNames(styles.button, {
+              [styles.selected]: selectedStrategy.includes(strategy),
+            })}
+            onClick={() => handleStrategyToggle(strategy)}
+          >
+            {strategy}
+          </button>
+        ))}
       </div>
+      {true && <Button buttonText="Next" onClick={handleForward} />}
     </div>
   );
 };

@@ -60,6 +60,7 @@ export const Industry = ({ className }: IndustryProps) => {
             <IndustryComponent
               handleIndustrySelected={handleIndustrySelected}
               handleForward={handleForward}
+              role="startup"
             />
           </div>
         </div>
