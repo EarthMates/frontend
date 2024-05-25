@@ -1,7 +1,9 @@
-import React from "react";
 import classNames from "classnames";
 import styles from "./sdg.module.scss";
+
 import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { useState } from "react";
 import { Button } from "../button/button";
 
 interface SdgProps {
@@ -17,110 +19,127 @@ function Sdg({
   selectedSdgs,
   setSelectedSdgs,
   handleForward,
+  role,
 }: SdgProps) {
   const handleSdgChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const sdg = event.target.value;
     if (event.target.checked) {
+      // Add the selected SDG to the array if checked
       if (selectedSdgs.length < 5) {
+        console.log(sdg);
         setSelectedSdgs([...selectedSdgs, sdg]);
+        console.log(selectedSdgs);
       } else {
-        event.preventDefault();
+        event.preventDefault(); // Prevent checking more than 5 SDGs
       }
     } else {
+      // Remove the SDG from the array if unchecked
       setSelectedSdgs(selectedSdgs.filter((item) => item !== sdg));
     }
   };
 
-  return (
-    <div className={classNames(styles.root, className)}>
-      <div className={styles.container}>
+  if (role === "startup") {
+    return (
+      <div className={classNames(styles.root, className)}>
         <h1 className={styles.h1}>
           Which SDGs do you fulfill with your startup project?
         </h1>
         <p className={styles.p}>Choose a maximum of 5</p>
 
         <div className={styles.checkboxContainer}>
+          {/* Render checkboxes for each SDG */}
           {Array.from({ length: 17 }).map((_, index) => (
-            <div
-              key={index}
-              className={styles.checkboxItem}
-              title={getSdgDescription(index + 1)}
-            >
-              <Checkbox
-                sx={{
-                  color: "#b3b3b3",
-                  "&.Mui-checked": {
-                    color: "#ff8516",
-                  },
-                }}
-                checked={selectedSdgs.includes(
-                  `SDG ${index + 1}: ${getSdgTitle(index + 1)}`
-                )}
-                onChange={handleSdgChange}
-                value={`SDG ${index + 1}: ${getSdgTitle(index + 1)}`}
+            <div key={index} className={styles.checkboxItem}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={selectedSdgs.includes(
+                      `SDG ${index + 1}: ${getSdgTitle(index + 1)}`
+                    )}
+                    onChange={handleSdgChange}
+                    value={`SDG ${index + 1}: ${getSdgTitle(index + 1)}`}
+                  />
+                }
+                label={`${getSdgTitle(index + 1)}`}
               />
-              <div className={styles.checkboxTextContainer}>
-                <p className={styles.checkboxTitle}>
-                  {`${getSdgTitle(index + 1)}`}
-                </p>
-              </div>
             </div>
           ))}
         </div>
-        <Button
-          buttonText="Next"
-          onClick={handleForward}
-          className={styles.next_button}
-        />
+        <Button buttonText="Next" onClick={handleForward} />
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>
+          Which SDGs do you prioritize investment in?
+        </h1>
+        <p className={styles.p}>Choose a maximum of 5</p>
+
+        <div className={styles.checkboxContainer}>
+          {/* Render checkboxes for each SDG */}
+          {Array.from({ length: 17 }).map((_, index) => (
+            <div key={index} className={styles.checkboxItem}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={selectedSdgs.includes(
+                      `SDG ${index + 1}: ${getSdgTitle(index + 1)}`
+                    )}
+                    onChange={handleSdgChange}
+                    value={`SDG ${index + 1}: ${getSdgTitle(index + 1)}`}
+                  />
+                }
+                label={`${getSdgTitle(index + 1)}`}
+              />
+            </div>
+          ))}
+        </div>
+        <Button buttonText="Next" onClick={handleForward} />
+      </div>
+    );
+  }
 }
 
 export default Sdg;
 
 const getSdgTitle = (index: number) => {
-  const titles = [
-    "No Poverty",
-    "Zero Hunger",
-    "Good Health and Well-being",
-    "Quality Education",
-    "Gender Equality",
-    "Clean Water and Sanitation",
-    "Affordable and Clean Energy",
-    "Decent Work and Economic Growth",
-    "Industry, Innovation and Infrastructure",
-    "Reduced Inequalities",
-    "Sustainable Cities and Communities",
-    "Responsible Consumption and Production",
-    "Climate Action",
-    "Life Below Water",
-    "Life on Land",
-    "Peace, Justice, and Strong Institutions",
-    "Partnerships for the Goals",
-  ];
-  return titles[index - 1] || "";
-};
-
-const getSdgDescription = (index: number) => {
-  const descriptions = [
-    "End poverty in all its forms everywhere",
-    "End hunger, achieve food security and improved nutrition and promote sustainable agriculture",
-    "Ensure healthy lives and promote well-being for all at all ages",
-    "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all",
-    "Achieve gender equality and empower all women and girls",
-    "Ensure availability and sustainable management of water and sanitation for all",
-    "Ensure access to affordable, reliable, sustainable and modern energy for all",
-    "Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all",
-    "Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation",
-    "Reduce inequality within and among countries",
-    "Make cities and human settlements inclusive, safe, resilient and sustainable",
-    "Ensure sustainable consumption and production patterns",
-    "Take urgent action to combat climate change and its impacts",
-    "Conserve and sustainably use the oceans, seas and marine resources for sustainable development",
-    "Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss",
-    "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels",
-    "Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development",
-  ];
-  return descriptions[index - 1] || "";
+  switch (index) {
+    case 1:
+      return "No Poverty";
+    case 2:
+      return "Zero Hunger";
+    case 3:
+      return "Good Health and Well-being";
+    case 4:
+      return "Quality Education";
+    case 5:
+      return "Gender Equality";
+    case 6:
+      return "Clean Water and Sanitation";
+    case 7:
+      return "Affordable and Clean Energy";
+    case 8:
+      return "Decent Work and Economic Growth";
+    case 9:
+      return "Industry, Innovation and Infrastructure";
+    case 10:
+      return "Reduced Inequalities";
+    case 11:
+      return "Sustainable Cities and Communities";
+    case 12:
+      return "Responsible Consumption and Production";
+    case 13:
+      return "Climate Action";
+    case 14:
+      return "Life Below Water";
+    case 15:
+      return "Life on Land";
+    case 16:
+      return "Peace, Justice, and Strong Institutions";
+    case 17:
+      return "Partnerships for the Goals";
+    default:
+      return "";
+  }
 };

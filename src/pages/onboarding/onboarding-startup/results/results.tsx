@@ -66,6 +66,7 @@ export const Results = ({ className }: ResultsProps) => {
             <ResultsComponent
               userData={userData}
               handleForward={createStartup}
+              role="startup"
             />
           </div>
         </div>

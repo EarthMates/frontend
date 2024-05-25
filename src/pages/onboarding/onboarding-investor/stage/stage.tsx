@@ -48,7 +48,10 @@ export const Stage = ({ className }: StageProps) => {
         </button>
         <div className={styles.form}>
           <div className={styles.container}>
-            <StageComponent handleStageSelected={handleStageSelected} />
+            <StageComponent
+              handleStageSelected={handleStageSelected}
+              role="investor"
+            />
           </div>
         </div>
 

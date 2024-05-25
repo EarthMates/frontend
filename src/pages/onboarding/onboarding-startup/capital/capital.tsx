@@ -71,6 +71,7 @@ export const Capital = ({ className }: CapitalProps) => {
               capitalAmount={capitalAmount}
               handleCapitalChange={handleCapitalChange}
               handleForward={handleForward}
+              role="startup"
             />
           </div>
         </div>

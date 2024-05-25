@@ -1,112 +1,117 @@
-// values.tsx
-import React, { useState } from "react";
-import {
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  SelectChangeEvent,
-  Checkbox,
-  ListItemText,
-} from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./values.module.scss";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+
 import { Button } from "../button/button";
 
 export interface ValuesProps {
   className?: string;
-  handleValuesSelected: (values: string[]) => void;
+  selectedValues: string[];
+  setSelectedValues: React.Dispatch<React.SetStateAction<string[]>>;
   handleForward: () => void;
+  role: string;
 }
 
 export const Values = ({
   className,
-  handleValuesSelected,
+  selectedValues,
+  setSelectedValues,
   handleForward,
+  role,
 }: ValuesProps) => {
-  const [selectedValues, setSelectedValues] = useState<string[]>([]);
-  const [hovered, setHovered] = useState(false);
-
-  const handleChange = (event: SelectChangeEvent<typeof selectedValues>) => {
-    const value = event.target.value as string[];
-    setSelectedValues(value);
-    handleValuesSelected(value);
+  const handleValuesChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    if (event.target.checked) {
+      // Add the selected values to the array if checked
+      if (selectedValues.length < 6) {
+        setSelectedValues([...selectedValues, value]);
+      } else {
+        event.preventDefault(); // Prevent checking more than 5 Values
+      }
+    } else {
+      // Remove the Values from the array if unchecked
+      setSelectedValues(selectedValues.filter((item) => item !== value));
+    }
   };
 
-  return (
-    <div className={classNames(styles.root, className)}>
-      <h1 className={styles.h1}>
-        What are the relevant values for your teams?
-      </h1>
-      <p className={styles.p}>Choose a maximum of 5</p>
+  if (role === "startup") {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>
+          What are the relevant values for your teams?
+        </h1>
+        <p className={styles.p}>Choose a maximum of 6</p>
 
-      <FormControl fullWidth variant="outlined" className={styles.select}>
-        <InputLabel>Select values</InputLabel>
-        <Select
-          multiple
-          value={selectedValues}
-          onChange={handleChange}
-          label="Select values"
-          renderValue={(selected) => selected.join(", ")}
-        >
-          <MenuItem value="Trust">
-            <Checkbox checked={selectedValues.indexOf("Trust") > -1} />
-            <ListItemText primary="Trust" />
-          </MenuItem>
-          <MenuItem value="Respect">
-            <Checkbox checked={selectedValues.indexOf("Respect") > -1} />
-            <ListItemText primary="Respect" />
-          </MenuItem>
-          <MenuItem value="Collaboration">
-            <Checkbox checked={selectedValues.indexOf("Collaboration") > -1} />
-            <ListItemText primary="Collaboration" />
-          </MenuItem>
-          <MenuItem value="Innovation">
-            <Checkbox checked={selectedValues.indexOf("Innovation") > -1} />
-            <ListItemText primary="Innovation" />
-          </MenuItem>
-          <MenuItem value="Accountability">
-            <Checkbox checked={selectedValues.indexOf("Accountability") > -1} />
-            <ListItemText primary="Accountability" />
-          </MenuItem>
-          <MenuItem value="Excellence">
-            <Checkbox checked={selectedValues.indexOf("Excellence") > -1} />
-            <ListItemText primary="Excellence" />
-          </MenuItem>
-          <MenuItem value="Integrity">
-            <Checkbox checked={selectedValues.indexOf("Integrity") > -1} />
-            <ListItemText primary="Integrity" />
-          </MenuItem>
-          <MenuItem value="Diversity">
-            <Checkbox checked={selectedValues.indexOf("Diversity") > -1} />
-            <ListItemText primary="Diversity" />
-          </MenuItem>
-          <MenuItem value="Empowerment">
-            <Checkbox checked={selectedValues.indexOf("Empowerment") > -1} />
-            <ListItemText primary="Empowerment" />
-          </MenuItem>
-          <MenuItem value="Communication">
-            <Checkbox checked={selectedValues.indexOf("Communication") > -1} />
-            <ListItemText primary="Communication" />
-          </MenuItem>
-        </Select>
-      </FormControl>
-
-      {selectedValues.length > 0 && (
-        <div
-          className={styles.buttonContainer}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-        >
-          <Button
-            buttonText="Next"
-            onClick={handleForward}
-            className={hovered ? styles.selected : ""}
-          />
+        <div className={styles.checkboxContainer}>
+          {/* Render checkboxes for each value */}
+          {teamValues.map((value, index) => (
+            <div key={index} className={styles.checkboxItem}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={selectedValues.includes(value)}
+                    onChange={handleValuesChange}
+                    value={value}
+                  />
+                }
+                label={`${value}`}
+              />
+            </div>
+          ))}
         </div>
-      )}
-    </div>
-  );
+
+        <Button buttonText="Next" onClick={handleForward} />
+      </div>
+    );
+  } else {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>
+          What are the relevant values for in teams?
+          {/*have some doubt about the correctness of this title
+          copied from trello */}
+        </h1>
+        <p className={styles.p}>Choose a maximum of 6</p>
+
+        <div className={styles.checkboxContainer}>
+          {/* Render checkboxes for each value */}
+          {teamValues.map((value, index) => (
+            <div key={index} className={styles.checkboxItem}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={selectedValues.includes(value)}
+                    onChange={handleValuesChange}
+                    value={value}
+                  />
+                }
+                label={`${value}`}
+              />
+            </div>
+          ))}
+        </div>
+
+        <Button buttonText="Next" onClick={handleForward} />
+      </div>
+    );
+  }
 };
 
 export default Values;
+
+// List of the 10 most known team values
+const teamValues = [
+  "Trust",
+  "Respect",
+  "Collaboration",
+  "Innovation",
+  "Accountability",
+  "Excellence",
+  "Integrity",
+  "Diversity",
+  "Empowerment",
+  "Communication",
+];
