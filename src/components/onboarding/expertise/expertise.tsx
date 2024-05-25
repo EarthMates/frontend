@@ -38,31 +38,59 @@ export const Expertise = ({
     "Marketing",
   ];
 
-  return (
-    <div className={classNames(styles.root, className)}>
-      <h1 className={styles.h1}>Investors expert knowledge</h1>
-      <p className={styles.p}>
-        Choose the necessary expert knowledge you need from investors to enable
-        us match you with investors who can provide valuable insights and
-        support tailored to your specific industry and growth stage.
-      </p>
+  if (role === "startup") {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>Investors expert knowledge</h1>
+        <p className={styles.p}>
+          Choose the necessary expert knowledge you need from investors to
+          enable us match you with investors who can provide valuable insights
+          and support tailored to your specific industry and growth stage.
+        </p>
 
-      <div className={styles.expertise}>
-        {expertises.map((expertise) => (
-          <button
-            key={expertise}
-            className={classNames(styles.button, {
-              [styles.selected]: selectedExpertise.includes(expertise),
-            })}
-            onClick={() => handleExpertiseToggle(expertise)}
-          >
-            {expertise}
-          </button>
-        ))}
+        <div className={styles.expertise}>
+          {expertises.map((expertise) => (
+            <button
+              key={expertise}
+              className={classNames(styles.button, {
+                [styles.selected]: selectedExpertise.includes(expertise),
+              })}
+              onClick={() => handleExpertiseToggle(expertise)}
+            >
+              {expertise}
+            </button>
+          ))}
+        </div>
+        {true && <Button buttonText="Next" onClick={handleForward} />}
       </div>
-      {true && <Button buttonText="Next" onClick={handleForward} />}
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>What is your area of expertise?</h1>
+        <p className={styles.p}>
+          Choose the necessary expert knowledge you possess as an investor to
+          enable us match you with startups who can provide valuable insights
+          and support tailored to your specific industry and growth stage.
+        </p>
+
+        <div className={styles.expertise}>
+          {expertises.map((expertise) => (
+            <button
+              key={expertise}
+              className={classNames(styles.button, {
+                [styles.selected]: selectedExpertise.includes(expertise),
+              })}
+              onClick={() => handleExpertiseToggle(expertise)}
+            >
+              {expertise}
+            </button>
+          ))}
+        </div>
+        {true && <Button buttonText="Next" onClick={handleForward} />}
+      </div>
+    );
+  }
 };
 
 export default Expertise;

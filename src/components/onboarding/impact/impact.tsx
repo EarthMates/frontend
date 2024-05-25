@@ -27,30 +27,58 @@ export const Impact = ({
     setSliderValue(typeof newValue === "number" ? newValue : newValue[0]);
     handleImpactChange(typeof newValue === "number" ? newValue : 0);
   };
-  return (
-    <div className={classNames(styles.root, className)}>
-      <h1 className={styles.h1}>
-        How important is it to have impact through your business?
-      </h1>
-      <p className={styles.p}>
-        Rate the importance of impact for your company on a scale of 1 - 10
-      </p>
-      <div className={styles.slider}>
-        <InputSlider
-          value={sliderValue}
-          onChange={handleSliderChange}
-          min={1}
-          max={10}
-          step={1}
-          labels={["1", "10"]}
-          displayStandard={true}
-        />
+
+  if (role === "startup") {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>
+          How important is it to have impact through your business?
+        </h1>
+        <p className={styles.p}>
+          Rate the importance of impact for your company on a scale of 1 - 10
+        </p>
+        <div className={styles.slider}>
+          <InputSlider
+            value={sliderValue}
+            onChange={handleSliderChange}
+            min={1}
+            max={10}
+            step={1}
+            labels={["1", "10"]}
+            displayStandard={true}
+          />
+        </div>
+        {true && <Button buttonText="Next" onClick={handleForward} />}{" "}
+        {/* Should display only if impact > 0 */}
+        {/* Render button only if impact is selected */}
       </div>
-      {true && <Button buttonText="Next" onClick={handleForward} />}{" "}
-      {/* Should display only if impact > 0 */}
-      {/* Render button only if impact is selected */}
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>
+          How do you prioritize investments in social impact?
+        </h1>
+        <p className={styles.p}>
+          Rate the importance of impact for your company on a scale of 1 - 10
+        </p>
+        <div className={styles.slider}>
+          <InputSlider
+            value={sliderValue}
+            onChange={handleSliderChange}
+            min={1}
+            max={10}
+            step={1}
+            labels={["1", "10"]}
+            displayStandard={true}
+          />
+        </div>
+        {true && <Button buttonText="Next" onClick={handleForward} />}{" "}
+        {/* Should display only if impact > 0 */}
+        {/* Render button only if impact is selected */}
+      </div>
+    );
+  }
 };
 
 export default Impact;

@@ -18,25 +18,49 @@ export const Industry = ({
   handleForward,
   role,
 }: IndustryProps) => {
-  return (
-    <div className={classNames(styles.root, className)}>
-      <h1 className={styles.h1}>Which industry does your company belong to?</h1>
-      <p className={styles.p}>Choose your company's niche</p>
-      <select
-        className={styles.select}
-        onChange={(e) => handleIndustrySelected(e.target.value)}
-      >
-        <option value="Select industry">Select industry</option>{" "}
-        {/* Default option */}
-        <option value="Technology">Technology</option>
-        <option value="Agriculture">Agriculture</option>
-        <option value="Mobility">Mobility</option>
-        <option value="Finance">Finance</option>
-      </select>
-      {true && <Button buttonText="Next" onClick={handleForward} />} {/* t */}
-      {/* Render button only if industry is selected */}
-    </div>
-  );
+  if (role === "startup") {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>
+          Which industry does your company belong to?
+        </h1>
+        <p className={styles.p}>Choose your company's niche</p>
+        <select
+          className={styles.select}
+          onChange={(e) => handleIndustrySelected(e.target.value)}
+        >
+          <option value="Select industry">Select industry</option>{" "}
+          {/* Default option */}
+          <option value="Technology">Technology</option>
+          <option value="Agriculture">Agriculture</option>
+          <option value="Mobility">Mobility</option>
+          <option value="Finance">Finance</option>
+        </select>
+        {true && <Button buttonText="Next" onClick={handleForward} />} {/* t */}
+        {/* Render button only if industry is selected */}
+      </div>
+    );
+  } else {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>Which industry do you want to invest in?</h1>
+        <p className={styles.p}>Choose your company niche</p>
+        <select
+          className={styles.select}
+          onChange={(e) => handleIndustrySelected(e.target.value)}
+        >
+          <option value="Select industry">Select industry</option>{" "}
+          {/* Default option */}
+          <option value="Technology">Technology</option>
+          <option value="Agriculture">Agriculture</option>
+          <option value="Mobility">Mobility</option>
+          <option value="Finance">Finance</option>
+        </select>
+        {true && <Button buttonText="Next" onClick={handleForward} />} {/* t */}
+        {/* Render button only if industry is selected */}
+      </div>
+    );
+  }
 };
 
 export default Industry;

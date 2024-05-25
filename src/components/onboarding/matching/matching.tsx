@@ -35,28 +35,54 @@ export const Matching = ({
     "Everyone",
   ];
 
-  return (
-    <div className={classNames(styles.root, className)}>
-      <h1 className={styles.h1}>I want to get matched with</h1>
-      <p className={styles.p}>
-        Select the type of investor you want to get matched with
-      </p>
+  if (role === "startup") {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>I want to get matched with</h1>
+        <p className={styles.p}>
+          Select the type of investor you want to get matched with
+        </p>
 
-      <div className={styles.matching}>
-        {matchings.map((matching) => (
-          <button
-            key={matching}
-            className={classNames(styles.button, {
-              [styles.selected]: selectedMatching.includes(matching),
-            })}
-            onClick={() => handleMatchingToggle(matching)}
-          >
-            {matching}
-          </button>
-        ))}
+        <div className={styles.matching}>
+          {matchings.map((matching) => (
+            <button
+              key={matching}
+              className={classNames(styles.button, {
+                [styles.selected]: selectedMatching.includes(matching),
+              })}
+              onClick={() => handleMatchingToggle(matching)}
+            >
+              {matching}
+            </button>
+          ))}
+        </div>
+        {true && <Button buttonText="Next" onClick={handleForward} />}
       </div>
-      {true && <Button buttonText="Next" onClick={handleForward} />}
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>I want to get matched with</h1>
+        <p className={styles.p}>
+          Select the type of company you want to get matched with
+        </p>
+
+        <div className={styles.matching}>
+          {matchings.map((matching) => (
+            <button
+              key={matching}
+              className={classNames(styles.button, {
+                [styles.selected]: selectedMatching.includes(matching),
+              })}
+              onClick={() => handleMatchingToggle(matching)}
+            >
+              {matching}
+            </button>
+          ))}
+        </div>
+        {true && <Button buttonText="Next" onClick={handleForward} />}
+      </div>
+    );
+  }
 };
 export default Matching;

@@ -37,34 +37,67 @@ export const Values = ({
     }
   };
 
-  return (
-    <div className={classNames(styles.root, className)}>
-      <h1 className={styles.h1}>
-        What are the relevant values for your teams?
-      </h1>
-      <p className={styles.p}>Choose a maximum of 6</p>
+  if (role === "startup") {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>
+          What are the relevant values for your teams?
+        </h1>
+        <p className={styles.p}>Choose a maximum of 6</p>
 
-      <div className={styles.checkboxContainer}>
-        {/* Render checkboxes for each value */}
-        {teamValues.map((value, index) => (
-          <div key={index} className={styles.checkboxItem}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={selectedValues.includes(value)}
-                  onChange={handleValuesChange}
-                  value={value}
-                />
-              }
-              label={`${value}`}
-            />
-          </div>
-        ))}
+        <div className={styles.checkboxContainer}>
+          {/* Render checkboxes for each value */}
+          {teamValues.map((value, index) => (
+            <div key={index} className={styles.checkboxItem}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={selectedValues.includes(value)}
+                    onChange={handleValuesChange}
+                    value={value}
+                  />
+                }
+                label={`${value}`}
+              />
+            </div>
+          ))}
+        </div>
+
+        <Button buttonText="Next" onClick={handleForward} />
       </div>
+    );
+  } else {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>
+          What are the relevant values for in teams?
+          {/*have some doubt about the correctness of this title
+          copied from trello */}
+        </h1>
+        <p className={styles.p}>Choose a maximum of 6</p>
 
-      <Button buttonText="Next" onClick={handleForward} />
-    </div>
-  );
+        <div className={styles.checkboxContainer}>
+          {/* Render checkboxes for each value */}
+          {teamValues.map((value, index) => (
+            <div key={index} className={styles.checkboxItem}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={selectedValues.includes(value)}
+                    onChange={handleValuesChange}
+                    value={value}
+                  />
+                }
+                label={`${value}`}
+              />
+            </div>
+          ))}
+        </div>
+
+        <Button buttonText="Next" onClick={handleForward} />
+      </div>
+    );
+  }
 };
 
 export default Values;

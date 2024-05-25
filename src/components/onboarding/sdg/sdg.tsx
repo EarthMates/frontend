@@ -37,35 +37,68 @@ function Sdg({
       setSelectedSdgs(selectedSdgs.filter((item) => item !== sdg));
     }
   };
-  return (
-    <div className={classNames(styles.root, className)}>
-      <h1 className={styles.h1}>
-        Which SDGs do you fulfill with your startup project?
-      </h1>
-      <p className={styles.p}>Choose a maximum of 5</p>
 
-      <div className={styles.checkboxContainer}>
-        {/* Render checkboxes for each SDG */}
-        {Array.from({ length: 17 }).map((_, index) => (
-          <div key={index} className={styles.checkboxItem}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={selectedSdgs.includes(
-                    `SDG ${index + 1}: ${getSdgTitle(index + 1)}`
-                  )}
-                  onChange={handleSdgChange}
-                  value={`SDG ${index + 1}: ${getSdgTitle(index + 1)}`}
-                />
-              }
-              label={`${getSdgTitle(index + 1)}`}
-            />
-          </div>
-        ))}
+  if (role === "startup") {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>
+          Which SDGs do you fulfill with your startup project?
+        </h1>
+        <p className={styles.p}>Choose a maximum of 5</p>
+
+        <div className={styles.checkboxContainer}>
+          {/* Render checkboxes for each SDG */}
+          {Array.from({ length: 17 }).map((_, index) => (
+            <div key={index} className={styles.checkboxItem}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={selectedSdgs.includes(
+                      `SDG ${index + 1}: ${getSdgTitle(index + 1)}`
+                    )}
+                    onChange={handleSdgChange}
+                    value={`SDG ${index + 1}: ${getSdgTitle(index + 1)}`}
+                  />
+                }
+                label={`${getSdgTitle(index + 1)}`}
+              />
+            </div>
+          ))}
+        </div>
+        <Button buttonText="Next" onClick={handleForward} />
       </div>
-      <Button buttonText="Next" onClick={handleForward} />
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>
+          Which SDGs do you prioritize investment in?
+        </h1>
+        <p className={styles.p}>Choose a maximum of 5</p>
+
+        <div className={styles.checkboxContainer}>
+          {/* Render checkboxes for each SDG */}
+          {Array.from({ length: 17 }).map((_, index) => (
+            <div key={index} className={styles.checkboxItem}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={selectedSdgs.includes(
+                      `SDG ${index + 1}: ${getSdgTitle(index + 1)}`
+                    )}
+                    onChange={handleSdgChange}
+                    value={`SDG ${index + 1}: ${getSdgTitle(index + 1)}`}
+                  />
+                }
+                label={`${getSdgTitle(index + 1)}`}
+              />
+            </div>
+          ))}
+        </div>
+        <Button buttonText="Next" onClick={handleForward} />
+      </div>
+    );
+  }
 }
 
 export default Sdg;

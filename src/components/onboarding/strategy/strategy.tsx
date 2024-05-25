@@ -30,27 +30,51 @@ export const Strategy = ({
 
   const strategys = ["Clear and quick exit", "A long term exit", "No exit"];
 
-  return (
-    <div className={classNames(styles.root, className)}>
-      <h1 className={styles.h1}>I am looking for</h1>
-      <p className={styles.p}>Choose your long term business plan</p>
+  if (role === "startup") {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>I am looking for</h1>
+        <p className={styles.p}>Choose your long term business plan</p>
 
-      <div className={styles.strategy}>
-        {strategys.map((strategy) => (
-          <button
-            key={strategy}
-            className={classNames(styles.button, {
-              [styles.selected]: selectedStrategy.includes(strategy),
-            })}
-            onClick={() => handleStrategyToggle(strategy)}
-          >
-            {strategy}
-          </button>
-        ))}
+        <div className={styles.strategy}>
+          {strategys.map((strategy) => (
+            <button
+              key={strategy}
+              className={classNames(styles.button, {
+                [styles.selected]: selectedStrategy.includes(strategy),
+              })}
+              onClick={() => handleStrategyToggle(strategy)}
+            >
+              {strategy}
+            </button>
+          ))}
+        </div>
+        {true && <Button buttonText="Next" onClick={handleForward} />}
       </div>
-      {true && <Button buttonText="Next" onClick={handleForward} />}
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className={classNames(styles.root, className)}>
+        <h1 className={styles.h1}>I am looking for</h1>
+        <p className={styles.p}>Choose your long term investment plan</p>
+
+        <div className={styles.strategy}>
+          {strategys.map((strategy) => (
+            <button
+              key={strategy}
+              className={classNames(styles.button, {
+                [styles.selected]: selectedStrategy.includes(strategy),
+              })}
+              onClick={() => handleStrategyToggle(strategy)}
+            >
+              {strategy}
+            </button>
+          ))}
+        </div>
+        {true && <Button buttonText="Next" onClick={handleForward} />}
+      </div>
+    );
+  }
 };
 
 export default Strategy;
