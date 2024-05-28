@@ -1,0 +1,15 @@
+@import "@styles/theme.module.scss";
+
+.root {
+  border-radius: 20px;
+  color: #ff8516;
+  text-align: center;
+  line-height: 2em;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  width: fit-content; // Adjusted width to match the image
+  height: fit-content; // Adjusted height to match the image
+  padding: 0.1em 1.5em;
+  background-color: #fff3e8; // Ensures button has white background
+}

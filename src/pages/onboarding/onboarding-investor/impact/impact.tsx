@@ -45,15 +45,18 @@ export const Impact = ({ className }: ImpactProps) => {
       <SliderComponent position={4} />
 
       <div className={styles.registration}>
-        <button className={styles.button} onClick={() => handleBackward()}>
-          <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
-          Back
-        </button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={() => handleBackward()}>
+            <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
+            Back
+          </button>
+        </div>
         <div className={styles.form}>
           <div className={styles.container}>
             <ImpactComponent
               handleImpactChange={handleImpactChange}
               handleForward={handleForward}
+              role="investor"
               impactAmount={impactAmount}
             />
           </div>

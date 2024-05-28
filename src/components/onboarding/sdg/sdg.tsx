@@ -1,8 +1,8 @@
 import React from "react";
 import classNames from "classnames";
 import styles from "./sdg.module.scss";
-import Checkbox from "@mui/material/Checkbox";
 import { Button } from "../button/button";
+import { StepCounter } from "../step-counter/step_counter";
 
 interface SdgProps {
   className?: string;
@@ -17,55 +17,58 @@ function Sdg({
   selectedSdgs,
   setSelectedSdgs,
   handleForward,
+  role,
 }: SdgProps) {
-  const handleSdgChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const sdg = event.target.value;
-    if (event.target.checked) {
-      if (selectedSdgs.length < 5) {
-        setSelectedSdgs([...selectedSdgs, sdg]);
-      } else {
-        event.preventDefault();
-      }
-    } else {
+  const handleSdgChange = (sdg: string) => {
+    if (selectedSdgs.includes(sdg)) {
       setSelectedSdgs(selectedSdgs.filter((item) => item !== sdg));
+    } else if (selectedSdgs.length < 5) {
+      setSelectedSdgs([...selectedSdgs, sdg]);
     }
   };
 
   return (
     <div className={classNames(styles.root, className)}>
+      <StepCounter currentStep={7} />
       <div className={styles.container}>
         <h1 className={styles.h1}>
-          Which SDGs do you fulfill with your startup project?
+          Which <span className={styles.sdgText}>SDGs</span> do you fulfill with
+          your startup project?
         </h1>
         <p className={styles.p}>Choose a maximum of 5</p>
 
         <div className={styles.checkboxContainer}>
-          {Array.from({ length: 17 }).map((_, index) => (
-            <div
-              key={index}
-              className={styles.checkboxItem}
-              title={getSdgDescription(index + 1)}
-            >
-              <Checkbox
-                sx={{
-                  color: "#b3b3b3",
-                  "&.Mui-checked": {
-                    color: "#ff8516",
-                  },
-                }}
-                checked={selectedSdgs.includes(
-                  `SDG ${index + 1}: ${getSdgTitle(index + 1)}`
-                )}
-                onChange={handleSdgChange}
-                value={`SDG ${index + 1}: ${getSdgTitle(index + 1)}`}
-              />
-              <div className={styles.checkboxTextContainer}>
-                <p className={styles.checkboxTitle}>
-                  {`${getSdgTitle(index + 1)}`}
-                </p>
+          {Array.from({ length: 17 }).map((_, index) => {
+            const sdg = `SDG ${index + 1}: ${getSdgTitle(index + 1)}`;
+            const isSelected = selectedSdgs.includes(sdg);
+            return (
+              <div
+                key={index}
+                className={classNames(styles.checkboxItem, {
+                  [styles.selected]: isSelected,
+                })}
+                onClick={() => handleSdgChange(sdg)}
+                title={getSdgDescription(index + 1)} // Tooltip text
+              >
+                <div className={styles.checkboxTextContainer}>
+                  <p
+                    className={classNames(styles.checkboxTitle, {
+                      [styles.selectedText]: isSelected,
+                    })}
+                  >
+                    {getSdgTitle(index + 1)}
+                  </p>
+                  <p
+                    className={classNames(styles.checkboxDescription, {
+                      [styles.selectedText]: isSelected,
+                    })}
+                  >
+                    {getSdgDescription(index + 1)}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <Button
           buttonText="Next"

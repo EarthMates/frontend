@@ -2,12 +2,14 @@ import React from "react";
 import classNames from "classnames";
 import styles from "./strategy.module.scss";
 import { Button } from "../button/button";
+import { StepCounter } from "../step-counter/step_counter";
 
 export interface StrategyProps {
   className?: string;
   selectedStrategy: string[];
   setSelectedStrategy: React.Dispatch<React.SetStateAction<string[]>>;
   handleForward: () => void;
+  role: string;
 }
 
 export const Strategy = ({
@@ -15,6 +17,7 @@ export const Strategy = ({
   selectedStrategy,
   setSelectedStrategy,
   handleForward,
+  role,
 }: StrategyProps) => {
   const handleStrategyToggle = (strategy: string) => {
     if (selectedStrategy.includes(strategy)) {
@@ -28,6 +31,7 @@ export const Strategy = ({
 
   return (
     <div className={classNames(styles.root, className)}>
+      <StepCounter currentStep={11} />
       <div className={styles.container}>
         <h1 className={styles.h1}>I am looking for</h1>
         <p className={styles.p}>Choose your long term business plan</p>

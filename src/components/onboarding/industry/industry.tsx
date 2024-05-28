@@ -10,17 +10,20 @@ import {
 import classNames from "classnames";
 import styles from "./industry.module.scss";
 import { Button } from "../button/button";
+import { StepCounter } from "../step-counter/step_counter";
 
 export interface IndustryProps {
   className?: string;
   handleIndustrySelected: (industry: string) => void;
   handleForward: () => void;
+  role: string;
 }
 
 export const Industry = ({
   className,
   handleIndustrySelected,
   handleForward,
+  role,
 }: IndustryProps) => {
   const [selectedIndustry, setSelectedIndustry] =
     useState<string>("Select industry");
@@ -34,6 +37,7 @@ export const Industry = ({
 
   return (
     <div className={classNames(styles.root, className)}>
+      <StepCounter currentStep={4} />
       <h1 className={styles.h1}>Which industry does your company belong to?</h1>
       <p className={styles.p}>Choose your company's niche</p>
 

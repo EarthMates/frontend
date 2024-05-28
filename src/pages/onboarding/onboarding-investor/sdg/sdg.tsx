@@ -42,10 +42,12 @@ export const Sdg = ({ className }: SdgProps) => {
       <Slider position={5} />
 
       <div className={styles.registration}>
-        <button className={styles.button} onClick={() => handleBackward()}>
-          <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
-          Back
-        </button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={() => handleBackward()}>
+            <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
+            Back
+          </button>
+        </div>
         <div className={styles.form}>
           <div className={styles.container}>
             {/* Start of page internal component */}
@@ -53,6 +55,7 @@ export const Sdg = ({ className }: SdgProps) => {
               selectedSdgs={selectedSdgs}
               setSelectedSdgs={setSelectedSdgs}
               handleForward={handleForward}
+              role="investor"
               role="investor"
             />
           </div>

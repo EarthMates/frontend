@@ -10,6 +10,7 @@ import { useUserData } from "../../../../context/user-data-context";
 import { Header } from "../../../../components/headers/onboarding/header-onboarding";
 import { TextField } from "@mui/material";
 import { Button } from "../../../../components/onboarding/button/button";
+import { StepCounter } from "../../../../components/onboarding/step-counter/step_counter";
 
 export interface NameProps {
   className?: string;
@@ -47,16 +48,19 @@ export const Name = ({ className }: NameProps) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Slider position={1} />
+      <Slider position={0} />
 
       <div className={styles.registration}>
-        <button className={styles.button} onClick={() => handleBackward()}>
-          <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
-          Back
-        </button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={() => handleBackward()}>
+            <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
+            Back
+          </button>
+        </div>
         <div className={styles.form}>
           <div className={styles.container}>
             <div className={classNames(nameStyles.root, className)}>
+              <StepCounter currentStep={2} />
               <h1 className={nameStyles.h1}>What's your startup called?</h1>
               <p className={nameStyles.p}>Add the name of your startup</p>
 

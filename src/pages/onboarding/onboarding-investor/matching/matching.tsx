@@ -42,16 +42,19 @@ export const Matching = ({ className }: MatchingProps) => {
       <Slider position={8} />
 
       <div className={styles.registration}>
-        <button className={styles.button} onClick={() => handleBackward()}>
-          <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
-          Back
-        </button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={() => handleBackward()}>
+            <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
+            Back
+          </button>
+        </div>
         <div className={styles.form}>
           <div className={styles.container}>
             <MatchingComponent
               selectedMatching={selectedMatching}
               setSelectedMatching={setSelectedMatching}
               handleForward={handleForward}
+              role="investor"
             />
           </div>
         </div>

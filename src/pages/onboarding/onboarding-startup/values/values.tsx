@@ -59,16 +59,19 @@ export const Values = ({ className }: ValuesProps) => {
       <Slider position={6} />
 
       <div className={styles.registration}>
-        <button className={styles.button} onClick={() => handleBackward()}>
-          <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
-          Back
-        </button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={() => handleBackward()}>
+            <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
+            Back
+          </button>
+        </div>
         <div className={styles.form}>
           <div className={styles.container}>
             {/* Start of page internal component */}
             <ValuesComponent
               handleValuesSelected={setSelectedValues}
               handleForward={handleForward}
+              role="startup"
             />
           </div>
         </div>

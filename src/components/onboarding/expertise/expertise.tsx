@@ -2,12 +2,14 @@ import React from "react";
 import classNames from "classnames";
 import styles from "./expertise.module.scss";
 import { Button } from "../button/button";
+import { StepCounter } from "../step-counter/step_counter";
 
 export interface ExpertiseProps {
   className?: string;
   selectedExpertise: string[];
   setSelectedExpertise: React.Dispatch<React.SetStateAction<string[]>>;
   handleForward: () => void;
+  role: string;
 }
 
 export const Expertise = ({
@@ -15,6 +17,7 @@ export const Expertise = ({
   selectedExpertise,
   setSelectedExpertise,
   handleForward,
+  role,
 }: ExpertiseProps) => {
   const handleExpertiseToggle = (expertise: string) => {
     if (selectedExpertise.includes(expertise)) {
@@ -45,6 +48,7 @@ export const Expertise = ({
 
   return (
     <div className={classNames(styles.root, className)}>
+      <StepCounter currentStep={9} />
       <div className={styles.container}>
         <h1 className={styles.h1}>Investors expert knowledge</h1>
         <p className={styles.p}>

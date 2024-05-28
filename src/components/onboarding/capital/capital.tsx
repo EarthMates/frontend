@@ -4,12 +4,14 @@ import styles from "./capital.module.scss";
 import { Button } from "../button/button";
 import { useState } from "react";
 import { Slider, Typography, Box } from "@mui/material";
+import { StepCounter } from "../step-counter/step_counter";
 
 export interface CapitalProps {
   className?: string;
   capitalAmount: number;
   handleCapitalChange: (value: number) => void;
   handleForward: () => void;
+  role: string;
 }
 
 // Function to map slider value to custom scale
@@ -35,6 +37,7 @@ export const Capital = ({
   capitalAmount,
   handleCapitalChange,
   handleForward,
+  role,
 }: CapitalProps) => {
   const [sliderValue, setSliderValue] = useState<number>(0); // Set initial value
 
@@ -48,6 +51,7 @@ export const Capital = ({
 
   return (
     <div className={classNames(styles.root, className)}>
+      <StepCounter currentStep={5} />
       <h1 className={styles.h1}>How much capital does your company need?</h1>
       <p className={styles.p}>
         Use the slider to select your company funding need

@@ -4,12 +4,14 @@ import classNames from "classnames";
 import { Slider, Typography, Box } from "@mui/material";
 import styles from "./impact.module.scss";
 import { Button } from "../button/button";
+import { StepCounter } from "../step-counter/step_counter";
 
 export interface ImpactProps {
   className?: string;
   impactAmount: number;
   handleImpactChange: (value: number) => void;
   handleForward: () => void;
+  role: string;
 }
 
 export const Impact = ({
@@ -17,6 +19,7 @@ export const Impact = ({
   impactAmount,
   handleImpactChange,
   handleForward,
+  role,
 }: ImpactProps) => {
   const [sliderValue, setSliderValue] = useState<number>(impactAmount); // Use initial value from props
 
@@ -28,6 +31,7 @@ export const Impact = ({
 
   return (
     <div className={classNames(styles.root, className)}>
+      <StepCounter currentStep={6} />
       <h1 className={styles.h1}>
         How important is it to have impact through your business?
       </h1>

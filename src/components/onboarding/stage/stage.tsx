@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import styles from "./stage.module.scss";
+import { StepCounter } from "../step-counter/step_counter";
 
 interface StageProps {
   className?: string;
@@ -12,6 +13,7 @@ function Stage({ className, handleStageSelected }: StageProps) {
 
   return (
     <div className={classNames(styles.root, className)}>
+      <StepCounter currentStep={3} />
       <h1 className={styles.h1}>What's your company's current stage?</h1>
       <p className={styles.p}>Choose one that applies to your company</p>
 

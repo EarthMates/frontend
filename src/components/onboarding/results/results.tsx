@@ -13,6 +13,7 @@ export const Results = ({
   className,
   userData,
   handleForward,
+  role,
 }: ResultsProps) => {
   const navigate = useNavigate();
 

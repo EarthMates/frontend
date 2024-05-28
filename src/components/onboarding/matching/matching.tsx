@@ -2,12 +2,14 @@ import React from "react";
 import classNames from "classnames";
 import styles from "./matching.module.scss";
 import { Button } from "../button/button";
+import { StepCounter } from "../step-counter/step_counter";
 
 export interface MatchingProps {
   className?: string;
   selectedMatching: string[];
   setSelectedMatching: React.Dispatch<React.SetStateAction<string[]>>;
   handleForward: () => void;
+  role: string;
 }
 
 export const Matching = ({
@@ -15,6 +17,7 @@ export const Matching = ({
   selectedMatching,
   setSelectedMatching,
   handleForward,
+  role,
 }: MatchingProps) => {
   const handleMatchingToggle = (matching: string) => {
     if (selectedMatching.includes(matching)) {
@@ -34,6 +37,7 @@ export const Matching = ({
 
   return (
     <div className={classNames(styles.root, className)}>
+      <StepCounter currentStep={10} />
       <div className={styles.container}>
         <h1 className={styles.h1}>I want to get matched with</h1>
         <p className={styles.p}>

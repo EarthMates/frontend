@@ -42,16 +42,19 @@ export const Strategy = ({ className }: StrategyProps) => {
       <Slider position={9} />
 
       <div className={styles.registration}>
-        <button className={styles.button} onClick={() => handleBackward()}>
-          <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
-          Back
-        </button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={() => handleBackward()}>
+            <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
+            Back
+          </button>
+        </div>
         <div className={styles.form}>
           <div className={styles.container}>
             <StrategyComponent
               selectedStrategy={selectedStrategy}
               setSelectedStrategy={setSelectedStrategy}
               handleForward={handleForward}
+              role="investor"
             />
           </div>
         </div>

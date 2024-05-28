@@ -1,15 +1,18 @@
 @import "@styles/theme.module.scss";
 
 .root {
-  font-family: $paragraph-font;
-  font-weight: 500;
-  font-size: 20px;
+  display: flex;
+  font-family: Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 1em;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   background-color: #ff8516;
   color: #ffffff;
   border-radius: 10px;
-  width: 6em;
-  height: 2em;
+  min-width: 6em;
+  min-height: 3em;
   line-height: 2em;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;

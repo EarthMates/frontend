@@ -40,16 +40,19 @@ export const Expertise = ({ className }: ExpertiseProps) => {
       <Slider position={7} />
 
       <div className={styles.registration}>
-        <button className={styles.button} onClick={() => handleBackward()}>
-          <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
-          Back
-        </button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.button} onClick={() => handleBackward()}>
+            <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
+            Back
+          </button>
+        </div>
         <div className={styles.form}>
           <div className={styles.container}>
             <ExpertiseComponent
               selectedExpertise={selectedExpertise}
               setSelectedExpertise={setSelectedExpertise}
               handleForward={handleForward}
+              role="investor"
             />
           </div>
         </div>
