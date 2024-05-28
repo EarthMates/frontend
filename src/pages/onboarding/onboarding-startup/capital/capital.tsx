@@ -19,7 +19,7 @@ export const Capital = ({ className }: CapitalProps) => {
 
   const [position, setPosition] = useState(0);
   const [capitalSelected, setCapitalSelected] = useState(false); // State to track capital selection
-  const [capitalAmount, setCapitalAmount] = useState(0); // State to store capital amount
+  const [capitalAmount, setCapitalAmount] = useState(""); // State to store capital amount
 
   const handleBackward = () => {
     navigate("/onboarding/startup/industry");
@@ -30,29 +30,25 @@ export const Capital = ({ className }: CapitalProps) => {
     navigate("/onboarding/startup/impact");
   };
 
-  const handleCapitalSelected = (capital: string) => {
-    if (capital === "Select capital") {
-      setCapitalSelected(false); // Reset CapitalSelected if default option is selected
-    } else {
-      setUserData((prevUserData) => ({
-        ...prevUserData,
-        capital: parseFloat(capital),
-      }));
-      setCapitalSelected(true); // Set capitalSelected to true when an capital is selected
-    }
-  };
-
   useEffect(() => {
     setPosition(30);
   }, []);
 
   const handleCapitalChange = (value: number) => {
-    setCapitalAmount(value);
+    setCapitalAmount(value.toString());
     setUserData((prevUserData) => ({
       ...prevUserData,
-      capital: value,
+      capital: value.toString(),
     }));
     setCapitalSelected(true);
+  };
+
+  const handleRangeSelected = (capital_range: string) => {
+    // Dummy
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      capital: capital_range,
+    }));
   };
 
   return (
@@ -72,6 +68,7 @@ export const Capital = ({ className }: CapitalProps) => {
             <CapitalComponent
               capitalAmount={capitalAmount}
               handleCapitalChange={handleCapitalChange}
+              handleRangeSelected={handleRangeSelected}
               handleForward={handleForward}
               role="startup"
             />

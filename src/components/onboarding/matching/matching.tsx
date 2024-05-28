@@ -39,23 +39,36 @@ export const Matching = ({
     <div className={classNames(styles.root, className)}>
       <StepCounter currentStep={10} />
       <div className={styles.container}>
-        <h1 className={styles.h1}>I want to get matched with</h1>
-        <p className={styles.p}>
-          Select the type of investor you want to get matched with
-        </p>
+        {role === "startup" ? (
+          <>
+            <h1 className={styles.h1}>I want to get matched with</h1>
+            <p className={styles.p}>
+              Select the type of investor you want to get matched with
+            </p>
+          </>
+        ) : (
+          <>
+            <h1 className={styles.h1}>I am a...</h1>
+            <p className={styles.p}>Select the type of investor that you are</p>
+          </>
+        )}
 
         <div className={styles.matching}>
-          {matchings.map((matching) => (
-            <button
-              key={matching}
-              className={classNames(styles.button, {
-                [styles.selected]: selectedMatching.includes(matching),
-              })}
-              onClick={() => handleMatchingToggle(matching)}
-            >
-              {matching}
-            </button>
-          ))}
+          {matchings
+            .filter(
+              (matching) => role === "startup" || matching !== "Everybody"
+            )
+            .map((matching) => (
+              <button
+                key={matching}
+                className={classNames(styles.button, {
+                  [styles.selected]: selectedMatching.includes(matching),
+                })}
+                onClick={() => handleMatchingToggle(matching)}
+              >
+                {matching}
+              </button>
+            ))}
         </div>
         {selectedMatching.length > 0 && (
           <Button

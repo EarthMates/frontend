@@ -50,13 +50,27 @@ export const Expertise = ({
     <div className={classNames(styles.root, className)}>
       <StepCounter currentStep={9} />
       <div className={styles.container}>
-        <h1 className={styles.h1}>Investors expert knowledge</h1>
-        <p className={styles.p}>
-          Choose the necessary expert knowledge you need from investors to
-          enable us to match you with investors who can provide valuable
-          insights and support tailored to your specific industry and growth
-          stage.
-        </p>
+        {role == "startup" ? (
+          <>
+            <h1 className={styles.h1}>Investors expert knowledge</h1>
+            <p className={styles.p}>
+              Choose the necessary expert knowledge you need from investors to
+              enable us to match you with investors who can provide valuable
+              insights and support tailored to your specific industry and growth
+              stage.
+            </p>
+          </>
+        ) : (
+          <>
+            <h1 className={styles.h1}>What is your area of expertise?</h1>
+            <p className={styles.p}>
+              Choose the necessary expert knowledge you possess as an investor
+              to enable us to match you with startups who can provide valuable
+              insights and support tailored to your specific industry and growth
+              stage.
+            </p>
+          </>
+        )}
 
         <div className={styles.expertise}>
           {expertises.map((expertise) => (

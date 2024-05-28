@@ -41,6 +41,8 @@
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-height: 60px; // Ensures consistent height
+  box-sizing: border-box;
 
   &:hover {
     border: 1px solid #ff8516;
@@ -72,10 +74,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.checkboxItem:hover .checkboxDescription {
-  white-space: normal;
 }
 
 .next_button {

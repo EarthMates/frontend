@@ -38,8 +38,21 @@ export const Industry = ({
   return (
     <div className={classNames(styles.root, className)}>
       <StepCounter currentStep={4} />
-      <h1 className={styles.h1}>Which industry does your company belong to?</h1>
-      <p className={styles.p}>Choose your company's niche</p>
+      {role == "startup" ? (
+        <>
+          <h1 className={styles.h1}>
+            Which industry does your company belong to?
+          </h1>
+          <p className={styles.p}>Choose your company's niche</p>
+        </>
+      ) : (
+        <>
+          <h1 className={styles.h1}>
+            Which industry do you want to invest in?
+          </h1>
+          <p className={styles.p}>Choose your company niche</p>
+        </>
+      )}
 
       <FormControl fullWidth variant="outlined" className={styles.select}>
         <InputLabel>Select industry</InputLabel>

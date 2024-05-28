@@ -8,6 +8,7 @@ import CapitalComponent from "../../../../components/onboarding/capital/capital"
 
 import { useUserData } from "../../../../context/user-data-context";
 import { Header } from "../../../../components/headers/onboarding/header-onboarding";
+import { stringify } from "querystring";
 
 export interface CapitalProps {
   className?: string;
@@ -19,7 +20,7 @@ export const Capital = ({ className }: CapitalProps) => {
 
   const [position, setPosition] = useState(0);
   const [capitalSelected, setCapitalSelected] = useState(false); // State to track capital selection
-  const [capitalAmount, setCapitalAmount] = useState(0); // State to store capital amount
+  const [capitalAmount, setCapitalAmount] = useState(""); // State to store capital amount
 
   const handleBackward = () => {
     navigate("/onboarding/investor/industry");
@@ -30,29 +31,25 @@ export const Capital = ({ className }: CapitalProps) => {
     navigate("/onboarding/investor/impact");
   };
 
-  const handleCapitalSelected = (capital: string) => {
-    if (capital === "Select capital") {
-      setCapitalSelected(false); // Reset CapitalSelected if default option is selected
-    } else {
-      setUserData((prevUserData) => ({
-        ...prevUserData,
-        capital: parseFloat(capital),
-      }));
-      setCapitalSelected(true); // Set capitalSelected to true when an capital is selected
-    }
-  };
-
   useEffect(() => {
     setPosition(30);
   }, []);
 
   const handleCapitalChange = (value: number) => {
-    setCapitalAmount(value);
+    setCapitalAmount(value.toString());
     setUserData((prevUserData) => ({
       ...prevUserData,
-      capital: value,
+      capital: value.toString(),
     }));
     setCapitalSelected(true);
+  };
+
+  const handleRangeSelected = (capital_range: string) => {
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      capital: capital_range,
+    }));
+    navigate("/onboarding/investor/impact");
   };
 
   return (
@@ -72,6 +69,7 @@ export const Capital = ({ className }: CapitalProps) => {
             <CapitalComponent
               capitalAmount={capitalAmount}
               handleCapitalChange={handleCapitalChange}
+              handleRangeSelected={handleRangeSelected}
               handleForward={handleForward}
               role="investor"
             />

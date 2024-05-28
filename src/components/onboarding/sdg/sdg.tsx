@@ -31,11 +31,23 @@ function Sdg({
     <div className={classNames(styles.root, className)}>
       <StepCounter currentStep={7} />
       <div className={styles.container}>
-        <h1 className={styles.h1}>
-          Which <span className={styles.sdgText}>SDGs</span> do you fulfill with
-          your startup project?
-        </h1>
-        <p className={styles.p}>Choose a maximum of 5</p>
+        {role === "startup" ? (
+          <>
+            <h1 className={styles.h1}>
+              Which <span className={styles.sdgText}>SDGs</span> do you fulfill
+              with your startup project?
+            </h1>
+            <p className={styles.p}>Choose a maximum of 5</p>
+          </>
+        ) : (
+          <>
+            <h1 className={styles.h1}>
+              Which <span className={styles.sdgText}>SDGs</span> do you
+              prioritize investment in?
+            </h1>
+            <p className={styles.p}>Choose a maximum of 5</p>
+          </>
+        )}
 
         <div className={styles.checkboxContainer}>
           {Array.from({ length: 17 }).map((_, index) => {
@@ -70,11 +82,13 @@ function Sdg({
             );
           })}
         </div>
-        <Button
-          buttonText="Next"
-          onClick={handleForward}
-          className={styles.next_button}
-        />
+        {selectedSdgs.length > 0 && (
+          <Button
+            buttonText="Next"
+            onClick={handleForward}
+            className={styles.next_button}
+          />
+        )}
       </div>
     </div>
   );

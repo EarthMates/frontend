@@ -32,12 +32,26 @@ export const Impact = ({
   return (
     <div className={classNames(styles.root, className)}>
       <StepCounter currentStep={6} />
-      <h1 className={styles.h1}>
-        How important is it to have impact through your business?
-      </h1>
-      <p className={styles.p}>
-        Rate the importance of impact for your company on a scale of 1 - 10
-      </p>
+      {role == "startup" ? (
+        <>
+          <h1 className={styles.h1}>
+            How important is it to have impact through your business?
+          </h1>
+          <p className={styles.p}>
+            Rate the importance of impact for your company on a scale of 1 - 10
+          </p>
+        </>
+      ) : (
+        <>
+          <h1 className={styles.h1}>
+            How do you prioritize investments in social impact?
+          </h1>
+          <p className={styles.p}>
+            Rate the importance of impact for your company on a scale of 1 - 10
+          </p>
+        </>
+      )}
+
       <Box
         className={styles.sliderContainer}
         border={1}

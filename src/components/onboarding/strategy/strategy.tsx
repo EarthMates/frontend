@@ -33,8 +33,17 @@ export const Strategy = ({
     <div className={classNames(styles.root, className)}>
       <StepCounter currentStep={11} />
       <div className={styles.container}>
-        <h1 className={styles.h1}>I am looking for</h1>
-        <p className={styles.p}>Choose your long term business plan</p>
+        {role == "startup" ? (
+          <>
+            <h1 className={styles.h1}>I am looking for</h1>
+            <p className={styles.p}>Choose your long term business plan</p>
+          </>
+        ) : (
+          <>
+            <h1 className={styles.h1}>I am looking for</h1>
+            <p className={styles.p}>Choose your long term investment plan</p>
+          </>
+        )}
 
         <div className={styles.strategy}>
           {strategies.map((strategy) => (

@@ -37,7 +37,7 @@ export const Values = ({
   const handleButtonClick = (value: string) => {
     if (selectedValues.includes(value)) {
       setSelectedValues(selectedValues.filter((v) => v !== value));
-    } else if (selectedValues.length < 5) {
+    } else if (selectedValues.length < 6) {
       setSelectedValues([...selectedValues, value]);
     }
     handleValuesSelected(selectedValues);
@@ -46,10 +46,21 @@ export const Values = ({
   return (
     <div className={classNames(styles.root, className)}>
       <StepCounter currentStep={8} />
-      <h1 className={styles.h1}>
-        What are the relevant values for your teams?
-      </h1>
-      <p className={styles.p}>Choose a maximum of 5</p>
+      {role == "startup" ? (
+        <>
+          <h1 className={styles.h1}>
+            What are the relevant values for your teams?
+          </h1>
+          <p className={styles.p}>Choose a maximum of 5</p>
+        </>
+      ) : (
+        <>
+          <h1 className={styles.h1}>
+            What are the relevant values you are looking for in teams?
+          </h1>
+          <p className={styles.p}>Choose a maximum of 6</p>
+        </>
+      )}
 
       <div className={styles.valuesContainer}>
         {values.map((value) => (
