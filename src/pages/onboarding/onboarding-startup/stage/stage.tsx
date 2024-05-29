@@ -5,7 +5,7 @@ import styles from "../../onboarding.module.scss";
 import Slider from "../../../../components/onboarding/slider/slider";
 import StageComponent from "../../../../components/onboarding/stage/stage";
 import { useUserData } from "../../../../context/user-data-context";
-import { Header } from "../../../../components/headers/onboarding/header-onboarding";
+import { Header } from "../../../../components/onboarding/header/header-onboarding";
 import arrowLeft from "../../../../assets/arrow-left.svg";
 
 export interface StageProps {

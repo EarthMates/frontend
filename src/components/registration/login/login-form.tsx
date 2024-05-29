@@ -1,56 +1,41 @@
-import React, { useState } from "react";
-import api from "../../api";
+import { useState } from "react";
+import api from "../../../api";
 import { useNavigate } from "react-router-dom";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../constants";
+import "./login-form.modules.scss";
 import {
-  TextField,
-  Button,
   Grid,
+  TextField,
   InputAdornment,
   IconButton,
-  Checkbox,
-  FormControlLabel,
+  Button,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import "./register-form.modules.scss";
+import GoogleIcon from "../../../assets/google-color.svg";
+import LinkedInIcon from "../../../assets/linkedin-color.svg";
 
-import GoogleIcon from "../../assets/google-color.svg";
-import LinkedInIcon from "../../assets/linkedin-color.svg";
-
-interface RegisterFormProps {
+interface LoginFormProps {
   className?: string;
   route: string;
 }
 
-function RegisterForm({ className, route }: RegisterFormProps) {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
+function LoginForm({ className, route }: LoginFormProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [acceptTerms, setAcceptTerms] = useState(true);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.ChangeEvent<any>) => {
     setLoading(true);
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      alert("Passwords don't match");
-      return;
-    }
-
     try {
-      const res = await api.post(route, {
-        username: name,
-        first_name: name,
-        last_name: lastName,
-        email: email,
-        password: password,
-      });
-      navigate("/login");
+      console.log({ email, password });
+      const res = await api.post(route, { email, password });
+      localStorage.setItem(ACCESS_TOKEN, res.data.access);
+      localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+      navigate(-1);
     } catch (error) {
       alert(error);
     } finally {
@@ -60,10 +45,6 @@ function RegisterForm({ className, route }: RegisterFormProps) {
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
-  };
-
-  const handleClickShowConfirmPassword = () => {
-    setShowConfirmPassword(!showConfirmPassword);
   };
 
   const handleMouseDownPassword = (
@@ -101,13 +82,16 @@ function RegisterForm({ className, route }: RegisterFormProps) {
     );
   };
 
-  const SignInContainer = () => {
+  const ForgotPassword_CreateNew = () => {
     return (
-      <div className="signin-container">
-        <div className="signin-internal">
-          <h2>Already have an account?</h2>
-          <a href="/login" style={{ cursor: "pointer" }}>
-            <h3>Sign in</h3>
+      <div className="Forgot-create_Container">
+        <div className="forgot-pass">
+          <h3>Forgot password?</h3>
+        </div>
+        <div className="create-acc">
+          <h2>Don't have an account?</h2>
+          <a href="/register" style={{ cursor: "pointer" }}>
+            <h3>&nbsp;Create one</h3>
           </a>
         </div>
       </div>
@@ -129,7 +113,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
       <div className="bottom-container">
         <OrLine />
         <GoogleLinkedinLogin />
-        <SignInContainer />
+        <ForgotPassword_CreateNew />
       </div>
     );
   };
@@ -137,34 +121,8 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   return (
     <div className="full-container">
       <form onSubmit={handleSubmit} className="form-container">
-        <h1>Welcome to EarthMates</h1>
+        <h1>Login to EarthMates</h1>
         <Grid container spacing={2} direction="column">
-          <Grid item>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  id="name"
-                  label="First Name"
-                  variant="outlined"
-                  fullWidth
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  id="lastName"
-                  label="Last Name"
-                  variant="outlined"
-                  fullWidth
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  required
-                />
-              </Grid>
-            </Grid>
-          </Grid>
           <Grid item>
             <TextField
               id="emailaddress"
@@ -209,56 +167,12 @@ function RegisterForm({ className, route }: RegisterFormProps) {
             />
           </Grid>
           <Grid item>
-            <TextField
-              id="confirmpassword"
-              label="Confirm Password"
-              variant="outlined"
-              fullWidth
-              type={showConfirmPassword ? "text" : "password"}
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle confirm password visibility"
-                      onClick={handleClickShowConfirmPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>
-          <Grid item>
-            <Checkbox
-              checked={acceptTerms}
-              onChange={(e) => setAcceptTerms(e.target.checked)}
-              name="acceptTerms"
-              color="primary"
-              sx={{ transform: "scale(0.8)" }}
-            />
-            <span className="terms">
-              By signing up you are accepting our <a>Terms of use</a> and our{" "}
-              <a>Privacy policy</a>.
-            </span>
-          </Grid>
-          <Grid item>
-            <button
-              className="form-button"
-              type="submit"
-              disabled={!acceptTerms}
-            >
+            <button className="form-button" type="submit">
               Next
             </button>
           </Grid>
         </Grid>
-
-        {loading && <p>Loading...</p>}
+        {/* {loading && <LoadingIndicator />} */}
 
         <LoginFormBottom />
       </form>
@@ -266,4 +180,4 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   );
 }
 
-export default RegisterForm;
+export default LoginForm;

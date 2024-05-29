@@ -7,7 +7,7 @@ import Slider from "../../../../components/onboarding/slider/slider";
 import CapitalComponent from "../../../../components/onboarding/capital/capital";
 
 import { useUserData } from "../../../../context/user-data-context";
-import { Header } from "../../../../components/headers/onboarding/header-onboarding";
+import { Header } from "../../../../components/onboarding/header/header-onboarding";
 
 export interface CapitalProps {
   className?: string;

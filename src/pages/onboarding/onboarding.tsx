@@ -9,7 +9,7 @@ import BuildingIcon from "../../assets/building.svg";
 import ManagerIcon from "../../assets/manager.svg";
 
 import { useUserData } from "../../context/user-data-context";
-import { Header } from "../../components/headers/onboarding/header-onboarding";
+import { Header } from "../../components/onboarding/header/header-onboarding";
 import { StepCounter } from "../../components/onboarding/step-counter/step_counter";
 import Slider from "../../components/onboarding/slider/slider";
 

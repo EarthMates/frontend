@@ -5,7 +5,7 @@ import styles from "../../onboarding.module.scss";
 import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import { useUserData } from "../../../../context/user-data-context";
-import { Header } from "../../../../components/headers/onboarding/header-onboarding";
+import { Header } from "../../../../components/onboarding/header/header-onboarding";
 import { Button } from "../../../../components/onboarding/button/button";
 import SdgComponent from "../../../../components/onboarding/sdg/sdg";
 
@@ -55,7 +55,6 @@ export const Sdg = ({ className }: SdgProps) => {
               selectedSdgs={selectedSdgs}
               setSelectedSdgs={setSelectedSdgs}
               handleForward={handleForward}
-              role="investor"
               role="investor"
             />
           </div>

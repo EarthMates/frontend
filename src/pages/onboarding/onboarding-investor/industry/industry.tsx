@@ -7,7 +7,7 @@ import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import IndustryComponent from "../../../../components/onboarding/industry/industry";
 import { useUserData } from "../../../../context/user-data-context";
-import { Header } from "../../../../components/headers/onboarding/header-onboarding";
+import { Header } from "../../../../components/onboarding/header/header-onboarding";
 
 export interface IndustryProps {
   className?: string;

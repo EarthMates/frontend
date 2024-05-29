@@ -1,0 +1,101 @@
+@import "@styles/theme.module.scss";
+
+.root {
+  background-color: #0b0b09;
+  display: flex;
+  flex-direction: row;
+  padding-left: 3em;
+  justify-content: space-between;
+  padding-right: 3em;
+  align-items: center;
+  height: 4em;
+  color: white;
+  column-gap: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-bottom: 2em;
+
+  button {
+    // Set the button's height to match the logo
+    height: 100%;
+
+    // Center the icon vertically
+    display: flex;
+    align-items: center;
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+    padding: 1em;
+  }
+}
+
+.menu {
+  display: flex;
+  column-gap: 3rem;
+  font-family: $paragraph-font;
+  font-size: 16px;
+}
+
+.overlay {
+  position: absolute;
+  top: 3em;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  row-gap: 3rem;
+  font-family: $paragraph-font;
+  font-size: 20px;
+  font-weight: 400;
+  padding-top: 3em;
+  transition: height 1s ease;
+  background-color: #0b0b09;
+}
+
+.active {
+  color: #ff8516;
+  font-weight: 600;
+}
+
+.login {
+  display: flex;
+  column-gap: 1rem;
+  height: 2.5em;
+  line-height: 2.5em;
+  font-weight: 500;
+}
+.logo {
+}
+
+hr {
+  margin-top: 20px;
+  border: 1px solid #f6f6f6;
+  width: 60%;
+  border-radius: 5px;
+  opacity: 50%;
+}
+
+.login-button {
+  font-family: $paragraph-font;
+}
+
+button svg {
+  height: 100%; // Set the height to match the button's height
+  width: auto; // Let the width adjust automatically
+}
+
+@media only screen and (max-width: ($mobile-width + 107)) {
+  .menu,
+  .login {
+    display: none;
+  }
+}
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}

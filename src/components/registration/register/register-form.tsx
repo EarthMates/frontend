@@ -1,41 +1,56 @@
-import { useState } from "react";
-import api from "../../api";
+import React, { useState } from "react";
+import api from "../../../api";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
-import "./login-form.modules.scss";
 import {
-  Grid,
   TextField,
+  Button,
+  Grid,
   InputAdornment,
   IconButton,
-  Button,
+  Checkbox,
+  FormControlLabel,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import GoogleIcon from "../../assets/google-color.svg";
-import LinkedInIcon from "../../assets/linkedin-color.svg";
+import "./register-form.modules.scss";
 
-interface LoginFormProps {
+import GoogleIcon from "../../../assets/google-color.svg";
+import LinkedInIcon from "../../../assets/linkedin-color.svg";
+
+interface RegisterFormProps {
   className?: string;
   route: string;
 }
 
-function LoginForm({ className, route }: LoginFormProps) {
+function RegisterForm({ className, route }: RegisterFormProps) {
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [acceptTerms, setAcceptTerms] = useState(true);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.ChangeEvent<any>) => {
     setLoading(true);
     e.preventDefault();
 
+    if (password !== confirmPassword) {
+      alert("Passwords don't match");
+      return;
+    }
+
     try {
-      console.log({ email, password });
-      const res = await api.post(route, { email, password });
-      localStorage.setItem(ACCESS_TOKEN, res.data.access);
-      localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-      navigate(-1);
+      const res = await api.post(route, {
+        username: name,
+        first_name: name,
+        last_name: lastName,
+        email: email,
+        password: password,
+      });
+      navigate("/login");
     } catch (error) {
       alert(error);
     } finally {
@@ -45,6 +60,10 @@ function LoginForm({ className, route }: LoginFormProps) {
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleClickShowConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
   };
 
   const handleMouseDownPassword = (
@@ -82,16 +101,13 @@ function LoginForm({ className, route }: LoginFormProps) {
     );
   };
 
-  const ForgotPassword_CreateNew = () => {
+  const SignInContainer = () => {
     return (
-      <div className="Forgot-create_Container">
-        <div className="forgot-pass">
-          <h3>Forgot password?</h3>
-        </div>
-        <div className="create-acc">
-          <h2>Don't have an account?</h2>
-          <a href="/register" style={{ cursor: "pointer" }}>
-            <h3>&nbsp;Create one</h3>
+      <div className="signin-container">
+        <div className="signin-internal">
+          <h2>Already have an account?</h2>
+          <a href="/login" style={{ cursor: "pointer" }}>
+            <h3>Sign in</h3>
           </a>
         </div>
       </div>
@@ -113,7 +129,7 @@ function LoginForm({ className, route }: LoginFormProps) {
       <div className="bottom-container">
         <OrLine />
         <GoogleLinkedinLogin />
-        <ForgotPassword_CreateNew />
+        <SignInContainer />
       </div>
     );
   };
@@ -121,8 +137,34 @@ function LoginForm({ className, route }: LoginFormProps) {
   return (
     <div className="full-container">
       <form onSubmit={handleSubmit} className="form-container">
-        <h1>Login to EarthMates</h1>
+        <h1>Welcome to EarthMates</h1>
         <Grid container spacing={2} direction="column">
+          <Grid item>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  id="name"
+                  label="First Name"
+                  variant="outlined"
+                  fullWidth
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  id="lastName"
+                  label="Last Name"
+                  variant="outlined"
+                  fullWidth
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                />
+              </Grid>
+            </Grid>
+          </Grid>
           <Grid item>
             <TextField
               id="emailaddress"
@@ -167,12 +209,56 @@ function LoginForm({ className, route }: LoginFormProps) {
             />
           </Grid>
           <Grid item>
-            <button className="form-button" type="submit">
+            <TextField
+              id="confirmpassword"
+              label="Confirm Password"
+              variant="outlined"
+              fullWidth
+              type={showConfirmPassword ? "text" : "password"}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle confirm password visibility"
+                      onClick={handleClickShowConfirmPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Grid>
+          <Grid item>
+            <Checkbox
+              checked={acceptTerms}
+              onChange={(e) => setAcceptTerms(e.target.checked)}
+              name="acceptTerms"
+              color="primary"
+              sx={{ transform: "scale(0.8)" }}
+            />
+            <span className="terms">
+              By signing up you are accepting our <a>Terms of use</a> and our{" "}
+              <a>Privacy policy</a>.
+            </span>
+          </Grid>
+          <Grid item>
+            <button
+              className="form-button"
+              type="submit"
+              disabled={!acceptTerms}
+            >
               Next
             </button>
           </Grid>
         </Grid>
-        {/* {loading && <LoadingIndicator />} */}
+
+        {loading && <p>Loading...</p>}
 
         <LoginFormBottom />
       </form>
@@ -180,4 +266,4 @@ function LoginForm({ className, route }: LoginFormProps) {
   );
 }
 
-export default LoginForm;
+export default RegisterForm;

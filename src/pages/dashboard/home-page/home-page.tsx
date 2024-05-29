@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "../../../components/headers/onboarding/header-onboarding";
+import { Header } from "../../../components/onboarding/header/header-onboarding";
 
 function HomePage() {
   return (

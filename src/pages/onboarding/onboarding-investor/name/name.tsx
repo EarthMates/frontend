@@ -7,7 +7,7 @@ import nameStyles from "./name.module.scss"; // Import the new styles
 
 import Slider from "../../../../components/onboarding/slider/slider";
 import { useUserData } from "../../../../context/user-data-context";
-import { Header } from "../../../../components/headers/onboarding/header-onboarding";
+import { Header } from "../../../../components/onboarding/header/header-onboarding";
 import { TextField } from "@mui/material";
 import { Button } from "../../../../components/onboarding/button/button";
 

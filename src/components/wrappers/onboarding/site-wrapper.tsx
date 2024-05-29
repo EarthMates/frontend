@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import styles from "./site-wrapper.module.scss";
 import { Outlet } from "react-router-dom";
-import { Header } from "../../headers/onboarding/header-onboarding";
+import { Header } from "../../onboarding/header/header-onboarding";
 import theme from "../../../styles/theme";
 import { ThemeProvider } from "@emotion/react";
 
