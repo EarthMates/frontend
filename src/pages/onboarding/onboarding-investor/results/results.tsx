@@ -41,7 +41,7 @@ export const Results = ({ className }: ResultsProps) => {
       .catch((err) => alert(err));
   };
 
-  const { user_type, ...investorData } = userData;
+  const { user_type, code, ...investorData } = userData;
   const createInvestor = (e: React.ChangeEvent<any>) => {
     e.preventDefault();
     console.log(investorData);

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import styles from "../../onboarding.module.scss";
 import arrowLeft from "../../../../assets/arrow-left.svg";
-import nameStyles from "./name.module.scss"; // Import the new styles
+import pageStyles from "./company-code.module.scss"; // Import the new styles
 
 import Slider from "../../../../components/onboarding/slider/slider";
 import { useUserData } from "../../../../context/user-data-context";
@@ -12,43 +12,35 @@ import { TextField } from "@mui/material";
 import { Button } from "../../../../components/onboarding/button/button";
 import { StepCounter } from "../../../../components/onboarding/step-counter/step_counter";
 
-export interface NameProps {
+export interface CompanyCodeProps {
   className?: string;
 }
 
-export const Name = ({ className }: NameProps) => {
+export const CompanyCode = ({ className }: CompanyCodeProps) => {
   const navigate = useNavigate();
   const { userData, setUserData } = useUserData();
-  const [name, setName] = useState("");
-  const [error, setError] = useState("");
+  const [code, setCode] = useState("");
 
   const handleBackward = () => {
-    navigate("/onboarding/role");
+    navigate("/onboarding/startup/name");
   };
 
   const handleForward = () => {
-    if (!name) {
-      setError("Please enter a name.");
-      return;
-    }
     setUserData((prevUserData) => ({
       ...prevUserData,
-      name: name,
+      code: code,
     }));
     console.log(userData);
-    navigate("/onboarding/startup/company-code");
+    navigate("/onboarding/startup/stage");
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
-    if (event.target.value) {
-      setError(""); // Clear error message if input is not empty
-    }
+    setCode(event.target.value);
   };
 
   return (
     <div className={classNames(styles.root, className)}>
-      <Slider position={0} />
+      <Slider position={1} />
 
       <div className={styles.registration}>
         <div className={styles.buttonContainer}>
@@ -59,25 +51,26 @@ export const Name = ({ className }: NameProps) => {
         </div>
         <div className={styles.form}>
           <div className={styles.container}>
-            <div className={classNames(nameStyles.root, className)}>
+            <div className={classNames(pageStyles.root, className)}>
               <StepCounter currentStep={2} />
-              <h1 className={nameStyles.h1}>What's your startup called?</h1>
-              <p className={nameStyles.p}>Add the name of your startup</p>
+              <h1 className={pageStyles.h1}>Do you have a company code?</h1>
+              <p className={pageStyles.p}>
+                Add your company code to increase your chances of getting
+                matched
+              </p>
 
               <TextField
-                value={name}
+                value={code}
                 onChange={handleInputChange}
-                className={nameStyles.select}
+                className={pageStyles.select}
                 variant="outlined"
-                label="Startup name"
-                error={!!error}
-                helperText={error}
+                label="Company code (optional)"
               />
 
               <Button
                 buttonText="Next"
                 onClick={handleForward}
-                className={nameStyles.buttonContainer}
+                className={pageStyles.buttonContainer}
               />
             </div>
           </div>
@@ -88,4 +81,4 @@ export const Name = ({ className }: NameProps) => {
   );
 };
 
-export default Name;
+export default CompanyCode;

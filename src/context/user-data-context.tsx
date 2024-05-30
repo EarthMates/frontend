@@ -3,7 +3,8 @@ import React, { createContext, useContext, useState } from "react";
 
 interface UserData {
   user_type: string;
-  name?: string;
+  name: string;
+  code?: string;
   stage: string[];
   industry: string;
   capital: string;
@@ -37,7 +38,8 @@ export const UserDataProvider: React.FC<React.PropsWithChildren<{}>> = ({
 }) => {
   const [userData, setUserData] = useState<UserData>({
     user_type: "",
-    name: "test", // for testing purposes
+    name: "",
+    code: "",
     stage: [],
     industry: "",
     capital: "",

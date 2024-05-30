@@ -9,3 +9,4 @@ export { Stage as StageStartup } from "./stage/stage";
 export { Strategy as StrategyStartup } from "./strategy/strategy";
 export { Values as ValuesStartup } from "./values/values";
 export { Name as NameStartup } from "./name/name";
+export { CompanyCode } from "./company-code/company-code";

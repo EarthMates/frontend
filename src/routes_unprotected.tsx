@@ -27,6 +27,7 @@ import {
   StageStartup,
   StrategyStartup,
   ValuesStartup,
+  CompanyCode,
 } from "./pages/onboarding/onboarding-startup/onboarding-startup";
 
 import {
@@ -98,6 +99,7 @@ export const routes_unprotected: RouteObject[] = [
         children: [
           { path: "role", element: <Onboarding /> },
           { path: "startup/name", element: <NameStartup /> },
+          { path: "startup/company-code", element: <CompanyCode /> },
           { path: "startup/stage", element: <StageStartup /> },
           {
             path: "startup/industry",
