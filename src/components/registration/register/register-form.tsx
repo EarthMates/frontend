@@ -16,6 +16,8 @@ import "./register-form.modules.scss";
 import GoogleIcon from "../../../assets/google-color.svg";
 import LinkedInIcon from "../../../assets/linkedin-color.svg";
 import { extractUsername } from "../../../utils/utils";
+import { useUserData } from "../../../context/user-data-context";
+import { USER_TYPE } from "../../../constants";
 
 interface RegisterFormProps {
   className?: string;
@@ -33,6 +35,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(true);
   const navigate = useNavigate();
+  /* const { userData, setUserData } = useUserData(); */
 
   const handleSubmit = async (e: React.ChangeEvent<any>) => {
     setLoading(true);
@@ -53,6 +56,11 @@ function RegisterForm({ className, route }: RegisterFormProps) {
         last_name: lastName,
         email: email,
       });
+      /* setUserData((previousData) => ({
+        ...previousData,
+        new_user: true,
+      })); */
+      localStorage.setItem(USER_TYPE, "new_user");
       navigate("/login");
     } catch (error) {
       alert(error);

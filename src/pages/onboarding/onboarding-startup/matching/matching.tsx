@@ -7,7 +7,7 @@ import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import MatchingComponent from "../../../../components/onboarding/matching/matching";
 
-import { useUserData } from "../../../../context/user-data-context";
+import { useOnboardingData } from "../../../../context/onboarding-data-context";
 import { Header } from "../../../../components/onboarding/header/header-onboarding";
 
 export interface MatchingProps {
@@ -16,7 +16,7 @@ export interface MatchingProps {
 
 export const Matching = ({ className }: MatchingProps) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useUserData();
+  const { onboardingData, setOnboardingData } = useOnboardingData();
 
   const [position, setPosition] = useState(0);
   const [selectedMatching, setSelectedMatching] = useState<string[]>([]);
@@ -26,8 +26,8 @@ export const Matching = ({ className }: MatchingProps) => {
   };
 
   const handleForward = () => {
-    setUserData((prevUserData) => ({
-      ...prevUserData,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
       matching: selectedMatching,
     }));
     navigate("/onboarding/startup/strategy");

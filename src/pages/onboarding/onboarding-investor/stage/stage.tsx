@@ -5,7 +5,7 @@ import styles from "../../onboarding.module.scss";
 import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import StageComponent from "../../../../components/onboarding/stage/stage";
-import { useUserData } from "../../../../context/user-data-context";
+import { useOnboardingData } from "../../../../context/onboarding-data-context";
 import { Header } from "../../../../components/onboarding/header/header-onboarding";
 import { Button } from "../../../../components/onboarding/button/button";
 
@@ -15,7 +15,7 @@ export interface StageProps {
 
 export const Stage = ({ className }: StageProps) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useUserData();
+  const { onboardingData, setOnboardingData } = useOnboardingData();
   const [selectedStages, setSelectedStages] = useState<string[]>([]);
   const [position, setPosition] = useState(0);
 
@@ -24,8 +24,8 @@ export const Stage = ({ className }: StageProps) => {
   };
 
   const handleStageSelected = (stages: string[]) => {
-    setUserData((prevUserData) => ({
-      ...prevUserData,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
       stage: stages,
     }));
     navigate("/onboarding/investor/industry");

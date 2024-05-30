@@ -6,7 +6,7 @@ import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import CapitalComponent from "../../../../components/onboarding/capital/capital";
 
-import { useUserData } from "../../../../context/user-data-context";
+import { useOnboardingData } from "../../../../context/onboarding-data-context";
 import { Header } from "../../../../components/onboarding/header/header-onboarding";
 
 export interface CapitalProps {
@@ -15,7 +15,7 @@ export interface CapitalProps {
 
 export const Capital = ({ className }: CapitalProps) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useUserData();
+  const { onboardingData, setOnboardingData } = useOnboardingData();
 
   const [position, setPosition] = useState(0);
   const [capitalSelected, setCapitalSelected] = useState(false); // State to track capital selection
@@ -26,7 +26,7 @@ export const Capital = ({ className }: CapitalProps) => {
   };
 
   const handleForward = () => {
-    console.log(userData);
+    console.log(onboardingData);
     navigate("/onboarding/startup/impact");
   };
 
@@ -36,8 +36,8 @@ export const Capital = ({ className }: CapitalProps) => {
 
   const handleCapitalChange = (value: number) => {
     setCapitalAmount(value.toString());
-    setUserData((prevUserData) => ({
-      ...prevUserData,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
       capital: value.toString(),
     }));
     setCapitalSelected(true);
@@ -45,8 +45,8 @@ export const Capital = ({ className }: CapitalProps) => {
 
   const handleRangeSelected = (capital_range: string) => {
     // Dummy
-    setUserData((prevUserData) => ({
-      ...prevUserData,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
       capital: capital_range,
     }));
   };

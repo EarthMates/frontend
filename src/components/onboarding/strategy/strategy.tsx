@@ -60,7 +60,7 @@ export const Strategy = ({
         </div>
         {selectedStrategy.length > 0 && (
           <Button
-            buttonText="Next"
+            buttonText="Finish Registration"
             onClick={handleForward}
             className={styles.next_button}
           />

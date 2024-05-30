@@ -5,7 +5,7 @@ import styles from "../../onboarding.module.scss";
 import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import ExpertiseComponent from "../../../../components/onboarding/expertise/expertise";
-import { useUserData } from "../../../../context/user-data-context";
+import { useOnboardingData } from "../../../../context/onboarding-data-context";
 import { Header } from "../../../../components/onboarding/header/header-onboarding";
 
 export interface ExpertiseProps {
@@ -14,7 +14,7 @@ export interface ExpertiseProps {
 
 export const Expertise = ({ className }: ExpertiseProps) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useUserData();
+  const { onboardingData, setOnboardingData } = useOnboardingData();
 
   const [position, setPosition] = useState(0);
   const [selectedExpertise, setSelectedExpertise] = useState<string[]>([]);
@@ -24,8 +24,8 @@ export const Expertise = ({ className }: ExpertiseProps) => {
   };
 
   const handleForward = () => {
-    setUserData((prevUserData) => ({
-      ...prevUserData,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
       expertise: selectedExpertise,
     }));
     navigate("/onboarding/investor/matching");

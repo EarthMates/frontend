@@ -7,8 +7,10 @@ import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import StrategyComponent from "../../../../components/onboarding/strategy/strategy";
 
-import { useUserData } from "../../../../context/user-data-context";
+import { useOnboardingData } from "../../../../context/onboarding-data-context";
 import { Header } from "../../../../components/onboarding/header/header-onboarding";
+import api from "../../../../api";
+import { USER_TYPE } from "../../../../constants";
 
 export interface StrategyProps {
   className?: string;
@@ -16,7 +18,7 @@ export interface StrategyProps {
 
 export const Strategy = ({ className }: StrategyProps) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useUserData();
+  const { onboardingData, setOnboardingData } = useOnboardingData();
 
   const [position, setPosition] = useState(0);
   const [selectedStrategy, setSelectedStrategy] = useState<string[]>([]);
@@ -26,11 +28,24 @@ export const Strategy = ({ className }: StrategyProps) => {
   };
 
   const handleForward = () => {
-    setUserData((prevUserData) => ({
-      ...prevUserData,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
       strategy: selectedStrategy,
     }));
-    navigate("/onboarding/startup/results");
+
+    const { user_type, ...startupData } = onboardingData;
+    console.log(startupData);
+    api
+      .post("/api/startup/", startupData)
+      .then((res) => {
+        if (res.status === 201) {
+          localStorage.setItem(USER_TYPE, "registered");
+          navigate("/");
+        } else {
+          alert("Failed to make Startup.");
+        }
+      })
+      .catch((err) => alert(err));
   };
 
   useEffect(() => {

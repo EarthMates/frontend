@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { Header } from "../../registration/header/header-registration";
 import theme from "../../../styles/theme";
 import { ThemeProvider } from "@emotion/react";
+import { UserDataProvider } from "../../../context/user-data-context";
 
 export interface SiteWrapperProps {
   className?: string;

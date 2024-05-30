@@ -6,7 +6,7 @@ import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import ResultsComponent from "../../../../components/onboarding/results/results";
 
-import { useUserData } from "../../../../context/user-data-context";
+import { useOnboardingData } from "../../../../context/onboarding-data-context";
 
 import api from "../../../../api";
 
@@ -16,7 +16,7 @@ export interface ResultsProps {
 
 export const Results = ({ className }: ResultsProps) => {
   const navigate = useNavigate();
-  const { userData } = useUserData();
+  const { onboardingData } = useOnboardingData();
 
   const handleBackward = () => {
     navigate("/onboarding/startup/strategy");
@@ -41,7 +41,7 @@ export const Results = ({ className }: ResultsProps) => {
       .catch((err) => alert(err));
   };
 
-  const { user_type, ...startupData } = userData;
+  const { user_type, ...startupData } = onboardingData;
   const createStartup = (e: React.ChangeEvent<any>) => {
     e.preventDefault();
     console.log(startupData);
@@ -64,7 +64,7 @@ export const Results = ({ className }: ResultsProps) => {
           <div className={styles.container}>
             {/* Start of page internal component */}
             <ResultsComponent
-              userData={userData}
+              onboardingData={onboardingData}
               handleForward={createStartup}
             />
           </div>

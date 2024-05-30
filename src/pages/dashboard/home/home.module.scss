@@ -1,0 +1,188 @@
+@import "@styles/theme.module.scss";
+
+.root {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f6;
+}
+
+.registration {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2em;
+  gap: 10em; // Reduced gap between items
+
+  @media (max-width: $mobile-width) {
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  row-gap: 1em; // Adjust the row gap to be smaller
+  width: 100%;
+  max-width: 800px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 2em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: $mobile-width) {
+    padding: 1em;
+  }
+}
+
+.p {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.2em;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #4a555c;
+  margin-bottom: 0.5em; // Reduce the bottom margin
+}
+
+.h1 {
+  font-family: $header-font;
+  font-size: 40px;
+  font-weight: 600;
+  color: $our-orange;
+  margin-top: -2em; // Reduce the top margin
+  margin-bottom: 0; // Remove bottom margin if any
+}
+
+.rolesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (max-width: $mobile-width) {
+    flex-direction: column;
+  }
+}
+
+.role {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  padding: 1em;
+  background: radial-gradient(
+    149.83% 149.83% at 39.62% 4.31%,
+    #fff9f4 41.58%,
+    #f3deff 100%
+  );
+  flex: 1;
+  margin-right: 1em; // Add margin between buttons
+  box-sizing: border-box;
+
+  &:last-child {
+    margin-right: 0; // Remove margin for the last child
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-right: 0; // Remove margin for mobile
+    margin-bottom: 1em; // Add margin for bottom on mobile
+  }
+}
+
+.icon {
+  width: 4em;
+  height: 4em;
+  margin-bottom: 1em;
+}
+
+.description {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description .h1 {
+  font-family: $header-font;
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+  margin: 0 0 0.5em 0;
+}
+
+.description p {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #4a555c;
+  margin: 0 0 1em 0;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #4a555c;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 8px 16px;
+  background-color: white;
+  cursor: pointer;
+  text-transform: none;
+  justify-content: center;
+  transition: background-color 0.3s;
+  outline: none;
+  width: 4.5em; // Adjust width to auto
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (max-width: $mobile-width) {
+    align-self: center; // Center the button on mobile
+  }
+
+  img {
+    margin-right: 4px; // Reduce margin to bring the icon and text closer
+    height: 16px; // Ensure the icon height is consistent
+    width: 16px; // Ensure the icon width is consistent
+    fill: currentColor; // Use the current text color for the icon
+  }
+}
+
+.placeholder {
+  width: 4.5em;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; // Ensures buttons align at the bottom
+}
+
+.standardButton {
+  height: 2em; // Set a standard height for both buttons
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; // Remove extra padding if needed
+}
+
+.icon {
+  margin-right: 4px; // Reduced margin to bring icon closer to the text
+}

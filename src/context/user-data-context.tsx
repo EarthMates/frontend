@@ -3,17 +3,7 @@ import React, { createContext, useContext, useState } from "react";
 
 interface UserData {
   user_type: string;
-  name: string;
-  code?: string;
-  stage: string[];
-  industry: string;
-  capital: string;
-  impact: number;
-  sdg: string[];
-  values: string[];
-  expertise: string[];
-  matching: string[];
-  strategy: string[];
+  new_user: boolean;
 }
 
 interface UserDataContextType {
@@ -38,17 +28,7 @@ export const UserDataProvider: React.FC<React.PropsWithChildren<{}>> = ({
 }) => {
   const [userData, setUserData] = useState<UserData>({
     user_type: "",
-    name: "",
-    code: "",
-    stage: [],
-    industry: "",
-    capital: "",
-    impact: 0,
-    sdg: [],
-    values: [],
-    expertise: [],
-    matching: [],
-    strategy: [],
+    new_user: false,
   });
 
   return (

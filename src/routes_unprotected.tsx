@@ -1,11 +1,12 @@
 import { RouteObject } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
-import { UserDataProvider } from "./context/user-data-context";
+import { OnboardingDataProvider } from "./context/onboarding-data-context";
 
 import {
   LoginWrapper,
   OnboardingWrapper,
+  DashboardWrapper,
 } from "./components/wrappers/wrappers";
 
 import ProtectedRoute from "./components/ProtectedRoutes";
@@ -46,6 +47,7 @@ import {
 
 import NotFound from "./pages/not-found/not-found";
 import Dashboard from "./pages/dashboard/dashboard";
+import { Home } from "./pages/dashboard/home/home";
 
 function Logout() {
   localStorage.clear();
@@ -63,8 +65,8 @@ export const routes_unprotected: RouteObject[] = [
     children: [
       {
         path: "",
-        element: <OnboardingWrapper />,
-        children: [{ path: "", element: <HomePage /> }],
+        element: <DashboardWrapper />,
+        children: [{ path: "", element: <Home /> }],
       },
       {
         path: "login",
@@ -89,13 +91,7 @@ export const routes_unprotected: RouteObject[] = [
 
       {
         path: "/onboarding",
-        element: (
-          <ProtectedRoute>
-            <UserDataProvider>
-              <OnboardingWrapper />
-            </UserDataProvider>
-          </ProtectedRoute>
-        ),
+        element: <OnboardingWrapper />,
         children: [
           { path: "role", element: <Onboarding /> },
           { path: "startup/name", element: <NameStartup /> },

@@ -6,7 +6,7 @@ import arrowLeft from "../../../../assets/arrow-left.svg";
 import nameStyles from "./name.module.scss"; // Import the new styles
 
 import Slider from "../../../../components/onboarding/slider/slider";
-import { useUserData } from "../../../../context/user-data-context";
+import { useOnboardingData } from "../../../../context/onboarding-data-context";
 import { Header } from "../../../../components/onboarding/header/header-onboarding";
 import { TextField } from "@mui/material";
 import { Button } from "../../../../components/onboarding/button/button";
@@ -18,7 +18,7 @@ export interface NameProps {
 
 export const Name = ({ className }: NameProps) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useUserData();
+  const { onboardingData, setOnboardingData } = useOnboardingData();
   const [name, setName] = useState("");
   const [error, setError] = useState("");
 
@@ -31,11 +31,11 @@ export const Name = ({ className }: NameProps) => {
       setError("Please enter a name.");
       return;
     }
-    setUserData((prevUserData) => ({
-      ...prevUserData,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
       name: name,
     }));
-    console.log(userData);
+    console.log(onboardingData);
     navigate("/onboarding/startup/company-code");
   };
 

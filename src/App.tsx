@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { routes } from "./routes";
 import { routes_unprotected } from "./routes_unprotected";
 
-const DEBUG = true;
+const DEBUG = false;
 
 function App() {
   const router = useMemo(() => createBrowserRouter(routes), []);

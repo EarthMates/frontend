@@ -4,7 +4,7 @@ import classNames from "classnames";
 import styles from "../../onboarding.module.scss";
 import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
-import { useUserData } from "../../../../context/user-data-context";
+import { useOnboardingData } from "../../../../context/onboarding-data-context";
 import { Header } from "../../../../components/onboarding/header/header-onboarding";
 import { Button } from "../../../../components/onboarding/button/button";
 import SdgComponent from "../../../../components/onboarding/sdg/sdg";
@@ -15,7 +15,7 @@ export interface SdgProps {
 
 export const Sdg = ({ className }: SdgProps) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useUserData();
+  const { onboardingData, setOnboardingData } = useOnboardingData();
   const [selectedSdgs, setSelectedSdgs] = useState<string[]>([]);
 
   const [position, setPosition] = useState(0);
@@ -26,8 +26,8 @@ export const Sdg = ({ className }: SdgProps) => {
   };
 
   const handleForward = () => {
-    setUserData((prevUserData) => ({
-      ...prevUserData,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
       sdg: selectedSdgs,
     }));
     navigate("/onboarding/startup/values");

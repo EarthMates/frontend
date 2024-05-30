@@ -7,7 +7,7 @@ import arrowLeft from "../../../../assets/arrow-left.svg";
 import Slider from "../../../../components/onboarding/slider/slider";
 import ValuesComponent from "../../../../components/onboarding/values/values";
 
-import { useUserData } from "../../../../context/user-data-context";
+import { useOnboardingData } from "../../../../context/onboarding-data-context";
 import { Header } from "../../../../components/onboarding/header/header-onboarding";
 
 export interface ValuesProps {
@@ -16,20 +16,20 @@ export interface ValuesProps {
 
 export const Values = ({ className }: ValuesProps) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useUserData();
+  const { onboardingData, setOnboardingData } = useOnboardingData();
 
   const [position, setPosition] = useState(0);
   const [selectedValues, setSelectedValues] = useState<string[]>([]); // State to track selected Values
 
-  console.log(userData);
+  console.log(onboardingData);
 
   const handleBackward = () => {
     navigate("/onboarding/investor/sdg");
   };
 
   const handleForward = () => {
-    setUserData((prevUserData) => ({
-      ...prevUserData,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
       values: selectedValues,
     }));
     navigate("/onboarding/investor/expertise");

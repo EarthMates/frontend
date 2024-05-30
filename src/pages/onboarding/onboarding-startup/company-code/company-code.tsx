@@ -6,7 +6,7 @@ import arrowLeft from "../../../../assets/arrow-left.svg";
 import pageStyles from "./company-code.module.scss"; // Import the new styles
 
 import Slider from "../../../../components/onboarding/slider/slider";
-import { useUserData } from "../../../../context/user-data-context";
+import { useOnboardingData } from "../../../../context/onboarding-data-context";
 import { Header } from "../../../../components/onboarding/header/header-onboarding";
 import { TextField } from "@mui/material";
 import { Button } from "../../../../components/onboarding/button/button";
@@ -18,7 +18,7 @@ export interface CompanyCodeProps {
 
 export const CompanyCode = ({ className }: CompanyCodeProps) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useUserData();
+  const { onboardingData, setOnboardingData } = useOnboardingData();
   const [code, setCode] = useState("");
 
   const handleBackward = () => {
@@ -26,11 +26,11 @@ export const CompanyCode = ({ className }: CompanyCodeProps) => {
   };
 
   const handleForward = () => {
-    setUserData((prevUserData) => ({
-      ...prevUserData,
-      code: code,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
+      code: code || "NONE",
     }));
-    console.log(userData);
+    console.log(onboardingData);
     navigate("/onboarding/startup/stage");
   };
 

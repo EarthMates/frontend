@@ -5,7 +5,7 @@ import styles from "../../onboarding.module.scss";
 import arrowLeft from "../../../../assets/arrow-left.svg";
 import SliderComponent from "../../../../components/onboarding/slider/slider";
 import ImpactComponent from "../../../../components/onboarding/impact/impact";
-import { useUserData } from "../../../../context/user-data-context";
+import { useOnboardingData } from "../../../../context/onboarding-data-context";
 import { Header } from "../../../../components/onboarding/header/header-onboarding";
 
 export interface ImpactProps {
@@ -14,7 +14,7 @@ export interface ImpactProps {
 
 export const Impact = ({ className }: ImpactProps) => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useUserData();
+  const { onboardingData, setOnboardingData } = useOnboardingData();
 
   const [position, setPosition] = useState(0);
   const [impactAmount, setImpactAmount] = useState(0); // State to store impact amount
@@ -24,14 +24,14 @@ export const Impact = ({ className }: ImpactProps) => {
   };
 
   const handleForward = () => {
-    console.log(userData);
+    console.log(onboardingData);
     navigate("/onboarding/investor/sdg");
   };
 
   const handleImpactChange = (value: number) => {
     setImpactAmount(value);
-    setUserData((prevUserData) => ({
-      ...prevUserData,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
       impact: value,
     }));
   };

@@ -8,7 +8,7 @@ import ArrowRight from "../../assets/arrow-right.svg";
 import BuildingIcon from "../../assets/building.svg";
 import ManagerIcon from "../../assets/manager.svg";
 
-import { useUserData } from "../../context/user-data-context";
+import { useOnboardingData } from "../../context/onboarding-data-context";
 import { Header } from "../../components/onboarding/header/header-onboarding";
 import { StepCounter } from "../../components/onboarding/step-counter/step_counter";
 import Slider from "../../components/onboarding/slider/slider";
@@ -20,13 +20,13 @@ export interface OnboardingProps {
 export const Onboarding = ({ className }: OnboardingProps) => {
   const navigate = useNavigate();
 
-  const { userData, setUserData } = useUserData();
+  const { onboardingData, setOnboardingData } = useOnboardingData();
 
   const [position, setPosition] = useState(0);
 
   const handleRoleSelected = (role: string) => {
-    setUserData((prevUserData) => ({
-      ...prevUserData,
+    setOnboardingData((prevOnboardingData) => ({
+      ...prevOnboardingData,
       user_type: role,
     }));
     if (role === "startup") {

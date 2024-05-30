@@ -4,8 +4,7 @@ import { Outlet } from "react-router-dom";
 import { Header } from "../../onboarding/header/header-onboarding";
 import theme from "../../../styles/theme";
 import { ThemeProvider } from "@emotion/react";
-import ProtectedRoute from "../../ProtectedRoutes";
-import { OnboardingDataProvider } from "../../../context/onboarding-data-context";
+import { UserDataProvider } from "../../../context/user-data-context";
 
 export interface SiteWrapperProps {
   className?: string;
@@ -20,10 +19,8 @@ export const SiteWrapper = ({ className }: SiteWrapperProps) => {
     <div className={classNames(styles.root, className)}>
       <div className={styles.content}>
         <ThemeProvider theme={theme}>
-          <OnboardingDataProvider>
-            <Header />
-            <Outlet />
-          </OnboardingDataProvider>
+          <Header />
+          <Outlet />
         </ThemeProvider>
       </div>
     </div>

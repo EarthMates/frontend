@@ -5,13 +5,13 @@ import styles from "./results.module.scss";
 
 export interface ResultsProps {
   className?: string;
-  userData?: any;
+  onboardingData?: any;
   handleForward?: (e: React.ChangeEvent<any>) => void;
 }
 
 export const Results = ({
   className,
-  userData,
+  onboardingData,
   handleForward,
 }: ResultsProps) => {
   const navigate = useNavigate();
@@ -26,18 +26,18 @@ export const Results = ({
         Thank you for choosing Earthmates as your platform for connecting with
         investors, accessing funding, and accelerating your startup's growth.
       </p>
-      <div className={styles.userData}>
+      <div className={styles.onboardingData}>
         <h2>User Data:</h2>
-        <p>Name: {userData.name}</p>
-        <p>Stage: {userData.stage}</p>
-        <p>Industry: {userData.industry}</p>
-        <p>Capital: {userData.capital}</p>
-        <p>Impact: {userData.impact}</p>
-        <p>SDG: {userData.sdg.join(", ")}</p>
-        <p>Values: {userData.values.join(", ")}</p>
-        <p>Expertise: {userData.expertise.join(", ")}</p>
-        <p>Matching: {userData.matching.join(", ")}</p>
-        <p>Strategy: {userData.strategy.join(", ")}</p>
+        <p>Name: {onboardingData.name}</p>
+        <p>Stage: {onboardingData.stage}</p>
+        <p>Industry: {onboardingData.industry}</p>
+        <p>Capital: {onboardingData.capital}</p>
+        <p>Impact: {onboardingData.impact}</p>
+        <p>SDG: {onboardingData.sdg.join(", ")}</p>
+        <p>Values: {onboardingData.values.join(", ")}</p>
+        <p>Expertise: {onboardingData.expertise.join(", ")}</p>
+        <p>Matching: {onboardingData.matching.join(", ")}</p>
+        <p>Strategy: {onboardingData.strategy.join(", ")}</p>
       </div>
       <button className={styles.button} onClick={handleForward}>
         Complete Registration
