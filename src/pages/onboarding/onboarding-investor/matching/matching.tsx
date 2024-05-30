@@ -22,7 +22,7 @@ export const Matching = ({ className }: MatchingProps) => {
   const [selectedMatching, setSelectedMatching] = useState<string[]>([]);
 
   const handleBackward = () => {
-    navigate("/onboarding/startup/expertise");
+    navigate("/onboarding/investor/expertise");
   };
 
   const handleForward = () => {
@@ -30,7 +30,7 @@ export const Matching = ({ className }: MatchingProps) => {
       ...prevUserData,
       matching: selectedMatching,
     }));
-    navigate("/onboarding/startup/strategy");
+    navigate("/onboarding/investor/strategy");
   };
 
   useEffect(() => {

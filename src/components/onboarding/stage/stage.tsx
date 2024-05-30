@@ -24,6 +24,7 @@ function Stage({ className, handleStageSelected, role }: StageProps) {
         setSelectedStages([...selectedStages, stage]);
       }
     }
+    console.log(selectedStages);
   };
 
   return (

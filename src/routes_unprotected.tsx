@@ -89,9 +89,11 @@ export const routes_unprotected: RouteObject[] = [
       {
         path: "/onboarding",
         element: (
-          <UserDataProvider>
-            <OnboardingWrapper />
-          </UserDataProvider>
+          <ProtectedRoute>
+            <UserDataProvider>
+              <OnboardingWrapper />
+            </UserDataProvider>
+          </ProtectedRoute>
         ),
         children: [
           { path: "role", element: <Onboarding /> },

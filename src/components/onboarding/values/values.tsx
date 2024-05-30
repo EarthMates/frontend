@@ -1,4 +1,3 @@
-// values.tsx
 import React, { useState } from "react";
 import classNames from "classnames";
 import styles from "./values.module.scss";
@@ -35,12 +34,16 @@ export const Values = ({
   ];
 
   const handleButtonClick = (value: string) => {
+    let newSelectedValues;
     if (selectedValues.includes(value)) {
-      setSelectedValues(selectedValues.filter((v) => v !== value));
+      newSelectedValues = selectedValues.filter((v) => v !== value);
     } else if (selectedValues.length < 6) {
-      setSelectedValues([...selectedValues, value]);
+      newSelectedValues = [...selectedValues, value];
+    } else {
+      newSelectedValues = selectedValues;
     }
-    handleValuesSelected(selectedValues);
+    setSelectedValues(newSelectedValues);
+    handleValuesSelected(newSelectedValues);
   };
 
   return (

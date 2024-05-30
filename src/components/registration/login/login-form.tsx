@@ -2,6 +2,7 @@ import { useState } from "react";
 import api from "../../../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../constants";
+import { extractUsername } from "../../../utils/utils";
 import "./login-form.modules.scss";
 import {
   Grid,
@@ -31,8 +32,9 @@ function LoginForm({ className, route }: LoginFormProps) {
     e.preventDefault();
 
     try {
-      console.log({ email, password });
-      const res = await api.post(route, { email, password });
+      const username = extractUsername(email);
+      console.log({ username, password });
+      const res = await api.post(route, { username, password });
       localStorage.setItem(ACCESS_TOKEN, res.data.access);
       localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
       navigate(-1);

@@ -15,6 +15,7 @@ import "./register-form.modules.scss";
 
 import GoogleIcon from "../../../assets/google-color.svg";
 import LinkedInIcon from "../../../assets/linkedin-color.svg";
+import { extractUsername } from "../../../utils/utils";
 
 interface RegisterFormProps {
   className?: string;
@@ -43,12 +44,14 @@ function RegisterForm({ className, route }: RegisterFormProps) {
     }
 
     try {
+      const username = extractUsername(email);
+      console.log(username);
       const res = await api.post(route, {
-        username: name,
+        username: username,
+        password: password,
         first_name: name,
         last_name: lastName,
         email: email,
-        password: password,
       });
       navigate("/login");
     } catch (error) {
