@@ -13,8 +13,8 @@ RUN npm install
 # Copy the entire project
 COPY . .
 
-# Build the app
-RUN npm run build
+# Build the app with increased memory limit
+RUN node --max-old-space-size=2048 node_modules/.bin/tsc && npm run build
 
 # Stage 2 - Serve the built app with a lightweight HTTP Server
 FROM nginx:alpine
