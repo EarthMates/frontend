@@ -12,8 +12,11 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
 
   useEffect(() => {
+    console.log("[Log] In useEffect");
     const authenticate = async () => {
+      console.log("[Log] authenticating");
       try {
+        console.log("[Log] get token");
         const token = localStorage.getItem(ACCESS_TOKEN);
         if (!token) {
           console.log("[Log] No access token found.");
