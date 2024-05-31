@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { USER_TYPE } from "../../../constants";
 import styles from "./home.module.scss";
 import classNames from "classnames";
-import HomeIcon from "@mui/icons-material/Home";
-import LogoutIcon from "@mui/icons-material/Logout";
+import { FaHome, FaSignOutAlt } from "react-icons/fa";
 import api from "../../../api";
 
 export interface HomeProps {
@@ -59,7 +58,7 @@ export const Home = ({ className }: HomeProps) => {
             <div className={styles.form}>
               <div className={styles.nav}>
                 <p className={styles.p}>
-                  <HomeIcon /> Home &nbsp;&nbsp;{" "}
+                  <FaHome /> Home &nbsp;&nbsp;{" "}
                 </p>
               </div>
               <h1 className={styles.h1}>Welcome to Earthmates</h1>
@@ -70,7 +69,7 @@ export const Home = ({ className }: HomeProps) => {
                 </h2>
               )}
               <a href="/login" className={styles.logout}>
-                Logout <LogoutIcon />
+                Logout <FaSignOutAlt />
               </a>
             </div>
           </div>

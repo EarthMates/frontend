@@ -11,7 +11,7 @@ import {
   IconButton,
   Button,
 } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import GoogleIcon from "../../../assets/google-color.svg";
 import LinkedInIcon from "../../../assets/linkedin-color.svg";
 
@@ -161,7 +161,7 @@ function LoginForm({ className, route }: LoginFormProps) {
                       onMouseDown={handleMouseDownPassword}
                       edge="end"
                     >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                      {showPassword ? <FaEyeSlash /> : <FaEye />}
                     </IconButton>
                   </InputAdornment>
                 ),
