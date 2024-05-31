@@ -37,10 +37,6 @@ export const Home = ({ className }: HomeProps) => {
       .catch((err) => alert(err));
   };
 
-  const handleLogout = () => {
-    navigate("/logout");
-  };
-
   useEffect(() => {
     const isNewUser = localStorage.getItem(USER_TYPE) === "new_user";
     if (isNewUser) {
@@ -69,7 +65,7 @@ export const Home = ({ className }: HomeProps) => {
               <h1 className={styles.h1}>Welcome to Earthmates</h1>
               {name !== "" && (
                 <h2 className={styles.h2}>
-                  You have succesffuly registered <span>{name} </span>to
+                  You have successfully registered <span>{name} </span>to
                   EarthMates!
                 </h2>
               )}

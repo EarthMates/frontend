@@ -53,10 +53,12 @@ export const CompanyCode = ({ className }: CompanyCodeProps) => {
           <div className={styles.container}>
             <div className={classNames(pageStyles.root, className)}>
               <StepCounter currentStep={2} />
-              <h1 className={pageStyles.h1}>Do you have a company code?</h1>
+              <h1 className={pageStyles.h1}>
+                Do you have a company code/registration number?
+              </h1>
               <p className={pageStyles.p}>
-                Add your company code to increase your chances of getting
-                matched
+                Only registered companies are eligible for matching, ensuring
+                their credibility.
               </p>
 
               <TextField
@@ -64,7 +66,7 @@ export const CompanyCode = ({ className }: CompanyCodeProps) => {
                 onChange={handleInputChange}
                 className={pageStyles.select}
                 variant="outlined"
-                label="Company code (optional)"
+                label="Company code"
               />
 
               <Button
