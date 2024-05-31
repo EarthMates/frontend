@@ -42,6 +42,12 @@
   }
 }
 
+.nav {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.2em;
+}
+
 .p {
   display: flex;
   flex-direction: row;
@@ -53,15 +59,40 @@
   margin-bottom: 0.5em; // Reduce the bottom margin
 }
 
+.logout {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.2em;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #4a555c;
+  margin-bottom: 0.5em; // Reduce the bottom margin
+  cursor: pointer;
+}
+
 .h1 {
   font-family: $header-font;
   font-size: 40px;
   font-weight: 600;
   color: $our-orange;
   margin-top: -2em; // Reduce the top margin
-  margin-bottom: 0; // Remove bottom margin if any
+  margin-bottom: 1em;
 }
 
+.h2 {
+  font-family: Helvetica, sans-serif;
+
+  font-size: 20px;
+  font-weight: 300;
+  color: #4a555c;
+  margin-top: -2em; // Reduce the top margin
+  margin-bottom: 3em; // Remove bottom margin if any
+
+  span {
+    font-weight: 600;
+  }
+}
 .rolesContainer {
   display: flex;
   flex-direction: row;

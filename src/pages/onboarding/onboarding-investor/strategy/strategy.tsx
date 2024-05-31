@@ -39,7 +39,7 @@ export const Strategy = ({ className }: StrategyProps) => {
       .post("/api/investor/", investorData)
       .then((res) => {
         if (res.status === 201) {
-          localStorage.setItem(USER_TYPE, "registered");
+          localStorage.setItem(USER_TYPE, "investor");
           navigate("/");
         } else {
           alert("Failed to make Investor.");

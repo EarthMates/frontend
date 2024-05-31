@@ -19,10 +19,10 @@ export interface SiteWrapperProps {
 export const SiteWrapper = ({ className }: SiteWrapperProps) => {
   const navigate = useNavigate();
 
-  if (localStorage.getItem(USER_TYPE) === "registered") {
+  /* if (localStorage.getItem(USER_TYPE) === "registered") {
     navigate("/");
     return null; // Prevent further rendering
-  }
+  } */
 
   return (
     <div className={classNames(styles.root, className)}>
