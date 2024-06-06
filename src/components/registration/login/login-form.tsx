@@ -11,6 +11,9 @@ import {
   IconButton,
   Button,
 } from "@mui/material";
+//this is for the loading indicator
+import CircularProgress from "@mui/material/CircularProgress";
+
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import GoogleIcon from "../../../assets/google-color.svg";
 import LinkedInIcon from "../../../assets/linkedin-color.svg";
@@ -174,7 +177,11 @@ function LoginForm({ className, route }: LoginFormProps) {
             </button>
           </Grid>
         </Grid>
-        {/* {loading && <LoadingIndicator />} */}
+        {loading && (
+          <div>
+            <CircularProgress sx={{ color: "#ff8516" }} />
+          </div>
+        )}
 
         <LoginFormBottom />
       </form>

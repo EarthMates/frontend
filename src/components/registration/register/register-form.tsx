@@ -9,6 +9,8 @@ import {
   IconButton,
   Checkbox,
 } from "@mui/material";
+//this is for the loading indicator
+import CircularProgress from "@mui/material/CircularProgress";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./register-form.modules.scss";
 
@@ -262,7 +264,11 @@ function RegisterForm({ className, route }: RegisterFormProps) {
           </Grid>
         </Grid>
 
-        {loading && <p>Loading...</p>}
+        {loading && (
+          <div>
+            <CircularProgress sx={{ color: "#ff8516" }} />
+          </div>
+        )}
 
         <LoginFormBottom />
       </form>
