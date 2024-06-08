@@ -178,11 +178,10 @@ function LoginForm({ className, route }: LoginFormProps) {
           </Grid>
         </Grid>
         {loading && (
-          <div>
+          <div className="loading">
             <CircularProgress sx={{ color: "#ff8516" }} />
           </div>
         )}
-
         <LoginFormBottom />
       </form>
     </div>

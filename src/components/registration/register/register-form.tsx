@@ -265,7 +265,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
         </Grid>
 
         {loading && (
-          <div>
+          <div className="loading">
             <CircularProgress sx={{ color: "#ff8516" }} />
           </div>
         )}
