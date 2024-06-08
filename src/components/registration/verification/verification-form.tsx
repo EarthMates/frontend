@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../constants";
 import "./verification-form.modules.scss";
 
+//this is for the loading indicator
+import CircularProgress from "@mui/material/CircularProgress";
+
 interface VerificationFormProps {
   className?: string;
   route: string;
@@ -131,7 +134,11 @@ function VerificationForm({ className, route }: VerificationFormProps) {
           />
         </div>
 
-        {/* {loading && <LoadingIndicator />} */}
+        {loading && (
+          <div className="loading">
+            <CircularProgress sx={{ color: "#ff8516" }} />
+          </div>
+        )}
         <button className="form-button" type="submit">
           Next
         </button>
