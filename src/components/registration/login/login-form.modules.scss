@@ -191,23 +191,21 @@ label {
 .forgot-pass {
   height: fit-content;
   width: fit-content;
-  margin-top: 5%;
+  margin: -0.4em 0 2em 0;
   white-space: nowrap;
 
   h3 {
-    color: black;
-    font-weight: 600;
+    color: $our-orange;
     font-size: small;
   }
   h3:hover {
-    color: $our-orange;
+    color: black;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
   }
 }
 
 .create-acc {
-  margin-top: 5%;
   height: min-content;
   width: min-content;
   text-align: left;
@@ -215,6 +213,7 @@ label {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: -2em 0 3em 0;
 
   h2 {
     margin: 0;
@@ -223,13 +222,13 @@ label {
   }
 
   h3 {
-    color: black;
+    color: $our-orange;
     font-weight: 600;
     font-size: small;
   }
 
   h3:hover {
-    color: $our-orange;
+    color: black;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
   }
