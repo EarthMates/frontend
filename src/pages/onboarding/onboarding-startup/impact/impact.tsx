@@ -58,6 +58,7 @@ export const Impact = ({ className }: ImpactProps) => {
               handleForward={handleForward}
               role="startup"
               impactAmount={impactAmount}
+              role="startup"
             />
           </div>
         </div>
