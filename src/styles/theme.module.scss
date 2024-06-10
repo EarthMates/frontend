@@ -47,4 +47,15 @@ $desktop-width: 1440px;
 
 .bold {
   font-weight: 800;
+  display: inline-block; //this let it be just as it was some normal text (for wrapping purposes)
+}
+
+.orangeLink {
+  color: $our-orange;
+  font-weight: 800;
+  display: inline-block;
+}
+
+.orangeLink:hover {
+  color: black;
 }

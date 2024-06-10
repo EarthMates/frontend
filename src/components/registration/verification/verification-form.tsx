@@ -61,7 +61,7 @@ function VerificationForm({ className, route }: VerificationFormProps) {
       <div className="receive-resend-container">
         <div className="receive-resend">
           <h2>
-            Didn't receive an email? <div className="bold">Resend</div>
+            Didn't receive an email? <div className="orangeLink">Resend</div>
           </h2>
         </div>
       </div>
