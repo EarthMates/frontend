@@ -3,8 +3,6 @@ import api from "../../../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../constants";
 import "./verification-form.modules.scss";
-
-//this is for the loading indicator
 import CircularProgress from "@mui/material/CircularProgress";
 
 interface VerificationFormProps {
@@ -15,29 +13,32 @@ interface VerificationFormProps {
 function VerificationForm({ className, route }: VerificationFormProps) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  //the final string with the verification code
-  //ARRAY[6] OF STRINGS
-  //should contain 6 numbers that rappresent the verification code
-  const [verifyCode, setVerifyCode] = useState<string[]>([]);
+  const [verifyCode, setVerifyCode] = useState<string[]>(Array(6).fill(""));
+
+  const handleInputChange =
+    (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      const newVerifyCode = [...verifyCode];
+      newVerifyCode[index] = e.target.value;
+      setVerifyCode(newVerifyCode);
+    };
 
   const handleSubmit = async (e: React.ChangeEvent<any>) => {
+    e.preventDefault();
     setLoading(true);
-    //if verification is't an array of 6 strings then
-    //alert(`Verification code wrong type
+
     if (
       !Array.isArray(verifyCode) ||
       verifyCode.length !== 6 ||
       verifyCode.some((code) => typeof code !== "string")
     ) {
-      e.preventDefault();
       alert("Verification code must be an array of 6 strings.");
+      setLoading(false);
       return;
     }
-    e.preventDefault();
 
     try {
       const res = await api.post(route, {
-        /*whatever goes here*/
+        // Whatever data you need to send in the request
       });
       navigate("/login");
     } catch (error) {
@@ -47,15 +48,6 @@ function VerificationForm({ className, route }: VerificationFormProps) {
     }
   };
 
-  //FRONTEND:
-
-  /*
-   i'm probably going to eventually move 
-   all to file called frontend-something.tsx,
-    but for now we laying the bricks
-  */
-
-  //component for forgot password/create new account section
   const Receive_resend = () => {
     return (
       <div className="receive-resend-container">
@@ -78,60 +70,21 @@ function VerificationForm({ className, route }: VerificationFormProps) {
           account
         </h2>
         <div className="verify-container">
-          <input
-            id="verify1"
-            className="form-input"
-            type="text"
-            value={verifyCode[0]}
-            onChange={(e) => setVerifyCode([e.target.value])}
-            placeholder=" "
-            required
-          />
-          <input
-            id="verify2"
-            className="form-input"
-            type="text"
-            value={verifyCode[1]}
-            onChange={(e) => setVerifyCode([e.target.value])}
-            placeholder=" "
-            required
-          />
-          <input
-            id="verify3"
-            className="form-input"
-            type="text"
-            value={verifyCode[2]}
-            onChange={(e) => setVerifyCode([e.target.value])}
-            placeholder=" "
-            required
-          />
-          <input
-            id="verify4"
-            className="form-input"
-            type="text"
-            value={verifyCode[3]}
-            onChange={(e) => setVerifyCode([e.target.value])}
-            placeholder=" "
-            required
-          />
-          <input
-            id="verify5"
-            className="form-input"
-            type="text"
-            value={verifyCode[4]}
-            onChange={(e) => setVerifyCode([e.target.value])}
-            placeholder=" "
-            required
-          />
-          <input
-            id="verify6"
-            className="form-input"
-            type="text"
-            value={verifyCode[5]}
-            onChange={(e) => setVerifyCode([e.target.value])}
-            placeholder=" "
-            required
-          />
+          {Array.from({ length: 6 }, (_, index) => (
+            <input
+              key={index}
+              id={`verify${index + 1}`}
+              className="form-input"
+              type="text"
+              value={verifyCode[index]}
+              onChange={handleInputChange(index)}
+              placeholder=" "
+              pattern="[0-9]"
+              title="Please enter a single number (0-9)"
+              maxLength={1}
+              required
+            />
+          ))}
         </div>
 
         {loading && (
