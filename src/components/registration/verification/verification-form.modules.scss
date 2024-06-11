@@ -5,10 +5,22 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 2em 0;
+
+  column-gap: 1em;
+}
+
+.form-input {
+  text-align: center;
+  padding: 0;
 }
 
 .loading {
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+.receive-resend-container {
+  margin: 2em 0;
 }
