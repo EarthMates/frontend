@@ -174,7 +174,7 @@ label {
   align-items: bottom;
   row-gap: 2em;
   justify-content: bottom;
-  margin: 2em 0 0 0;
+  margin: -2.5em 0 2em 0;
   flex-wrap: wrap;
 
   h2 {
@@ -185,12 +185,12 @@ label {
     }
   }
   h3 {
-    color: black;
+    color: $our-orange;
     font-weight: 600;
   }
 
   h3:hover {
-    color: $our-orange;
+    color: black;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
   }

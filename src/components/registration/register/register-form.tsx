@@ -80,8 +80,13 @@ function RegisterForm({ className, route }: RegisterFormProps) {
 
   const GoogleLinkedinLogin = () => {
     return (
-      <Grid container spacing={2} className="google-linkedin-container">
-        <Grid item xs={12} sm={6}>
+      <Grid
+        container
+        spacing={2}
+        className="google-linkedin-container"
+        direction="column"
+      >
+        <Grid item xs={12}>
           <Button
             variant="outlined"
             color="inherit"
@@ -92,7 +97,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
             Login with Google
           </Button>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <Button
             variant="outlined"
             color="inherit"
@@ -135,7 +140,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
       <div className="bottom-container">
         <OrLine />
         <GoogleLinkedinLogin />
-        <SignInContainer />
+        {/*<SignInContainer /> */}
       </div>
     );
   };
@@ -143,7 +148,11 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   return (
     <div className="full-container">
       <form onSubmit={handleSubmit} className="form-container">
-        <h1>Welcome to EarthMates</h1>
+        <div className="title-container">
+          <h1>Welcome to EarthMates</h1>
+          <SignInContainer />
+        </div>
+
         <Grid container spacing={2} direction="column">
           <Grid item>
             <Grid container spacing={2}>
