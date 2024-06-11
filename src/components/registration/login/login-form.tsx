@@ -60,8 +60,13 @@ function LoginForm({ className, route }: LoginFormProps) {
 
   const GoogleLinkedinLogin = () => {
     return (
-      <Grid container spacing={2} className="google-linkedin-container">
-        <Grid item xs={12} sm={6}>
+      <Grid
+        container
+        spacing={2}
+        className="google-linkedin-container"
+        direction="column"
+      >
+        <Grid item xs={12}>
           <Button
             variant="outlined"
             color="inherit"
@@ -72,7 +77,7 @@ function LoginForm({ className, route }: LoginFormProps) {
             Login with Google
           </Button>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <Button
             variant="outlined"
             color="inherit"
@@ -89,17 +94,11 @@ function LoginForm({ className, route }: LoginFormProps) {
 
   const ForgotPassword_CreateNew = () => {
     return (
-      <div className="Forgot-create_Container">
-        <div className="forgot-pass">
-          <h3>Forgot password?</h3>
-        </div>
-        <div className="create-acc">
-          <h2>Don't have an account?</h2>
-          <a href="/register" style={{ cursor: "pointer" }}>
-            <h3>&nbsp;Create one</h3>
-          </a>
-        </div>
-      </div>
+      <>
+        {/*used to be at the bottom, used to contain:
+          forgot-pass // creat-acc divs
+        */}
+      </>
     );
   };
 
@@ -118,7 +117,7 @@ function LoginForm({ className, route }: LoginFormProps) {
       <div className="bottom-container">
         <OrLine />
         <GoogleLinkedinLogin />
-        <ForgotPassword_CreateNew />
+        {/*<ForgotPassword_CreateNew /> */}
       </div>
     );
   };
@@ -126,7 +125,16 @@ function LoginForm({ className, route }: LoginFormProps) {
   return (
     <div className="full-container">
       <form onSubmit={handleSubmit} className="form-container">
-        <h1>Login to EarthMates</h1>
+        <div className="title-container">
+          <h1>Login to EarthMates</h1>
+          <div className="create-acc">
+            <h2>Don't have an account?</h2>
+            <a href="/register" style={{ cursor: "pointer" }}>
+              <h3>&nbsp;Sign up</h3>
+            </a>
+          </div>
+        </div>
+
         <Grid container spacing={2} direction="column">
           <Grid item>
             <TextField
@@ -170,6 +178,11 @@ function LoginForm({ className, route }: LoginFormProps) {
                 ),
               }}
             />
+            <div className="Forgot-create_Container">
+              <div className="forgot-pass">
+                <h3>Forgot password?</h3>
+              </div>
+            </div>
           </Grid>
           <Grid item>
             <button className="form-button" type="submit">
