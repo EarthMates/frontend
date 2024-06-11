@@ -195,7 +195,7 @@ function LoginForm({ className, route }: LoginFormProps) {
             <CircularProgress sx={{ color: "#ff8516" }} />
           </div>
         )}
-        <LoginFormBottom />
+        {/*<LoginFormBottom />*/}
       </form>
     </div>
   );
