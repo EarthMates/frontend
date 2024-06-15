@@ -230,6 +230,9 @@ label {
     color: black;
     font-weight: 600;
   }
+
+  @media (max-width: $phone-width) {
+  }
 }
 
 .loading {
