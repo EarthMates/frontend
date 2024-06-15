@@ -5,6 +5,7 @@ import {
   TextField,
   Button,
   Grid,
+  Typography,
   InputAdornment,
   IconButton,
   Checkbox,
@@ -35,6 +36,9 @@ function RegisterForm({ className, route }: RegisterFormProps) {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(true);
   const navigate = useNavigate();
+
+  //frontend only
+  const [passwordFocus, setPasswordFocus] = useState("hidden");
 
   const handleSubmit = async (e: React.ChangeEvent<any>) => {
     setLoading(true);
@@ -145,6 +149,19 @@ function RegisterForm({ className, route }: RegisterFormProps) {
     );
   };
 
+  const PasswordRules = () => {
+    if (passwordFocus === "visible") {
+      return (
+        <>
+          Password should be 8-16 characters long, with at least one lowercase
+          letter, one uppercase letter, and one number.
+        </>
+      );
+    } else {
+      return <> </>;
+    }
+  };
+
   return (
     <div className="full-container">
       <form onSubmit={handleSubmit} className="form-container">
@@ -202,11 +219,13 @@ function RegisterForm({ className, route }: RegisterFormProps) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              onFocus={() => setPasswordFocus("visible")}
               inputProps={{
                 pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,16}$",
                 title:
                   "Password should be 8-16 characters long, at least one lowercase/uppercase letter and a number",
               }}
+              sx={{ marginTop: "1em" }}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -222,6 +241,18 @@ function RegisterForm({ className, route }: RegisterFormProps) {
                 ),
               }}
             />
+            <Typography
+              variant="body1"
+              gutterBottom
+              sx={{
+                color: "#4a555c" /*$small-grey-writing font*/,
+                fontSize: "small",
+                marginTop: "1em",
+                visibility: `${passwordFocus}`,
+              }}
+            >
+              <PasswordRules />
+            </Typography>
           </Grid>
           <Grid item>
             <TextField
@@ -255,7 +286,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
               onChange={(e) => setAcceptTerms(e.target.checked)}
               name="acceptTerms"
               color="primary"
-              sx={{ transform: "scale(0.8)" }}
+              sx={{ transform: "scale(0.8)", marginTop: "1em" }}
             />
             <span className="terms">
               By signing up you are accepting our <a>Terms of use</a> and our{" "}
@@ -279,7 +310,7 @@ function RegisterForm({ className, route }: RegisterFormProps) {
           </div>
         )}
 
-        <LoginFormBottom />
+        {/*<LoginFormBottom />*/}
       </form>
     </div>
   );
