@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import styles from "../../onboarding.module.scss";
 import arrowLeft from "../../../../assets/arrow-left.svg";
@@ -22,22 +23,26 @@ export const Strategy = ({ className }: StrategyProps) => {
 
   const [position, setPosition] = useState(0);
   const [selectedStrategy, setSelectedStrategy] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleBackward = () => {
     navigate("/onboarding/startup/matching");
   };
 
   const handleForward = () => {
+    setLoading(true); // Set loading to true
     setOnboardingData((prevOnboardingData) => ({
       ...prevOnboardingData,
       strategy: selectedStrategy,
     }));
 
     const { user_type, ...startupData } = onboardingData;
+    startupData.strategy = selectedStrategy;
     console.log(startupData);
     api
       .post("/api/startup/", startupData)
       .then((res) => {
+        setLoading(false); // Set loading to false
         if (res.status === 201) {
           localStorage.setItem(USER_TYPE, "startup");
           navigate("/");
@@ -45,7 +50,10 @@ export const Strategy = ({ className }: StrategyProps) => {
           alert("Failed to make Startup.");
         }
       })
-      .catch((err) => alert(err));
+      .catch((err) => {
+        setLoading(false); // Set loading to false
+        alert(err);
+      });
   };
 
   useEffect(() => {
@@ -58,19 +66,25 @@ export const Strategy = ({ className }: StrategyProps) => {
 
       <div className={styles.registration}>
         <div className={styles.buttonContainer}>
-          <button className={styles.button} onClick={() => handleBackward()}>
+          <button className={styles.button} onClick={handleBackward}>
             <img src={arrowLeft} alt="Back" className={styles.arrowIcon} />
             Back
           </button>
         </div>
         <div className={styles.form}>
           <div className={styles.container}>
-            <StrategyComponent
-              selectedStrategy={selectedStrategy}
-              setSelectedStrategy={setSelectedStrategy}
-              handleForward={handleForward}
-              role="startup"
-            />
+            {loading ? (
+              <div className={styles.loadingContainer}>
+                <CircularProgress />
+              </div>
+            ) : (
+              <StrategyComponent
+                selectedStrategy={selectedStrategy}
+                setSelectedStrategy={setSelectedStrategy}
+                handleForward={handleForward}
+                role="startup"
+              />
+            )}
           </div>
         </div>
         <div className={styles.placeholder} />

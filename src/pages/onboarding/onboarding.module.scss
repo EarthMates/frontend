@@ -180,3 +180,11 @@
 .icon {
   margin-right: 4px; // Reduced margin to bring icon closer to the text
 }
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
