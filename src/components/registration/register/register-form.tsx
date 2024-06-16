@@ -294,8 +294,8 @@ function RegisterForm({ className, route }: RegisterFormProps) {
             />
             <span className="terms">
               By signing up you are accepting our{" "}
-              <a className="orangeLink">Terms of use</a> and our{" "}
-              <a className="orangeLink">Privacy policy</a>.
+              <a href="/terms-condition" className="orangeLink">Terms of use</a> and our{" "}
+              <a href="/privacy-policy"className="orangeLink">Privacy policy</a>.
             </span>
           </Grid>
           <Grid item>

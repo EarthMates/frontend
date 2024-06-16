@@ -93,7 +93,7 @@ export const Header = ({ className }: HeaderProps) => {
       {isMobile && isMenuOpen && (
         <div className={styles.overlay} onClick={toggleMenu}>
           <NavLink
-            to="https://www.earthmates.de/startups"
+            to="https://earthmates.de/startups"
             className={({ isActive }) =>
               classNames({ [styles.active]: isActive })
             }
@@ -102,7 +102,7 @@ export const Header = ({ className }: HeaderProps) => {
           </NavLink>
 
           <NavLink
-            to="https://www.earthmates.de/investors"
+            to="https://earthmates.de/investors"
             className={({ isActive }) =>
               classNames({ [styles.active]: isActive })
             }

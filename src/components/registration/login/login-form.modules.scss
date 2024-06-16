@@ -21,6 +21,13 @@ h1 {
     max-width: $desktop-width;
   }
 }
+.contact {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5em;
+  cursor: pointer;
+  color: $our-orange;
+}
 
 .form-container {
   background-color: $white;

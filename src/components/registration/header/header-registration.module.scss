@@ -52,7 +52,8 @@
   font-weight: 400;
   padding-top: 3em;
   transition: height 1s ease;
-  background-color: #0b0b09;
+  background-color: #0b0b09; /* Ensure this is solid */
+  z-index: 10; /* Ensure it's on top */
 }
 
 .active {

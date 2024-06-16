@@ -49,6 +49,8 @@ import NotFound from "./pages/not-found/not-found";
 import Dashboard from "./pages/dashboard/dashboard";
 import { Home } from "./pages/dashboard/home/home";
 import { USER_TYPE } from "./constants";
+import Terms from "./pages/contract/terms";
+import ContractForm from "./components/registration/contract/contract-form";
 
 function Logout() {
   localStorage.clear();
@@ -88,6 +90,11 @@ export const routes: RouteObject[] = [
         path: "register/verification",
         element: <LoginWrapper />,
         children: [{ path: "", element: <RegisterVerification /> }],
+      },
+      {
+        path: "login",
+        element: <LoginWrapper />,
+        children: [{ path: "", element: <Login /> }],
       },
       {
         path: "onboarding",

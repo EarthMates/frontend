@@ -1,8 +1,9 @@
 import { useState } from "react";
 import api from "../../../api";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../constants";
+import { ACCESS_TOKEN, REFRESH_TOKEN, EMAIL } from "../../../constants";
 import { extractUsername } from "../../../utils/utils";
+import { FaHeadset } from "react-icons/fa";
 import "./login-form.modules.scss";
 import {
   Grid,
@@ -40,12 +41,17 @@ function LoginForm({ className, route }: LoginFormProps) {
       const res = await api.post(route, { username, password });
       localStorage.setItem(ACCESS_TOKEN, res.data.access);
       localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+      localStorage.setItem(EMAIL, email)
       navigate("/");
     } catch (error) {
       alert(error);
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleContactClick = () => {
+    window.location.href = "mailto:jacopo@earthmates.de";
   };
 
   const handleClickShowPassword = () => {
@@ -180,7 +186,9 @@ function LoginForm({ className, route }: LoginFormProps) {
             />
             <div className="Forgot-create_Container">
               <div className="forgot-pass">
-                <h3>Forgot password?</h3>
+              <a onClick={handleContactClick} className="contact">
+        Contact help center
+      </a>
               </div>
             </div>
           </Grid>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { USER_TYPE } from "../../../constants";
+import { EMAIL, USER_TYPE } from "../../../constants";
 import styles from "./home.module.scss";
 import classNames from "classnames";
-import { FaHome, FaSignOutAlt } from "react-icons/fa";
+import { FaHeadset, FaSignOutAlt } from "react-icons/fa";
 import api from "../../../api";
 
 export interface HomeProps {
@@ -13,6 +13,7 @@ export interface HomeProps {
 export const Home = ({ className }: HomeProps) => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
   const getInvestor = () => {
     api
@@ -41,6 +42,12 @@ export const Home = ({ className }: HomeProps) => {
     if (isNewUser) {
       navigate("/onboarding/role");
     }
+    const email = localStorage.getItem(EMAIL);
+    if (email != null) {
+      setEmail(email);
+    } else {
+      setEmail("NONE");
+    }
 
     const userType = localStorage.getItem(USER_TYPE);
     if (userType === "investor") {
@@ -50,27 +57,36 @@ export const Home = ({ className }: HomeProps) => {
     }
   }, [navigate]);
 
+  const handleContactClick = () => {
+    window.location.href = "mailto:jacopo@earthmates.de";
+  };
+
   return (
     <div>
       {localStorage.getItem(USER_TYPE) !== "new_user" && (
         <div className={classNames(styles.root, className)}>
           <div className={styles.registration}>
             <div className={styles.form}>
-              <div className={styles.nav}>
-                <p className={styles.p}>
-                  <FaHome /> Home &nbsp;&nbsp;{" "}
-                </p>
-              </div>
+              <div className={styles.nav}></div>
               <h1 className={styles.h1}>Welcome to Earthmates</h1>
-              {name !== "" && (
-                <h2 className={styles.h2}>
-                  You have successfully registered <span>{name} </span>to
-                  EarthMates!
-                </h2>
+              {email !== "" && (
+                <div>
+                  <h2 className={styles.h2}>
+                    You have successfully registered to EarthMates!
+                  </h2>
+                  <h2 className={styles.h2}>
+                    We have sent a confirmation email to <span>{email}</span>
+                  </h2>
+                </div>
               )}
-              <a href="/login" className={styles.logout}>
-                Logout <FaSignOutAlt />
-              </a>
+              <div className={styles.bottom}>
+                <a onClick={handleContactClick} className={styles.contact}>
+                  <FaHeadset /> Contact
+                </a>
+                <a href="/logout" className={styles.logout}>
+                  Logout <FaSignOutAlt />
+                </a>
+              </div>
             </div>
           </div>
         </div>

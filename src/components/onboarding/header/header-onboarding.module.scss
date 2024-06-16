@@ -1,8 +1,24 @@
 @import "@styles/theme.module.scss";
 
 .root {
+  display: flex;
+  justify-content: space-between; /* This aligns the items with space between them */
+  align-items: center; /* This vertically centers the items */
+  text-align: center;
   height: 4em;
   background-color: #f6f6f6;
   padding: 1em;
   border-bottom: 1px solid #e1e1e1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5em;
+  cursor: pointer;
 }
