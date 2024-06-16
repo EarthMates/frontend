@@ -286,11 +286,16 @@ function RegisterForm({ className, route }: RegisterFormProps) {
               onChange={(e) => setAcceptTerms(e.target.checked)}
               name="acceptTerms"
               color="primary"
-              sx={{ transform: "scale(0.8)", marginTop: "1em" }}
+              sx={{
+                transform: "scale(0.8)",
+                marginTop: "1em",
+                display: "inline",
+              }}
             />
             <span className="terms">
-              By signing up you are accepting our <a>Terms of use</a> and our{" "}
-              <a>Privacy policy</a>.
+              By signing up you are accepting our{" "}
+              <a className="orangeLink">Terms of use</a> and our{" "}
+              <a className="orangeLink">Privacy policy</a>.
             </span>
           </Grid>
           <Grid item>
