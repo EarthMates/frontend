@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import { Slider, Typography, Box } from "@mui/material";
+import { Slider, Typography, Box, Tooltip } from "@mui/material";
 import styles from "./impact.module.scss";
 import { Button } from "../button/button";
 import { StepCounter } from "../step-counter/step_counter";
@@ -32,10 +32,14 @@ export const Impact = ({
   return (
     <div className={classNames(styles.root, className)}>
       <StepCounter currentStep={6} />
-      {role == "startup" ? (
+      {role === "startup" ? (
         <>
           <h1 className={styles.h1}>
-            How important is it to have impact through your business?
+            How important is it to have{" "}
+            <Tooltip title="Measurable positive social or environmental change created by your company's products, services, or operations.">
+              <span className={styles.underline}>impact</span>
+            </Tooltip>{" "}
+            through your business?
           </h1>
           <p className={styles.p}>
             Rate the importance of impact for your company on a scale of 1 - 10
@@ -44,7 +48,11 @@ export const Impact = ({
       ) : (
         <>
           <h1 className={styles.h1}>
-            How do you prioritize investments in social impact?
+            How do you prioritize investment in social{" "}
+            <Tooltip title="Measurable positive social or environmental change created by your company's products, services, or operations.">
+              <span className={styles.underline}>impact</span>
+            </Tooltip>{" "}
+           ?
           </h1>
           <p className={styles.p}>
             Rate the importance of impact for your company on a scale of 1 - 10

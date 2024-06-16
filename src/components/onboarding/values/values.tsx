@@ -21,16 +21,26 @@ export const Values = ({
   const [hoveredButton, setHoveredButton] = useState<string | null>(null);
 
   const values = [
-    "Trust",
-    "Respect",
+    "Sustainability",
+    "Customers",
+    "Efficiency",
     "Collaboration",
-    "Innovation",
-    "Accountability",
-    "Excellence",
+    "Common Good",
+    "Value-oriented",
+    "Engagement",
+    "Transparency",
+    "Ethical Behavior",
+    "Punctuality",
+    "Quickness",
     "Integrity",
-    "Diversity",
-    "Empowerment",
-    "Communication",
+    "Innovation",
+    "Network",
+    "Risk-taking",
+    "Trust",
+    "Long-term Focus",
+    "Responsibility",
+    "Adaptability",
+    "Win-win Mentality",
   ];
 
   const handleButtonClick = (value: string) => {

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import {
   Select,
   MenuItem,
-  FormControl,
+FormControl,
   InputLabel,
   SelectChangeEvent,
 } from "@mui/material";
@@ -62,10 +62,29 @@ export const Industry = ({
           label="Select industry"
         >
           <MenuItem value="Select industry">Select industry</MenuItem>
-          <MenuItem value="Technology">Technology</MenuItem>
-          <MenuItem value="Agriculture">Agriculture</MenuItem>
+          <MenuItem value="Real estate">Real estate</MenuItem>
+          <MenuItem value="Nature protection">Nature protection</MenuItem>
+          <MenuItem value="Woman Empowerment">Woman Empowerment</MenuItem>
+          <MenuItem value="Poverty alleviation">Poverty alleviation</MenuItem>
+          <MenuItem value="Greentech">Greentech</MenuItem>
+          <MenuItem value="Smart City">Smart City</MenuItem>
           <MenuItem value="Mobility">Mobility</MenuItem>
-          <MenuItem value="Finance">Finance</MenuItem>
+          <MenuItem value="Energy">Energy</MenuItem>
+          <MenuItem value="Education">Education</MenuItem>
+          <MenuItem value="Health">Health</MenuItem>
+          <MenuItem value="Sports">Sports</MenuItem>
+          <MenuItem value="Cosmetics">Cosmetics</MenuItem>
+          <MenuItem value="Financial & Insurance">Financial & Insurance</MenuItem>
+          <MenuItem value="Food">Food</MenuItem>
+          <MenuItem value="Legal">Legal</MenuItem>
+          <MenuItem value="Rental & Repair">Rental & Repair</MenuItem>
+          <MenuItem value="Transportation & storage">Transportation & storage</MenuItem>
+          <MenuItem value="Information & Communication">Information & Communication</MenuItem>
+          <MenuItem value="Arts, entertainment & recreation">Arts, entertainment & recreation</MenuItem>
+          <MenuItem value="Support services">Support services</MenuItem>
+          <MenuItem value="Technical services">Technical services</MenuItem>
+          <MenuItem value="Environmental Consulting">Environmental Consulting</MenuItem>
+          <MenuItem value="Other">Other</MenuItem>
         </Select>
       </FormControl>
 

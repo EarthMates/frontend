@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import { Tooltip } from "@mui/material";
 import styles from "./sdg.module.scss";
 import { Button } from "../button/button";
 import { StepCounter } from "../step-counter/step_counter";
@@ -34,16 +35,26 @@ function Sdg({
         {role === "startup" ? (
           <>
             <h1 className={styles.h1}>
-              Which <span className={styles.sdgText}>SDGs</span> do you fulfill
-              with your startup project?
+              Which{" "}
+              <Tooltip
+                title="SDGs (Sustainable Development Goals) are 17 goals adopted by the UN in 2015 as a blueprint to achieve a better and more sustainable future for all."
+              >
+                <span className={styles.sdgText}>SDGs</span>
+              </Tooltip>{" "}
+              do you fulfill with your startup project?
             </h1>
             <p className={styles.p}>Choose a maximum of 5</p>
           </>
         ) : (
           <>
             <h1 className={styles.h1}>
-              Which <span className={styles.sdgText}>SDGs</span> do you
-              prioritize investment in?
+              Which{" "}
+              <Tooltip
+                title="SDGs (Sustainable Development Goals) are 17 goals adopted by the UN in 2015 as a blueprint to achieve a better and more sustainable future for all."
+              >
+                <span className={styles.sdgText}>SDGs</span>
+              </Tooltip>{" "}
+              do you prioritize investment in?
             </h1>
             <p className={styles.p}>Choose a maximum of 5</p>
           </>
