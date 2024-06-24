@@ -11,11 +11,8 @@ function Dashboard() {
     <div className={styles.root}>
       <Sidebar />
       <div className={styles.mainContent}>
-        <Header />
         <div className={styles.dashboardContent}>
           <Financials />
-          <Market />
-          <InvestorPreference />
         </div>
       </div>
       <CompanyProfile />
