@@ -9,13 +9,18 @@ import styles from "./dashboard.module.scss";
 function Dashboard() {
   return (
     <div className={styles.root}>
-      <Sidebar />
+      <div className="sideBar-container sides-common-style">
+        <Sidebar />
+      </div>
+      {/* idk the use of these both divs \_o_/ */}
       <div className={styles.mainContent}>
         <div className={styles.dashboardContent}>
           <Financials />
         </div>
       </div>
-      <CompanyProfile />
+      <div className="company-profile-container sides-common-style">
+        <CompanyProfile />
+      </div>
     </div>
   );
 }
