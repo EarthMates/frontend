@@ -30,7 +30,6 @@ in the space between the divs
   background: white;
 }
 
-
 .company-profile-container {
   height: 100%;
   flex: 0 0 24%;
@@ -41,11 +40,10 @@ in the space between the divs
 //check the structure later
 //upon finding possible problems
 
-
 .mainContent {
   height: 100%;
   flex: 1 1 59%;
-/*   overflow-y: auto; */
+  /*   overflow-y: auto; */
   margin-left: 3.5em;
   margin-right: 3.5em;
 
@@ -87,4 +85,3 @@ in the space between the divs
     }
   }
 }
-

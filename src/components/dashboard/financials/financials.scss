@@ -1,0 +1,62 @@
+@import "@styles/theme.module.scss";
+
+.financial-chart-container {
+  border: 1px solid #ccc;
+  border-radius: $our-border-radius;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  margin-bottom: $component-bottom-margin;
+}
+
+.financial-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: $our-border-radius;
+  border-top-right-radius: $our-border-radius;
+}
+
+.title-icon {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 1px;
+  font-size: 24px; /* Adjust this as necessary */
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.financial-chart-body {
+  padding: 20px;
+}
+
+.funding-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.8em;
+  margin-bottom: 1.5em;
+}
+
+.funding-info p {
+  display: flex;
+  justify-content: start;
+  margin: 5px 0;
+}
+
+.label {
+  color: #999;
+  font-size: 14px;
+}
+
+.value {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+}

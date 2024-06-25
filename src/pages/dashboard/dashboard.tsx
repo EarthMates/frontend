@@ -42,8 +42,6 @@ function Dashboard() {
           <Impact />
         </div>
       </div>
-      <div className="company-profile-container sides-common-style">
-        <CompanyInfo />
       </div>
     </div>
   );
