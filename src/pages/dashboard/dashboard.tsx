@@ -5,13 +5,25 @@ import Market from "../../components/dashboard/market/market";
 import InvestorPreference from "../../components/dashboard/investor-preference/investor-preference";
 import CompanyProfile from "../../components/dashboard/company-profile/company-profile";
 import styles from "./dashboard.module.scss";
+import { useStartupData } from "../../context/startup-data-context";
 
 function Dashboard() {
+  const { startupData, setStartupData } = useStartupData();
+
+  /* console.log(startupData);
+
+  setStartupData((prevStartupData) => ({
+    ...prevStartupData,
+    name: "New Name",
+  }));
+
+  console.log(startupData); */
+
   return (
     <div className={styles.root}>
-      <div className="sideBar-container sides-common-style">
+      {/* <div className="sideBar-container sides-common-style">
         <Sidebar />
-      </div>
+      </div> */}
       {/* idk the use of these both divs \_o_/ */}
       <div className={styles.mainContent}>
         <div className={styles.dashboardContent}>

@@ -1,37 +1,125 @@
 .sidebar {
-  width: 250px;
-  background-color: #f5f5f5;
+  width: 18em;
+  background: linear-gradient(180deg, #FFF6EE 0%, #EDECFF 100%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
-}
+  padding: 1.25em;
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
+  
+  .workspace {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: start;
 
-.nav ul {
-  list-style: none;
-  padding: 0;
-}
+    .text {
+      display: flex;
+      flex-direction: column;
+      p {
+        font-size: 0.5em;
+        font-weight: normal;
+        margin: 0;
+      }
+    }
 
-.nav li {
-  padding: 10px 0;
-}
+    .logo {
+      width: 2em;
+      height: 2em;
+      margin-right: 0.625em;
+      background-color: #ddd;
+      border-radius: 50%;
+    }
+  }
 
-.active {
-  font-weight: bold;
-}
+  .nav {
+    margin-top: 3em;
+    margin-bottom: 18em;
 
-.footer {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+    ul {
+      list-style: none;
+      padding: 0;
+    }
 
+    .navItem {
+      display: flex;
+      align-items: center;
+      padding: 0.625em 0;
 
-.profile {
-  font-size: 12px;
+      .icon {
+        width: 1.5em;
+        height: 1.5em;
+        margin-right: 0.625em;
+        background-color: #ddd;
+        border-radius: 50%;
+
+        &.iconDashboard {
+          background-color: orange;
+        }
+      }
+
+      .active {
+        color: orange;
+      }
+
+      .notification {
+        background-color: red;
+        color: white;
+        border-radius: 0.75em;
+        padding: 0.125em 0.375em;
+        font-size: 0.75em;
+        margin-left: 0.5em;
+      }
+    }
+  }
+
+  .plan {
+    text-align: start;
+    background-color: #FFF6EE;
+    padding: 1em;
+    border-radius: 0.5em;
+    border: 0.5em #ff8516;
+    margin-bottom: 1.5em;
+
+    h3 {
+      font-size: 1em;
+      font-weight: 600;
+      margin: 0.5em 0;
+    }
+
+    p {
+      font-size: 0.875em;
+      margin: 0.5em 0;
+    }
+
+    button {
+      /* background-color: orange;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 0.25em; */
+      cursor: pointer;
+    }
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 0.625em;
+
+    .avatar {
+      background-color: #ddd;
+      border-radius: 50%;
+      padding: 0.625em;
+      font-size: 1em;
+      font-weight: bold;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.75em;
+    }
+  }
 }

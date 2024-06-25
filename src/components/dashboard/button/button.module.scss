@@ -1,0 +1,29 @@
+@import "@styles/theme.module.scss";
+
+.root {
+  display: flex;
+  font-family: Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 1em;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff8516;
+  color: #ffffff;
+  border-radius: 10px;
+  min-width: 1em;
+  min-height: 1em;
+  line-height: 2em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: darken(#ff8516, 10%);
+    color: lighten(#ffffff, 10%);
+  }
+}
+
+.selected {
+  background-color: darken(#ff8516, 10%);
+  color: lighten(#ffffff, 10%);
+}

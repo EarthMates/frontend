@@ -4,6 +4,9 @@ import React, { createContext, useContext, useState } from "react";
 interface UserData {
   user_type: string;
   new_user: boolean;
+  email: string;
+  firstName: string;
+  lastName: string;
 }
 
 interface UserDataContextType {
@@ -29,6 +32,9 @@ export const UserDataProvider: React.FC<React.PropsWithChildren<{}>> = ({
   const [userData, setUserData] = useState<UserData>({
     user_type: "",
     new_user: false,
+    email: "",
+    firstName: "",
+    lastName: "",
   });
 
   return (
