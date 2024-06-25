@@ -28,7 +28,7 @@ function Sidebar() {
       <nav className={styles.nav}>
         <ul>
           <Link to="/get-started" className={styles.navItem}>
-            <div className={styles.icon}></div>
+            <div className={`${styles.icon} ${styles.iconGetStarted}`}></div>
             Get Started
           </Link>
 
@@ -41,19 +41,22 @@ function Sidebar() {
           </Link>
 
           <Link to="/investor-matching" className={styles.navItem}>
-            <div className={styles.icon}></div>
+            <div className={`${styles.icon} ${styles.iconMatching}`}></div>
             Investor Matching
             <span className={styles.notification}>2</span>
           </Link>
 
           <Link to="/company-details" className={styles.navItem}>
-            <div className={styles.icon}></div>
+            <div className={`${styles.icon} ${styles.iconDetails}`}></div>
             Company Details
           </Link>
         </ul>
       </nav>
       <div className={styles.plan}>
-        <h3>Free Plan</h3>
+        <div className={styles.planInfo}>
+          <div className={styles.icon}></div>
+          <h3>Free Plan</h3>
+        </div>
         <p>
           Ideal for early-stage startups looking to gain visibility and access
           basic features.

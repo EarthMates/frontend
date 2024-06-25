@@ -1,5 +1,5 @@
 .sidebar {
-  width: 18em;
+  width: 22em;
   background: linear-gradient(180deg, #FFF6EE 0%, #EDECFF 100%);
   display: flex;
   flex-direction: column;
@@ -35,8 +35,11 @@
   }
 
   .nav {
+    margin-left: 1em;
+    margin-right: 1em;
     margin-top: 3em;
-    margin-bottom: 18em;
+    margin-bottom: 15em;
+
 
     ul {
       list-style: none;
@@ -47,16 +50,26 @@
       display: flex;
       align-items: center;
       padding: 0.625em 0;
+      margin-bottom: 0.5em;
 
       .icon {
         width: 1.5em;
         height: 1.5em;
-        margin-right: 0.625em;
+        margin-right: 1em;
         background-color: #ddd;
         border-radius: 50%;
 
+        &.iconGetStarted {
+          background: url('/icons/get-started.svg') no-repeat center center;
+        }
         &.iconDashboard {
-          background-color: orange;
+          background: url('/icons/dashboard-selected.svg') no-repeat center center;
+        }
+        &.iconMatching {
+          background: url('/icons/matching.svg') no-repeat center center;
+        }
+        &.iconDetails {
+          background: url('/icons/details.svg') no-repeat center center;
         }
       }
 
@@ -83,11 +96,26 @@
     border: 0.5em #ff8516;
     margin-bottom: 1.5em;
 
-    h3 {
-      font-size: 1em;
-      font-weight: 600;
-      margin: 0.5em 0;
+    .planInfo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .icon {
+        width: 1.5em;
+        height: 1.5em;
+        margin-right: 0.625em;
+        background: url('/icons/plan-diamond.svg') no-repeat center center;
+  
+      }
+  
+      h3 {
+        font-size: 1em;
+        font-weight: 600;
+        margin: 0.5em 0;
+      }
     }
+
+    
 
     p {
       font-size: 0.875em;

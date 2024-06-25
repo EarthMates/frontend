@@ -1,16 +1,73 @@
-.header {
+@import "@styles/theme.module.scss";
+
+.root {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  column-gap: 0.25em;
+  justify-content: start;
+  padding-top: 1.25em;
+  padding-left: 1.5em;
+  border-radius: 10px 10px 0 0;
+  background-color: #FFFDFB;
+  border: 1px solid #E1E1E1;
 }
 
-.stats {
+.navItem {
   display: flex;
-  gap: 20px;
-}
+  align-items: center;
+  padding: 1.5em 1em;
+  border-radius: 10px 10px 0 0; /* Top corners rounded, bottom corners straight */
+   /* Added border stroke */
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  background-color: white;
 
-.stat {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  &:hover {
+    background-color: #f0f0f0;
+    
+  }
+
+  &.active {
+    background-color: #FFF6EE; /* Example color for the active state */
+    border: 1px solid #FF8516;
+  }
+
+  .icon {
+    margin-right: 10px;
+
+    /* Updated icon size to use em units */
+    width: 1em;
+    height: 1em;
+
+    &.iconCompanyProfile {
+      background: url('/icons/building.svg') no-repeat center center;
+    }
+    
+    &.iconProductService {
+      background: url('/icons/product.svg') no-repeat center center;
+    }
+    
+    &.iconFinancials {
+      background: url('/icons/finances.svg') no-repeat center center;
+    }
+    
+    &.iconImpact {
+      background: url('/icons/impact.svg') no-repeat center center;
+    }
+    
+    &.iconTeam {
+      background: url('/icons/team.svg') no-repeat center center;
+    }
+    
+    &.iconInvestorPreference {
+      background: url('/icons/preference.svg') no-repeat center center;
+    }
+    
+    &.iconMarket {
+      background: url('/icons/market.svg') no-repeat center center;
+    }
+  }
 }

@@ -1,32 +1,12 @@
 @import "@styles/theme.module.scss";
 
-/*
-
-Here we keep styling 
-DESKTOP FIRST
-because the design been styled for desktop browsers
-
-original design total width:
-1728px
-
-sidebar width:
-288px (16,7 % =~= 17%)
-
-main content width:
-58% (the remaining)
-
-company profile width:
-420px (24,31% =~= 24%)
-
-we remain for 1% of space between the divs
-then in .root we justify the content 
-in the space between the divs
-
-*/
-
 .root {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  row-gap: 1.25em;
+  margin-top: 2.5em;
+  margin-left: 3.5em;
+  margin-right: 3.5em;
 }
 
 //here we set the width
@@ -49,15 +29,10 @@ in the space between the divs
 // these where already written
 //check the structure later
 //upon finding possible problems
-
-
 .mainContent {
   height: 100%;
   flex: 1 1 59%;
   overflow-y: auto;
-  margin-top: 2.5em;
-  margin-left: 3.5em;
-  margin-right: 3.5em;
 }
 
 .dashboardContent {

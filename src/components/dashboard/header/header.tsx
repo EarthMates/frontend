@@ -1,22 +1,44 @@
+import { Link } from "react-router-dom";
+import { Button } from "../button/button";
 import styles from "./header.module.scss";
+import { useEffect } from "react";
 
 function Header() {
   return (
-    <div className={styles.header}>
-      <div className={styles.stats}>
-        <div className={styles.stat}>
-          <h3>Investor Views</h3>
-          <p>118</p>
-        </div>
-        <div className={styles.stat}>
-          <h3>Conversion Rate</h3>
-          <p>24%</p>
-        </div>
-        <div className={styles.stat}>
-          <h3>Funding Raised</h3>
-          <p>$400,000</p>
-        </div>
-      </div>
+    <div className={styles.root}>
+      <Link
+        to="/company-profile"
+        className={`${styles.navItem} ${styles.active}`}
+      >
+        <div className={`${styles.icon} ${styles.iconCompanyProfile}`}></div>
+        Company Profile
+      </Link>
+      <Link to="/product-service" className={styles.navItem}>
+        <div className={`${styles.icon} ${styles.iconProductService}`}></div>
+        Product/Service
+      </Link>
+      <Link to="/financials" className={styles.navItem}>
+        <div className={`${styles.icon} ${styles.iconFinancials}`}></div>
+        Financials
+      </Link>
+      <Link to="/impact" className={styles.navItem}>
+        <div className={`${styles.icon} ${styles.iconImpact}`}></div>
+        Impact
+      </Link>
+      <Link to="/team" className={styles.navItem}>
+        <div className={`${styles.icon} ${styles.iconTeam}`}></div>
+        Team
+      </Link>
+      <Link to="/investor-preference" className={styles.navItem}>
+        <div
+          className={`${styles.icon} ${styles.iconInvestorPreference}`}
+        ></div>
+        Investor Preference
+      </Link>
+      <Link to="/market" className={styles.navItem}>
+        <div className={`${styles.icon} ${styles.iconMarket}`}></div>
+        Market
+      </Link>
     </div>
   );
 }

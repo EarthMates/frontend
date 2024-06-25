@@ -48,6 +48,7 @@ import {
 
 import NotFound from "./pages/not-found/not-found";
 import Dashboard from "./pages/dashboard/dashboard";
+import CompanyDetails from "./pages/dashboard/company-details/company-details";
 import { Home } from "./pages/dashboard/home/home";
 import { USER_TYPE } from "./constants";
 import Terms from "./pages/contract/terms";
@@ -411,6 +412,11 @@ export const routes: RouteObject[] = [
         path: "dashboard",
         element: <DashboardWrapperUnprotected />,
         children: [{ path: "", element: <Dashboard /> }],
+      },
+      {
+        path: "company-details",
+        element: <DashboardWrapperUnprotected />,
+        children: [{ path: "", element: <CompanyDetails /> }],
       },
       { path: "*", element: <NotFound /> },
     ],
