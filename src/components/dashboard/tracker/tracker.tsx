@@ -5,8 +5,8 @@ function Tracker() {
   return (
     <div className={styles.root}>
       <div className={styles.header}>
-        <span>Investor Views</span>
-        <span className={styles.thisWeek}>This Week</span>
+        <h2>Investor Views</h2>
+        <span>This Week</span>
       </div>
       <div className={styles.content}>
         <div className={styles.views}>

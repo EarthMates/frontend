@@ -12,7 +12,7 @@ function CompanyInfo() {
         <h2>Company Profile</h2>
       </div>
       <div className={styles.logo}>
-        <img className={styles.icon} src="/icons/building.svg" alt="building" />
+        <img className={styles.icon} src="/icons/sekofia.svg" alt="building" />
         <div className={styles.name}>
           <h2>Sekofia</h2>
           <p>California, United States.</p>
