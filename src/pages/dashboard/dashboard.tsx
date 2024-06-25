@@ -6,24 +6,23 @@ import InvestorPreference from "../../components/dashboard/investor-preference/i
 import CompanyProfile from "../../components/dashboard/company-profile/company-profile";
 import styles from "./dashboard.module.scss";
 import { useStartupData } from "../../context/startup-data-context";
+import Tracker from "../../components/dashboard/tracker/tracker";
 
 function Dashboard() {
   const { startupData, setStartupData } = useStartupData();
-
-  /* console.log(startupData);
-
-  setStartupData((prevStartupData) => ({
-    ...prevStartupData,
-    name: "New Name",
-  }));
-
-  console.log(startupData); */
 
   return (
     <div className={styles.root}>
       {/* idk the use of these both divs \_o_/ */}
       <div className={styles.mainContent}>
+        <h1>Dashboard</h1>
+        <p>Track all about your workspace here...</p>
         <div className={styles.dashboardContent}>
+          <div className={styles.trackers}>
+            <Tracker />
+            <Tracker />
+            <Tracker />
+          </div>
           <Financials />
         </div>
       </div>

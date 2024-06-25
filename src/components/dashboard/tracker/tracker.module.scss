@@ -1,0 +1,70 @@
+@import "@styles/theme.module.scss";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5em;
+  border-radius: 10px;
+  background-color: #fffdfb;
+  border: 1px solid #e1e1e1;
+  padding: 1.5em;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.thisWeek {
+  color: #a0a0a0;
+  font-size: 0.875em;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.views {
+  display: flex;
+  align-items: baseline;
+}
+
+.number {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.percentage {
+  display: flex;
+  align-items: center;
+  color: #4caf50;
+  margin-left: 0.5em;
+  font-size: 1em;
+}
+
+.arrow {
+  font-size: 1.2em;
+  margin-right: 0.2em;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5em;
+  height: 2.5em;
+  background-color: #ffeddb;
+  border-radius: 50%;
+}
+
+.icon {
+  width: 1.2em;
+  height: 1.2em;
+  background-color: #ff8300;
+  mask: url('/path/to/eye-icon.svg') no-repeat center;
+  mask-size: contain;
+}

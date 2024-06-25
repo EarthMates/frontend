@@ -27,19 +27,10 @@ in the space between the divs
 .root {
   display: flex;
   flex-direction: row;
+  background: white;
 }
 
-//here we set the width
-//
-.sides-common-style {
-  overflow: hidden;
-  padding: 10px;
-}
 
-.sideBar-container {
-  height: 100%;
-  flex: 0 0 17%;
-}
 .company-profile-container {
   height: 100%;
   flex: 0 0 24%;
@@ -55,14 +46,33 @@ in the space between the divs
   height: 100%;
   flex: 1 1 59%;
   overflow-y: auto;
-  margin-top: 2.5em;
   margin-left: 3.5em;
   margin-right: 3.5em;
+
+  h1 {
+    font-family: Helvetica, sans-serif;
+    font-size: 2em;
+    font-weight: 550;
+    margin-bottom: 0.25em;
+  }
+
+  p {
+    font-family: Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: 300;
+  }
 }
 
 .dashboardContent {
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  margin-top: 2em;
+  row-gap: 2em;
+
+  .trackers {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1.5em;
+  }
 }
+

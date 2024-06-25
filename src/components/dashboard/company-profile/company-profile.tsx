@@ -2,7 +2,7 @@ import styles from "./company-profile.module.scss";
 
 function CompanyProfile() {
   return (
-    <div className={styles.companyProfile}>
+    <div className={styles.root}>
       <h2>Company Profile</h2>
       <div className={styles.details}>
         <p className={styles.p}>Founded: 19th May, 2023</p>
