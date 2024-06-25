@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "../button/button";
 import styles from "./sidebar.module.scss";
 import { useStartupData } from "../../../context/startup-data-context";
@@ -8,6 +8,18 @@ import { useEffect } from "react";
 function Sidebar() {
   const { startupData, setStartupData } = useStartupData();
   const { userData, setUserData } = useUserData();
+  const location = useLocation();
+
+  function matchesDetailsPath(path: string) {
+    if (path === "/company-details") return true;
+    if (path === "/company-details/product") return true;
+    if (path === "/company-details/finances") return true;
+    if (path === "/company-details/impact") return true;
+    if (path === "/company-details/team") return true;
+    if (path === "/company-details/preferences") return true;
+    if (path === "/company-details/market") return true;
+    return false;
+  }
 
   /* useEffect(() => {
     setStartupData((prevData) => ({
@@ -27,26 +39,43 @@ function Sidebar() {
       </div>
       <nav className={styles.nav}>
         <ul>
-          <Link to="/get-started" className={styles.navItem}>
+          <Link
+            to="/get-started"
+            className={`${styles.navItem} ${
+              location.pathname === "/get-started" ? styles.active : ""
+            }`}
+          >
             <div className={`${styles.icon} ${styles.iconGetStarted}`}></div>
             Get Started
           </Link>
 
           <Link
             to="/dashboard"
-            className={`${styles.navItem} ${styles.active}`}
+            className={`${styles.navItem} ${
+              location.pathname === "/dashboard" ? styles.active : ""
+            }`}
           >
             <div className={`${styles.icon} ${styles.iconDashboard}`}></div>
             Dashboard
           </Link>
 
-          <Link to="/investor-matching" className={styles.navItem}>
+          <Link
+            to="/matching"
+            className={`${styles.navItem} ${
+              location.pathname === "/matching" ? styles.active : ""
+            }`}
+          >
             <div className={`${styles.icon} ${styles.iconMatching}`}></div>
             Investor Matching
             <span className={styles.notification}>2</span>
           </Link>
 
-          <Link to="/company-details" className={styles.navItem}>
+          <Link
+            to="/company-details"
+            className={`${styles.navItem} ${
+              matchesDetailsPath(location.pathname) ? styles.active : ""
+            }`}
+          >
             <div className={`${styles.icon} ${styles.iconDetails}`}></div>
             Company Details
           </Link>

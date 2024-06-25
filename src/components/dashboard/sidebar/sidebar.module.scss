@@ -11,7 +11,6 @@
   justify-content: space-between;
   padding: 1.25em;
 
-  
   .workspace {
     display: flex;
     align-items: center;
@@ -34,7 +33,7 @@
       width: 2em;
       height: 2em;
       margin-right: 0.625em;
-      background-color: #ddd;
+      background: url('/icons/sekofia.svg') no-repeat center center;
       border-radius: 50%;
     }
   }
@@ -44,7 +43,6 @@
     margin-right: 1em;
     margin-top: 3em;
     margin-bottom: 12em;
-
 
     ul {
       list-style: none;
@@ -56,19 +54,21 @@
       align-items: center;
       padding: 0.625em 0;
       margin-bottom: 0.5em;
+      color: grey;  /* default text color */
+      text-decoration: none;  /* remove underline from links */
 
       .icon {
         width: 1.5em;
         height: 1.5em;
         margin-right: 1em;
-        background-color: #ddd;
+        background-color: grey;  /* default icon color */
         border-radius: 50%;
 
         &.iconGetStarted {
           background: url('/icons/get-started.svg') no-repeat center center;
         }
         &.iconDashboard {
-          background: url('/icons/dashboard-selected.svg') no-repeat center center;
+          background: url('/icons/dashboard.svg') no-repeat center center;
         }
         &.iconMatching {
           background: url('/icons/matching.svg') no-repeat center center;
@@ -78,10 +78,6 @@
         }
       }
 
-      .active {
-        color: orange;
-      }
-
       .notification {
         background-color: red;
         color: white;
@@ -89,6 +85,18 @@
         padding: 0.125em 0.375em;
         font-size: 0.75em;
         margin-left: 0.5em;
+      }
+
+      &.active {
+        color: orange;  /* active text color */
+
+        .iconDashboard {
+          background: url('/icons/dashboard-selected.svg') no-repeat center center;
+        }
+
+        .iconDetails {
+          background: url('/icons/details-selected.svg') no-repeat center center;
+        }
       }
     }
   }
@@ -120,19 +128,12 @@
       }
     }
 
-    
-
     p {
       font-size: 0.875em;
       margin: 0.5em 0;
     }
 
     button {
-      /* background-color: orange;
-      color: white;
-      border: none;
-      padding: 0.5em 1em;
-      border-radius: 0.25em; */
       cursor: pointer;
     }
   }

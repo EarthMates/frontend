@@ -3,10 +3,14 @@ import Header from "../../components/dashboard/header/header";
 import Financials from "../../components/dashboard/financials/financials";
 import Market from "../../components/dashboard/market/market";
 import InvestorPreference from "../../components/dashboard/investor-preference/investor-preference";
-import CompanyProfile from "../../components/dashboard/company-profile/company-profile";
 import styles from "./dashboard.module.scss";
 import { useStartupData } from "../../context/startup-data-context";
 import Tracker from "../../components/dashboard/tracker/tracker";
+import CompanyInfo from "../../components/dashboard/company-info/company-info";
+import Preferences from "../../components/dashboard/preferences/preferences";
+import Team from "../../components/dashboard/team/team";
+import Product from "../../components/dashboard/product/product";
+import Impact from "./../../components/dashboard/impact/impact";
 
 function Dashboard() {
   const { startupData, setStartupData } = useStartupData();
@@ -24,12 +28,20 @@ function Dashboard() {
             <Tracker />
           </div>
           <Financials />
+          <div className={styles.flexContainer}>
+            <div className={styles.item}>
+              <Market />
+            </div>
+
+            <div className={styles.item}>
+              <Preferences />
+            </div>
+          </div>
+          <Team />
+          <Product />
+          <Impact />
         </div>
       </div>
-      <div
-        className={`${styles["company-profile-container"]} ${styles["sides-common-style"]}`}
-      >
-        <CompanyProfile />
       </div>
     </div>
   );

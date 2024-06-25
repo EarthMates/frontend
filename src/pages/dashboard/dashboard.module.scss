@@ -72,4 +72,16 @@ in the space between the divs
     flex-direction: row;
     column-gap: 1.5em;
   }
+
+  .flexContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2em;
+
+    .item {
+      width: 100%;
+    }
+  }
 }

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../button/button";
-import styles from "./main-component.module.scss";
+import styles from "./company-details.module.scss";
 import Section from "../section/section";
 
-type MainComponentProps = {
+type CompanyDetailsProps = {
   // Define any props here if needed
 };
 
-const MainComponent: React.FC<MainComponentProps> = (props) => {
+const CompanyDetails: React.FC<CompanyDetailsProps> = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [description, setDescription] = useState<string>(
     "We are a SaaS startup harnessing AI to revolutionize health insurance operations. Sekofia Health's cutting-edge platform automates claims processing and detects fraud, delivering unparalleled efficiency, accuracy, and security."
@@ -195,4 +195,4 @@ const MainComponent: React.FC<MainComponentProps> = (props) => {
   );
 };
 
-export default MainComponent;
+export default CompanyDetails;

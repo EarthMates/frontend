@@ -1,7 +1,7 @@
 import styles from "./company-details.module.scss";
 import { useStartupData } from "../../../context/startup-data-context";
 import Header from "../../../components/dashboard/header/header";
-import MainComponent from "../../../components/dashboard/main-component/main-component";
+import CompanyDetailsComponent from "../../../components/dashboard/company-details/company-details";
 
 function CompanyDetails() {
   const { startupData, setStartupData } = useStartupData();
@@ -9,7 +9,7 @@ function CompanyDetails() {
   return (
     <div className={styles.root}>
       <Header />
-      <MainComponent />
+      <CompanyDetailsComponent />
       <div className={styles.mainContent}></div>
     </div>
   );
