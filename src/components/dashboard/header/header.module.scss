@@ -30,12 +30,6 @@
     
   }
 
-  &.active {
-    background-color: #FFF6EE; /* Example color for the active state */
-    border: 1px solid #FF8516;
-    color: #FF8516;
-  }
-
   .icon {
     margin-right: 10px;
 
@@ -71,4 +65,16 @@
       background: url('/icons/market.svg') no-repeat center center;
     }
   }
+
+  &.active {
+    background-color: #FFF6EE; /* Example color for the active state */
+    border: 1px solid #FF8516;
+    color: #FF8516;
+
+    .iconCompanyProfile {
+      background: url('/icons/building-selected.svg') no-repeat center center;
+    }
+  }
+
+  
 }

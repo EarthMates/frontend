@@ -68,7 +68,7 @@
           background: url('/icons/get-started.svg') no-repeat center center;
         }
         &.iconDashboard {
-          background: url('/icons/dashboard-selected.svg') no-repeat center center;
+          background: url('/icons/dashboard.svg') no-repeat center center;
         }
         &.iconMatching {
           background: url('/icons/matching.svg') no-repeat center center;
@@ -90,8 +90,12 @@
       &.active {
         color: orange;  /* active text color */
 
-        .icon {
-          filter: invert(34%) sepia(91%) saturate(1558%) hue-rotate(356deg) brightness(105%) contrast(101%);
+        .iconDashboard {
+          background: url('/icons/dashboard-selected.svg') no-repeat center center;
+        }
+
+        .iconDetails {
+          background: url('/icons/details-selected.svg') no-repeat center center;
         }
       }
     }

@@ -10,6 +10,17 @@ function Sidebar() {
   const { userData, setUserData } = useUserData();
   const location = useLocation();
 
+  function matchesDetailsPath(path: string) {
+    if (path === "/company-details") return true;
+    if (path === "/company-details/product") return true;
+    if (path === "/company-details/finances") return true;
+    if (path === "/company-details/impact") return true;
+    if (path === "/company-details/team") return true;
+    if (path === "/company-details/preferences") return true;
+    if (path === "/company-details/market") return true;
+    return false;
+  }
+
   /* useEffect(() => {
     setStartupData((prevData) => ({
       ...prevData,
@@ -62,7 +73,7 @@ function Sidebar() {
           <Link
             to="/company-details"
             className={`${styles.navItem} ${
-              location.pathname === "/company-details" ? styles.active : ""
+              matchesDetailsPath(location.pathname) ? styles.active : ""
             }`}
           >
             <div className={`${styles.icon} ${styles.iconDetails}`}></div>
