@@ -23,10 +23,12 @@ export const SiteWrapper2 = ({ className }: SiteWrapperProps) => {
     <div className={classNames(styles.root, className)}>
       <div className={styles.content}>
         <ThemeProvider theme={theme}>
-          <StartupDataProvider>
-            <Sidebar />
-            <Outlet />
-          </StartupDataProvider>
+          <UserDataProvider>
+            <StartupDataProvider>
+              <Sidebar />
+              <Outlet />
+            </StartupDataProvider>
+          </UserDataProvider>
         </ThemeProvider>
       </div>
     </div>

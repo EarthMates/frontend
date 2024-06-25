@@ -21,9 +21,6 @@ function Dashboard() {
 
   return (
     <div className={styles.root}>
-      {/* <div className="sideBar-container sides-common-style">
-        <Sidebar />
-      </div> */}
       {/* idk the use of these both divs \_o_/ */}
       <div className={styles.mainContent}>
         <div className={styles.dashboardContent}>

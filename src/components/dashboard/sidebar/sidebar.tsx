@@ -1,35 +1,55 @@
+import { Link } from "react-router-dom";
 import { Button } from "../button/button";
 import styles from "./sidebar.module.scss";
+import { useStartupData } from "../../../context/startup-data-context";
+import { useUserData } from "../../../context/user-data-context";
+import { useEffect } from "react";
 
 function Sidebar() {
+  const { startupData, setStartupData } = useStartupData();
+  const { userData, setUserData } = useUserData();
+
+  /* useEffect(() => {
+    setStartupData((prevData) => ({
+      ...prevData,
+      name: "New Name",
+    }));
+  }, []); */
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.workspace}>
         <div className={styles.logo}></div>
         <div className={styles.text}>
-          <h2>Sekofia</h2>
+          <h2>{startupData.name}</h2>
           <p>Workspace</p>
         </div>
       </div>
       <nav className={styles.nav}>
         <ul>
-          <li className={styles.navItem}>
+          <Link to="/get-started" className={styles.navItem}>
             <div className={styles.icon}></div>
             Get Started
-          </li>
-          <li className={`${styles.navItem} ${styles.active}`}>
+          </Link>
+
+          <Link
+            to="/dashboard"
+            className={`${styles.navItem} ${styles.active}`}
+          >
             <div className={`${styles.icon} ${styles.iconDashboard}`}></div>
             Dashboard
-          </li>
-          <li className={styles.navItem}>
+          </Link>
+
+          <Link to="/investor-matching" className={styles.navItem}>
             <div className={styles.icon}></div>
             Investor Matching
             <span className={styles.notification}>2</span>
-          </li>
-          <li className={styles.navItem}>
+          </Link>
+
+          <Link to="/company-details" className={styles.navItem}>
             <div className={styles.icon}></div>
             Company Details
-          </li>
+          </Link>
         </ul>
       </nav>
       <div className={styles.plan}>
@@ -45,8 +65,10 @@ function Sidebar() {
       <div className={styles.profile}>
         <div className={styles.avatar}>AA</div>
         <div>
-          <p>Adediwura Adedigba</p>
-          <p>a.emmanuel@sekofia.com</p>
+          <p>
+            {userData.firstName} {userData.lastName}
+          </p>
+          <p>{userData.email}</p>
         </div>
       </div>
     </div>

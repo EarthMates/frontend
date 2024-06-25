@@ -54,7 +54,7 @@ export const StartupDataProvider: React.FC<React.PropsWithChildren<{}>> = ({
 }) => {
   const [startupData, setStartupData] = useState<StartupData>({
     // DETAILS
-    name: "",
+    name: "Sekofia",
     description: "",
     mission: "",
     foundDate: "",

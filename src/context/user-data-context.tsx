@@ -32,9 +32,9 @@ export const UserDataProvider: React.FC<React.PropsWithChildren<{}>> = ({
   const [userData, setUserData] = useState<UserData>({
     user_type: "",
     new_user: false,
-    email: "",
-    firstName: "",
-    lastName: "",
+    email: "a.emmanuel@sekofia.com",
+    firstName: "Adediwura",
+    lastName: "Adedigba",
   });
 
   return (
