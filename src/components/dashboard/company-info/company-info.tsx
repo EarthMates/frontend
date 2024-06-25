@@ -4,7 +4,11 @@ function CompanyInfo() {
   return (
     <div className={styles.root}>
       <div className={styles.header}>
-        <img className={styles.icon} src="/icons/building.svg" alt="building" />
+        <img
+          className={styles.icon}
+          src="/icons/building-selected.svg"
+          alt="building"
+        />
         <h2>Company Profile</h2>
       </div>
       <div className={styles.logo}>
