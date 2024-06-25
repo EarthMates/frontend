@@ -26,7 +26,9 @@ function Dashboard() {
           <Financials />
         </div>
       </div>
-      <div className="company-profile-container sides-common-style">
+      <div
+        className={`${styles["company-profile-container"]} ${styles["sides-common-style"]}`}
+      >
         <CompanyProfile />
       </div>
     </div>
