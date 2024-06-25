@@ -54,6 +54,14 @@ import { USER_TYPE } from "./constants";
 import Terms from "./pages/contract/terms";
 import ContractForm from "./components/registration/contract/contract-form";
 import { StartupDataProvider } from "./context/startup-data-context";
+import GetStarted from "./pages/dashboard/get-started/get-started";
+import Matching from "./pages/dashboard/matching/matching";
+import Finances from "./pages/dashboard/company-details/finances/finances";
+import Impact from "./pages/dashboard/company-details/impact/impact";
+import Team from "./pages/dashboard/company-details/team/team";
+import Preferences from "./pages/dashboard/company-details/preferences/preferences";
+import Market from "./pages/dashboard/company-details/market/market";
+import Product from "./pages/dashboard/company-details/product/product";
 
 function Logout() {
   localStorage.clear();
@@ -409,15 +417,34 @@ export const routes: RouteObject[] = [
         ],
       },
       {
+        path: "get-started",
+        element: <DashboardWrapperUnprotected />,
+        children: [{ path: "", element: <GetStarted /> }],
+      },
+      {
         path: "dashboard",
         element: <DashboardWrapperUnprotected />,
         children: [{ path: "", element: <Dashboard /> }],
       },
       {
+        path: "matching",
+        element: <DashboardWrapperUnprotected />,
+        children: [{ path: "", element: <Matching /> }],
+      },
+      {
         path: "company-details",
         element: <DashboardWrapperUnprotected />,
-        children: [{ path: "", element: <CompanyDetails /> }],
+        children: [
+          { path: "", element: <CompanyDetails /> },
+          { path: "product", element: <Product /> },
+          { path: "finances", element: <Finances /> },
+          { path: "impact", element: <Impact /> },
+          { path: "team", element: <Team /> },
+          { path: "preferences", element: <Preferences /> },
+          { path: "market", element: <Market /> },
+        ],
       },
+
       { path: "*", element: <NotFound /> },
     ],
   },
