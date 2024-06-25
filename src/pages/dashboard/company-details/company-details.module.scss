@@ -7,12 +7,13 @@
   margin-top: 2.5em;
   margin-left: 3.5em;
   margin-right: 3.5em;
+  background: white;
 }
 
 //here we set the width
 //
 .sides-common-style {
-  overflow: hidden;
+
   padding: 10px;
 }
 
@@ -32,7 +33,6 @@
 .mainContent {
   height: 100%;
   flex: 1 1 59%;
-  overflow-y: auto;
 }
 
 .dashboardContent {

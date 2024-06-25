@@ -1,11 +1,114 @@
 @import "@styles/theme.module.scss";
 
 .root {
-    display: flex;
-    padding: 2.5em;
-    border-radius: 10px;
-    background-color: #FFFDFB;
-    border: 1px solid #E1E1E1;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5em;
+  border-radius: 10px;
+  background-color: #FFFDFB;
+  border: 1px solid #E1E1E1;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 1em;
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 1em;
+  }
+
+  .title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-right: 0.5em;
+  }
+
+  .id {
+    background-color: #FEC24A;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: white;
+  }
+
+  .button {
+    margin-left: 70%;
+    width: 10%;
+  }
+}
+
+.location, .description, .mission, .infoSection {
+  margin-bottom: 1em;
+  font-size: 1em;
+  color: #555;
+}
+
+.description {
+  margin-bottom: 2em;
+  font-size: 1em;
+  color: #555;
+}
+
+.mission {
+  margin-bottom: 2em;
+
+  h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    margin-bottom: 0.5em;
+    font-size: 1em;
+    color: #555;
+  }
+}
+
+.infoSection {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+
+  .infoBlock {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1em;
+
+    h3 {
+      font-size: 1em;
+      margin-bottom: 0.3em;
+    }
+
+    p {
+      font-size: 1em;
+      color: #555;
+    }
+  }
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates 4 columns with equal width */
+  gap: 1.5em; /* Sets the gap between grid items to 1.5em */
 }
   
-  
+.links a {
+  color: #0073b1;
+  text-decoration: none;
+}
+
+.textarea, .input {
+  width: 100%;
+  font-size: 1em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  }
+
