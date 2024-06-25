@@ -1,5 +1,5 @@
 import React from "react";
-/* import {
+import {
   LineChart,
   Line,
   XAxis,
@@ -8,7 +8,7 @@ import React from "react";
   Tooltip,
   Legend,
   ResponsiveContainer,
-} from "recharts"; */
+} from "recharts";
 import styles from "./financials.module.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -96,21 +96,7 @@ const Financials: React.FC<FinancialsProps> = () => {
         {/*⤢*/}
       </div>
       <div className={styles.body}>
-        <div className={styles.funding_info}>
-          <p>
-            <span className={styles.label}>Funding Requirement</span>
-            <span className={styles.value}>$1,000,000</span>
-          </p>
-          <p>
-            <span className={styles.label}>Target Investor Count</span>
-            <span className={styles.value}>5</span>
-          </p>
-          <p>
-            <span className={styles.label}>Funding Stage</span>
-            <span className={styles.value}>Series-A</span>
-          </p>
-        </div>
-        {/* <ResponsiveContainer width="100%" height={400}>
+        <ResponsiveContainer width="100%" height={400}>
           <LineChart
             data={data}
             margin={{
@@ -135,7 +121,7 @@ const Financials: React.FC<FinancialsProps> = () => {
             <Line type="monotone" dataKey="Profit" stroke="#ffc658" />
             <Line type="monotone" dataKey="Investment" stroke="#ff7300" />
           </LineChart>
-        </ResponsiveContainer> */}
+        </ResponsiveContainer>
       </div>
     </div>
   );
