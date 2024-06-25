@@ -1,45 +1,57 @@
-@import "@styles/theme.module.scss";
-
 .root {
   display: flex;
   flex-direction: column;
   padding: 2.5em;
   border-radius: 10px;
-  background-color: #FFFDFB;
+  background-color: white;
   border: 1px solid #E1E1E1;
-  font-family: Arial, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 1em;
 
   .logo {
-    width: 50px;
-    height: 50px;
-    margin-right: 1em;
-  }
-
-  .title {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-right: 0.5em;
-  }
-
-  .id {
-    background-color: #FEC24A;
-    padding: 0.2em 0.5em;
-    border-radius: 5px;
-    font-size: 0.9em;
-    color: white;
+    width: 9em;
+    height: 9em;
+    margin-bottom: 0em;
   }
 
   .button {
-    margin-left: 70%;
-    width: 10%;
+    height: 3em;
+    min-width: 10em;
+    margin-bottom: 6em;
+  }
+}
+
+.name {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 0.75em;
+  margin-top: 1em;
+
+  h2 {
+    font-size: 1.75em;
+    font-weight: 500;
+  }
+
+  .id {
+    border-radius: 20px;
+    text-align: center;
+    line-height: 2em;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.75em;
+    font-weight: 600;
+    width: 9em; // Adjusted width to match the image
+    /* height: 2.5em; // Adjusted height to match the image */
+    transition: background-color 0.3s, border 0.3s;
+    color: #ff8516;
+    background-color: #fff3e8;
   }
 }
 
@@ -60,6 +72,8 @@
 
   h2 {
     font-size: 1.2em;
+    font-weight: 500;
+    color: black;
     margin-bottom: 0.5em;
   }
 
@@ -73,34 +87,80 @@
 .infoSection {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 2em;
 
   .infoBlock {
     flex: 1;
     min-width: 200px;
-    margin-bottom: 1em;
+    margin-left: 2em;
+    position: relative; // Added for positioning the pseudo-element
 
     h3 {
       font-size: 1em;
+      font-weight: 300;
+      margin-top: 1.5em;
       margin-bottom: 0.3em;
     }
 
+
     p {
-      font-size: 1em;
-      color: #555;
+      font-size: 1.5em;
+      font-weight: 500;
+      color: black;
     }
+  }
+
+  .divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2em;
+    width: 1px;
+    height: 9em;
+    background-color: #E1E1E1;
   }
 }
 
 .links {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Creates 4 columns with equal width */
-  gap: 1.5em; /* Sets the gap between grid items to 1.5em */
-}
-  
-.links a {
-  color: #0073b1;
-  text-decoration: none;
+  grid-template-columns: repeat(2, 1fr); // Creates 4 columns with equal width
+  gap: 1.5em; // Sets the gap between grid items to 1.5em
+
+  .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    width: 100%; // Ensure the item takes full width of the container
+
+    .sub_item {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      column-gap: 0.5em;
+      
+
+      p {
+        font-size: 1em;
+        font-weight: 300;
+        color: #4A555C;
+      }
+
+      .icon {
+        width: 1.5em;
+        height: 1.5em;
+      }
+
+      img {
+        width: 1em;
+        height: 1em;
+      }
+    }
+  }
 }
 
 .textarea, .input {
@@ -110,5 +170,4 @@
   margin-bottom: 1em;
   border: 1px solid #ccc;
   border-radius: 5px;
-  }
-
+}

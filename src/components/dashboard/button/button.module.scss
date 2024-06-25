@@ -21,6 +21,12 @@
     background-color: darken(#ff8516, 10%);
     color: lighten(#ffffff, 10%);
   }
+
+  img {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.5em;
+  }
 }
 
 .selected {
