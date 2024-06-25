@@ -83,7 +83,7 @@ const Financials: React.FC<FinancialsProps> = () => {
           <i className="icon">&#128176;</i> {/* Use an appropriate icon */}
           <span className="title">Financials</span>
         </div>
-        <button className=" orangeLink">&#x2924; View Details</button>
+        <button className="orangeLink">&#x2924; View Details</button>
         {/*⤢*/}
       </div>
       <div className="financial-chart-body">
