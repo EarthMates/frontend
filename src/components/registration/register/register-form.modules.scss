@@ -107,7 +107,7 @@ input {
   z-index: $z-index-modal;
   width: 80%;
   border: none;
-  border-radius: $our-border-radius;
+  border-radius: $border-radius;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }

@@ -1,0 +1,95 @@
+@import "@styles/theme.module.scss";
+
+.root {
+  background-color: white;
+  border: $border;
+  border-radius: $border-radius;
+  font-family: Helvetica, sans-serif;
+  margin-bottom: $component-bottom-margin;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 1.5em;
+    border-bottom: $border;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      column-gap: 0.5em;
+      line-height: 1em;
+
+      h2 {
+        font-size: 1em;
+        font-weight: 500;
+        color: black;
+      }
+
+      img {
+        width: 1.5em;
+        height: 1.5em;
+      }
+    }
+
+    
+  }
+
+  .body {
+    padding: 1em 1.5em;
+
+    .funding_info {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.8em;
+      margin-bottom: 1.5em;
+
+      p {
+        display: flex;
+        justify-content: start;
+        margin: 5px 0;
+      }
+
+      .label {
+        color: #999;
+        font-size: 1em;
+        margin-right: 1em;
+      }
+      
+      .value {
+        color: #333;
+        font-size: 1em;
+        font-weight: bold;
+      }
+    }
+
+  }
+  
+  
+  
+
+  
+  
+}
+
+
+
+
+
+.icon {
+  margin-right: 1px;
+  font-size: 24px; /* Adjust this as necessary */
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+

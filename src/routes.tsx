@@ -12,7 +12,7 @@ import {
 
 import ProtectedRoute from "./components/ProtectedRoutes";
 
-import HomePage from "./pages/dashboard/home-page/home-page";
+import HomePage from "./pages/home-page/home-page/home-page";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import RegisterVerification from "./pages/register-verification/register-verification";
@@ -47,21 +47,21 @@ import {
 } from "./pages/onboarding/onboarding-investor/onboarding-investor";
 
 import NotFound from "./pages/not-found/not-found";
-import Dashboard from "./pages/dashboard/dashboard";
-import CompanyDetails from "./pages/dashboard/company-details/company-details";
-import { Home } from "./pages/dashboard/home/home";
+import Dashboard from "./pages/home-page/dashboard/dashboard";
+import CompanyDetails from "./pages/home-page/company-details/company-details";
+import { Home } from "./pages/home-page/home/home";
 import { USER_TYPE } from "./constants";
 import Terms from "./pages/contract/terms";
 import ContractForm from "./components/registration/contract/contract-form";
 import { StartupDataProvider } from "./context/startup-data-context";
-import GetStarted from "./pages/dashboard/get-started/get-started";
-import Matching from "./pages/dashboard/matching/matching";
-import Finances from "./pages/dashboard/company-details/finances/finances";
-import Impact from "./pages/dashboard/company-details/impact/impact";
-import Team from "./pages/dashboard/company-details/team/team";
-import Preferences from "./pages/dashboard/company-details/preferences/preferences";
-import Market from "./pages/dashboard/company-details/market/market";
-import Product from "./pages/dashboard/company-details/product/product";
+import GetStarted from "./pages/home-page/get-started/get-started";
+import Matching from "./pages/home-page/matching/matching";
+import Finances from "./pages/home-page/company-details/finances/finances";
+import Impact from "./pages/home-page/company-details/impact/impact";
+import Team from "./pages/home-page/company-details/team/team";
+import Preferences from "./pages/home-page/company-details/preferences/preferences";
+import Market from "./pages/home-page/company-details/market/market";
+import Product from "./pages/home-page/company-details/product/product";
 
 function Logout() {
   localStorage.clear();

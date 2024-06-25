@@ -1,0 +1,50 @@
+@import "@styles/theme.module.scss";
+
+.root {
+  background-color: $white;
+  border: $border;
+  border-radius: $border-radius;
+  font-family: Helvetica, sans-serif;
+  margin-bottom: $component-bottom-margin;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 1.5em;
+    border-bottom: $border;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      column-gap: 0.5em;
+      line-height: 1em;
+
+      h2 {
+        font-size: 1em;
+        font-weight: 500;
+        color: black;
+      }
+
+      img {
+        width: 1.5em;
+        height: 1.5em;
+      }
+    }
+
+    
+  }
+
+  .body {
+    padding: 1em 1.5em;
+  }
+  
+}
+
+

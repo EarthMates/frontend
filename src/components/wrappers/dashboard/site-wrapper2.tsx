@@ -7,7 +7,7 @@ import { ThemeProvider } from "@emotion/react";
 import { UserDataProvider } from "../../../context/user-data-context";
 import ProtectedRoute from "../../ProtectedRoutes";
 import { StartupDataProvider } from "../../../context/startup-data-context";
-import Sidebar from "../../dashboard/sidebar/sidebar";
+import Sidebar from "../../home-page/sidebar/sidebar";
 
 export interface SiteWrapperProps {
   className?: string;

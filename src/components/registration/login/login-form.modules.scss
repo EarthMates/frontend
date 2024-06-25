@@ -37,7 +37,7 @@ h1 {
   justify-content: center;
   margin: 2em auto 5em auto;
   padding: 2em;
-  border-radius: $our-border-radius;
+  border-radius: $border-radius;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 80%;
 
@@ -53,7 +53,7 @@ h1 {
   padding: 1em 1em 0 1em;
   margin: 0;
   border: 1px solid #ccc;
-  border-radius: $our-border-radius;
+  border-radius: $border-radius;
   box-sizing: border-box;
   height: 4em;
 }
@@ -72,7 +72,7 @@ h1 {
   background-color: $our-orange;
   color: white;
   border: none;
-  border-radius: $our-border-radius;
+  border-radius: $border-radius;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
@@ -114,7 +114,7 @@ input {
   margin: 0.3em 0 1.5em 0;
   width: 80%;
   border: none;
-  border-radius: $our-border-radius;
+  border-radius: $border-radius;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }

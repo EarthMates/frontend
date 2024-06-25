@@ -11,7 +11,7 @@ import {
 
 import ProtectedRoute from "./components/ProtectedRoutes";
 
-import HomePage from "./pages/dashboard/home-page/home-page";
+import HomePage from "./pages/home-page/home-page/home-page";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import RegisterVerification from "./pages/register-verification/register-verification";
@@ -46,8 +46,8 @@ import {
 } from "./pages/onboarding/onboarding-investor/onboarding-investor";
 
 import NotFound from "./pages/not-found/not-found";
-import Dashboard from "./pages/dashboard/dashboard";
-import { Home } from "./pages/dashboard/home/home";
+import Dashboard from "./pages/home-page/dashboard/dashboard";
+import { Home } from "./pages/home-page/home/home";
 
 function Logout() {
   localStorage.clear();
