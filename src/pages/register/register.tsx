@@ -6,7 +6,7 @@ import { Header } from "../../components/registration/header/header-registration
 function Register() {
   return (
     <div className={classNames(styles.root)}>
-      <RegisterForm route="/api/user/register/" />
+      <RegisterForm route="/users/register/" />
     </div>
   );
 }

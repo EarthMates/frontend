@@ -53,11 +53,10 @@ function RegisterForm({ className, route }: RegisterFormProps) {
       const username = extractUsername(email);
       console.log(username);
       const res = await api.post(route, {
-        username: username,
+        email: email,
         password: password,
         first_name: name,
         last_name: lastName,
-        email: email,
       });
       localStorage.setItem(USER_TYPE, "new_user");
       navigate("/login");
@@ -294,8 +293,14 @@ function RegisterForm({ className, route }: RegisterFormProps) {
             />
             <span className="terms">
               By signing up you are accepting our{" "}
-              <a href="/terms-condition" className="orangeLink">Terms of use</a> and our{" "}
-              <a href="/privacy-policy"className="orangeLink">Privacy policy</a>.
+              <a href="/terms-condition" className="orangeLink">
+                Terms of use
+              </a>{" "}
+              and our{" "}
+              <a href="/privacy-policy" className="orangeLink">
+                Privacy policy
+              </a>
+              .
             </span>
           </Grid>
           <Grid item>

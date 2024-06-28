@@ -38,10 +38,10 @@ function LoginForm({ className, route }: LoginFormProps) {
     try {
       const username = extractUsername(email);
       console.log({ username, password });
-      const res = await api.post(route, { username, password });
+      const res = await api.post(route, { email, password });
       localStorage.setItem(ACCESS_TOKEN, res.data.access);
       localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-      localStorage.setItem(EMAIL, email)
+      localStorage.setItem(EMAIL, email);
       navigate("/");
     } catch (error) {
       alert(error);
@@ -186,9 +186,9 @@ function LoginForm({ className, route }: LoginFormProps) {
             />
             <div className="Forgot-create_Container">
               <div className="forgot-pass">
-              <a onClick={handleContactClick} className="contact">
-        Contact help center
-      </a>
+                <a onClick={handleContactClick} className="contact">
+                  Contact help center
+                </a>
               </div>
             </div>
           </Grid>
